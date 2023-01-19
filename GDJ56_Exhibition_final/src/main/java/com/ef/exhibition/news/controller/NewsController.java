@@ -1,4 +1,4 @@
-package com.exhibition.news.controller;
+package com.ef.exhibition.news.controller;
 
 import java.util.Map;
 
@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.exhibition.common.PageFactory;
-import com.exhibition.news.model.service.NewsService;
+import com.ef.exhibition.common.PageFactory;
+import com.ef.exhibition.news.model.service.NewsService;
 
 import lombok.extern.slf4j.Slf4j;
 

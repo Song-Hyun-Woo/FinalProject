@@ -1,4 +1,4 @@
-package com.exhibition.news.model.dao;
+package com.ef.exhibition.news.model.dao;
 
 import java.util.List;
 import java.util.Map;
@@ -7,7 +7,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
-import com.exhibition.news.model.vo.News;
+import com.ef.exhibition.news.model.vo.News;
 
 @Repository
 public class NewsDaoImpl implements NewsDao{

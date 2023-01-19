@@ -1,4 +1,4 @@
-package com.exhibition.common;
+package com.ef.exhibition.common;
 
 public class PageFactory {
 		

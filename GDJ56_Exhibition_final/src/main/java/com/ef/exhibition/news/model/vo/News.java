@@ -1,4 +1,4 @@
-package com.exhibition.news.model.vo;
+package com.ef.exhibition.news.model.vo;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package com.exhibition.news.model.service;
+package com.ef.exhibition.news.model.service;
 
 import java.util.List;
 import java.util.Map;
@@ -7,8 +7,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.exhibition.news.model.dao.NewsDao;
-import com.exhibition.news.model.vo.News;
+import com.ef.exhibition.news.model.dao.NewsDao;
+import com.ef.exhibition.news.model.vo.News;
 
 @Service
 public class NewsServiceImpl implements NewsService{
