@@ -85,8 +85,10 @@
   <script src="${path }/resources/assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="${path }/resources/assets/vendor/php-email-form/validate.js"></script>
 
+
   <!-- Template Main JS File -->
-  <script src="${path }/resources/assets/js/main.js"></script>
+
+  <script src="${path}/resources/assets/js/main.js"></script>
 
 </body>
 

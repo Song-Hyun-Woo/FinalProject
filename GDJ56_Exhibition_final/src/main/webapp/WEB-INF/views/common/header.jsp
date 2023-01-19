@@ -33,11 +33,6 @@
 
   <!-- Template Main CSS File -->
   <link href="${path}/resources/assets/css/style.css" rel="stylesheet">
-	
-	<!-- Pont -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
   <!-- =======================================================
   * Template Name: Groovin - v4.10.0
   * Template URL: https://bootstrapmade.com/groovin-free-bootstrap-theme/
@@ -152,6 +147,10 @@
       </div>
     </div>
   </section><!-- End Hero -->
+=======
+	
+ 
+>>>>>>> branch 'main' of https://github.com/ZeroCommit/FinalProject.git
   
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
