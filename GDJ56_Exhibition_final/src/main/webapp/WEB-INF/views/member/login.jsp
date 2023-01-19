@@ -58,6 +58,7 @@
               <span class="d-block text-center my-4 text-muted">&mdash; or &mdash;</span>
               
               <div class="social-login">
+                
                 <!-- 카카오  -->
                 
                 <!-- 네이버  -->
@@ -69,8 +70,6 @@
         </div>
       </div>
     </div>
-
-    
   </div>
     
     

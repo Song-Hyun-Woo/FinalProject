@@ -9,14 +9,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.ef.exhibition.member.model.service.MemberService;
 import com.ef.exhibition.member.model.vo.Member;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Controller
 @RequestMapping("/member")
-	public class MemberController {
+@SessionAttributes({"loginMember"})
+@Slf4j
+
+public class MemberController {
 		
 		private MemberService service;
 		  
@@ -50,8 +57,25 @@ import com.ef.exhibition.member.model.vo.Member;
 			return "member/enrollMember";
 		}
 		
-		// 회원가입 
-		
+		// 회원가입 처리
+		@RequestMapping("/enrollMemberEnd.do")
+		public ModelAndView enrollMemberEnd(Member m, ModelAndView mv) {
+			log.debug("파라미터로 전달된 member : {}",m);
+			String encodePassword=passwordEncoder.encode(m.getPassword());
+			m.setPassword(encodePassword);
+			
+			int result=service.insertMember(m);
+			if(result>0) {
+				mv.addObject("msg","회원가입 완료");
+				mv.addObject("loc","/");
+			}else {
+				mv.addObject("msg","회원가입 실패");
+				mv.addObject("loc","/member/enrollMember.do");
+			}
+			mv.setViewName("common/msg");
+			
+			return mv;
+		}
 		
 		//======================= 마이페이지 ======================
 	
