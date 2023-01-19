@@ -9,5 +9,5 @@ public interface NewsService {
 	List<News> selectNewsList(Map<String,Integer> page);
 	int selectNewsCount();
 	News selectNews(int newsNo);
-	
+	int insertNews(News n);
 }

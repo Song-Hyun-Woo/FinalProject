@@ -1,12 +1,15 @@
 package com.ef.exhibition.news.model.vo;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import com.ef.exhibition.member.model.vo.Member;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,15 +25,14 @@ public class News {
 	@Id
 	private int newsNo;
 	private String newsTitle;
-	private String newsComment;
+//	private String newsWriter;
+	private Member newsWriter;
+	private String newsContent;
 	
 	@Temporal(TemporalType.DATE)
-	@Column(name="newsenrolldate")
+	@Column(name="news_enrolldate")
 	private Date newsEnrollDate;
 	
-	private String newsFilename;	
-	
-	//memberNo를 fk로 받을예정
-	
+	private List<Attachment> files;
 	
 }
