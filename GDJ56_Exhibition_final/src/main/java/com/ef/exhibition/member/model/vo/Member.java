@@ -12,16 +12,16 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Member {
-		private int member_no;
-		private String member_id;
+		private int memberNo;
+		private String memberId;
 		private String password;
-		private String member_name;
+		private String memberName;
 		private char gender;
 		private Date birth;
 		private String email;
 		private String phone;
 		private String address;
-		private int member_grade;
+		private int grade;
 		private String profile;
 
 }
