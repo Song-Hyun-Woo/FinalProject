@@ -17,11 +17,12 @@ public class Member {
 		private String password;
 		private String memberName;
 		private char gender;
-		private Date birth;
+		private String birth;
 		private String email;
 		private String phone;
 		private String address;
 		private int grade;
 		private String profile;
+		private Date enrollDate;
 
 }
