@@ -25,17 +25,24 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class MemberController {
 	     
-		@Autowired
 		private MemberService service;
+//		@Autowired
+//		private BCryptPasswordEncoder pwEncoder;
 		
 		@Autowired
-//		private BCryptPasswordEncoder pwEncoder;
+		public MemberController(MemberService service) {
+			super();
+			this.service = service;
+		}
+		
+		
 		
 		@RequestMapping("/")
 		public String main() {
 			return "index";
 		}
 		
+
 		// 아이디 중복확인
 		@RequestMapping("/checkId.do")
 		@ResponseBody
