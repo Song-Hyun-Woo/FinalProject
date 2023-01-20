@@ -7,6 +7,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.ef.exhibition.news.model.vo.Attachment;
 import com.ef.exhibition.news.model.vo.News;
 
 @Repository
@@ -32,7 +33,16 @@ public class NewsDaoImpl implements NewsDao{
 	public News selectNews(SqlSessionTemplate session, int newsNo) {
 		return session.selectOne("news.selectNews",newsNo);
 	}
+	//공지사항 등록
+	@Override
+	public int insertNews(SqlSessionTemplate session, News n) {
+		return session.insert("news.insertNews",n);
+	}
 	
-	//공지사항 작성페이지
+	//공지사항 Attachment
+	@Override
+	public int insertAttachment(SqlSessionTemplate session, Attachment attachment) {
+		return session.insert("news.insertAttachment", attachment);
+	}
 	
 }
