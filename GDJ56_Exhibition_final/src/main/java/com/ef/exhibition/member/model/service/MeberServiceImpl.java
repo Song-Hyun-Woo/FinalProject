@@ -1,8 +1,6 @@
 package com.ef.exhibition.member.model.service;
 
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +18,7 @@ public class MeberServiceImpl implements MemberService {
     
     @Autowired
     SqlSession session;
+    
 	@Override
 	public int insertMember(Member m) {
 		

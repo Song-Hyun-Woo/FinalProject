@@ -44,16 +44,16 @@ public class NewsController {
 	
 	//공지사항 메인 페이징처리
 	@RequestMapping("/newslist.do")
-	public String selectNewsList(ModelAndView mv,
+	public ModelAndView selectNewsList(ModelAndView mv,
 			@RequestParam(value="cPage", defaultValue="1")int cPage,
-			@RequestParam(value="numPerpage", defaultValue="5")int numPerpage) {
+			@RequestParam(value="numPerpage", defaultValue="10")int numPerpage) {
 		
-		mv.addObject("news",service.selectNewsList(Map.of("cPage",cPage,"numPerpage",numPerpage)));
+		mv.addObject("newsn",service.selectNewsList(Map.of("cPage",cPage,"numPerpage",numPerpage)));
+//		log.debug("{}",mv.getModel().get("newsn"));
 		int totalData=service.selectNewsCount();
 		mv.addObject("pageBar",PageFactory.getPage(cPage,numPerpage,totalData, "newslist.do"));
-		mv.addObject("totalContents",totalData);
 		mv.setViewName("news/newsList");
-		return "test";
+		return mv;
 	}
 	
 	//공지사항 상세페이지
@@ -159,5 +159,10 @@ public class NewsController {
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
+	}
+	//공지사항 작성페이지
+	@RequestMapping("/newsWrite.do")
+	public String newsWrite() {
+		return "news/newsWrite";
 	}
 }
