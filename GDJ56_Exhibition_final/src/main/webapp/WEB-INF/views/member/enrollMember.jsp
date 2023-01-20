@@ -188,8 +188,6 @@
         <br>
     </form>
  
-        
-		<!-- </div> -->
        </div>
        </div>
 	</div>
@@ -215,9 +213,8 @@
 	 
 	  
 	  //아이디 중복확인
-	 
-	  const idCheck=()=>{
-		  $.get("${path}/member/idCheck.do?memberId="+$("#memberId").val(),
+	  const checkId=()=>{
+		  $.get("${path}/member/checkId.do?memberId="+$("#memberId").val(),
 				 data=>{console.log(data);
 				 if(data == ''){
 					$("#userId-container span.ok").show();
@@ -229,6 +226,7 @@
 				 }
 				 });
 	  }
+	  
 	  //아이디 체크
 	    $("#memberId").focusout((e)=>{
 		     if($('#memberId').val() == ""){
@@ -245,6 +243,7 @@
 		       return true;
 		     }
 	    });
+	  
 	  //비밀번호 체크1
 	    $("#password").focusout((e)=>{
 	    	if($('#password').val()==""){
@@ -261,6 +260,7 @@
 	    	   return true;
 	      }
 	    });
+	  
 	  //비밀번호 체크2
 	    $("#password2").focusout((e)=>{
 	    	if($('#password2').val()==""){
@@ -277,6 +277,7 @@
 	    	   return true;
 	       }
 	    });
+	  
 	  //비밀번호 중복확인
 	     $("#password2").keyup((e)=>{
 	    	 if($("#password2").val()!=$("#password").val()){
@@ -301,8 +302,9 @@
 			    
 			     
 	    	 }
-	     });     
-	   //이름 체크
+	     });
+	     
+	   //이름 입력 체크
 	   $("#memberName").focusout((e)=>{
 		  if($('#memberName').val()==""){
 			  $('#namech').text('*필수 정보입니다.');
@@ -320,7 +322,8 @@
 		  
 	   });
 	   
-	   //생년월일
+	   
+	   // 생년월일 체크
 	  
 	   $("#birthday").blur((e)=>{
 		   const dateStr= $("#birthday").val();
@@ -366,7 +369,7 @@
 		  
 	   });
 	   
-	   //이메일
+	   // 이메일 체크
 	   $("#email").focusout((e)=>{
 		  if($("#email").val()==""){
 			  $('#emch').text('*필수 정보입니다.');
@@ -378,7 +381,8 @@
 				return true;
 		  } 
 	   });
-	   //이메일 인증
+	   
+	   //이메일 인증 확인
 	   $("#emailChk").click((e)=>{
 		  const email = $('#email').val();
 		  $.ajax({
@@ -404,10 +408,9 @@
 		  });
 		   
 	   });
-	   //휴대폰 인증 
+	  
+	   //휴대폰 인증 확인
 	          $('#send').click((e)=>{
-			/*  $('#send').click(function() { */
-					
 					const to = $('#to').val();
 					
 					$.ajax ({
@@ -421,7 +424,6 @@
 							alert('인증번호가 발송 되었습니다.');
 							
 							 $('#enterBtn').click((e)=>{
-							/* $('#enterBtn').click(function() {	 */
 								const userNum = $('#userNum').val();
 								
 								if(checkNum === userNum) {
@@ -436,6 +438,7 @@
 					});
 					
 				});
+	   
 	   //휴대폰 체크
 	   $("#to").focusout((e)=>{
 		 if($("#to").val()==""){
@@ -454,6 +457,7 @@
 		  
 		 
 		});
+	   
 	   //인증번호 체크2 
 	   $("#userNum").focusout((e)=>{
 		 if($("#userNum").val()==""){
@@ -468,8 +472,9 @@
 	     });
 	   
 		</script>
+		
 		<script>
-	    //주소 (도로명 주소)
+	    //주소 (도로명 주소 API)
 	    function execPostCode() {
 	         new daum.Postcode({
 	             oncomplete: function(data) {
@@ -511,10 +516,7 @@
 	          
 	            }
 	         }).open();
-	     };
-	
-	
-	     
+	     };   
 	     
 	  </script>
 </html>
