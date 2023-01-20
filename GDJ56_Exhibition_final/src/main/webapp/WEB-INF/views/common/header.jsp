@@ -50,6 +50,8 @@
 
       <nav id="navbar" class="navbar">
         <ul>
+
+
           <li><a class="nav-link scrollto " href="${path }/newslist.do">NEWS</a></li>
           <li><a class="nav-link scrollto " href="#portfolio">EXHIBITION</a></li>
           <li><a class="nav-link scrollto " href="#team">ARTIST</a></li>
@@ -57,6 +59,7 @@
           <li><a class="nav-link scrollto " href="${path }/questionWrite.do">QUESTION</a></li>
         
           <li><a class="getstarted scrollto" href="#about">Login</a></li>
+
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -65,4 +68,17 @@
     </div>
   </header><!-- End Header -->
 
-   
+  
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="${path}/resources/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="${path}/resources/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="${path}/resources/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="${path}/resources/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="${path}/resources/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="${path}/resources/assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="${path}/resources/assets/js/main.js"></script>
+
