@@ -17,6 +17,8 @@ public interface MemberDao {
 	
 	Member findPw(SqlSession session,Map param);
 
+	
+
 
 
 }

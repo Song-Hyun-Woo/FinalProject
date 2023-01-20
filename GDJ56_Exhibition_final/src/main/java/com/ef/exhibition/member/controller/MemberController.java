@@ -1,14 +1,19 @@
 package com.ef.exhibition.member.controller;
 
+import java.io.IOException;
 import java.util.Map;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
@@ -42,13 +47,6 @@ public class MemberController {
 			return "index";
 		}
 		
-
-		// 아이디 중복확인
-		@RequestMapping("/checkId.do")
-		@ResponseBody
-		public Member idCheck(Member m) {
-			return service.checkId(m);
-		}
 		//======================= 로그인 ======================
 		//로그인 화면
 		@RequestMapping("/login.do")
@@ -56,7 +54,9 @@ public class MemberController {
 			return "/member/login";
 		}
 		
-		//로그인
+		//로그인 기능
+		
+			
 		
 		
 		//로그아웃
@@ -69,18 +69,30 @@ public class MemberController {
 		}
 		
 		//======================= 회원가입 ======================
+		
+		// 약관 동의
+		@RequestMapping("/term.do")
+		public String term() {
+			return "meber/term";
+		}
+		
 		// 회원가입 화면으로 이동
 		@RequestMapping("/enrollMember.do")
 		public String enrollMember() {
 			return "member/enrollMember";
 		}
 		
+		// 아이디 중복확인
+		@RequestMapping("/checkId.do")
+		@ResponseBody
+		public Member idCheck(Member m) {
+			return service.checkId(m);
+		}
+		
 		// 회원가입 처리
 		@RequestMapping("/enrollMemberEnd.do")
 		public ModelAndView enrollMemberEnd(Member m, ModelAndView mv) {
 			log.debug("파라미터로 전달된 member : {}",m);
-//			String encodePassword=passwordEncoder.encode(m.getPassword());
-//			m.setPassword(encodePassword);
 			
 			int result=service.insertMember(m);
 			if(result>0) {
@@ -104,6 +116,16 @@ public class MemberController {
 		}
 		
 		//아이디 찾기
+		@RequestMapping("/findIdEnd.do")
+		public ModelAndView findId(Member m,ModelAndView mv) {
+			Member id = service.findId(m);
+			System.out.println(id);
+		  
+			mv.addObject("id",id);
+			mv.setViewName("/member/searchIdEnd");
+			
+			return mv;
+		}	
 		
 		//비밀번호찾기페이지
 		@RequestMapping("/findhpw.do")
@@ -116,15 +138,35 @@ public class MemberController {
 		
 		//======================= 마이페이지 ======================
 	
-		// 개인정보 수정
+		// 개인정보 수정 화면
+		@RequestMapping("mypageInfoUpdate")
+		public String mypageInfoUpdate() {
+			return "mypage/mypageInfoUpdate";
+		}
+		
+		// 개인정보 정보 수정
+		
+		
+		// 비밀번호 변경 화면
+		@RequestMapping("mypagePwUpdate")
+		public String mypagePwUpdate() {
+			return "mypage/mypagePwUpdate";
+		}
 		
 		// 비밀번호 변경
 		
-		// 멤버 탈퇴
+		
+		// 회원 탈퇴 화면
+		@RequestMapping("mypageSecession")
+		public String mypageSecession() {
+			return "mypage/mypageSecession";
+		}
+		
+		//회원 탈퇴 
 		
 		
 		
-		//======================= SNS 로그인 ======================
+		//======================= SNS 로그인 (시간이 되면) ======================
 		
 		//카카오 로그인
 		

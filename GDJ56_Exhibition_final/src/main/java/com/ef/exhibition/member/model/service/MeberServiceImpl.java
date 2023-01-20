@@ -6,10 +6,11 @@ import java.util.Random;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.ef.exhibition.member.model.dao.MemberDao;
 import com.ef.exhibition.member.model.vo.Member;
-
+@Service
 public class MeberServiceImpl implements MemberService {
 	
 	@Autowired
@@ -42,6 +43,23 @@ public class MeberServiceImpl implements MemberService {
 		// TODO Auto-generated method stub
 		return dao.findPw(session,param);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	/*
 	 * @Override public String CheckPhoneNumber(String to) throws CoolsmsException {

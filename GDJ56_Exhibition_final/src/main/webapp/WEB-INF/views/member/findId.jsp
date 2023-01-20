@@ -62,7 +62,7 @@
 	                  </div>
 	                  <p id="emch" class="check"> </p><br/>
 	                  <div class="rememberfind">
-	                     <button id="btn-Yes"  type="submit" class="btn btn-lg btn-dark btn-block">아이디찾기</button>
+	                     <button \  type="submit" class="btn btn-lg btn-dark btn-block">아이디찾기</button>
 	                     <br/>
 	                   <div class="links"> 
 	            			<a href="${path }/member/login.do" class="text-dark">로그인</a> | <a href="${path }/member/findPw.do" class="text-dark">비밀번호 찾기</a> | <a href="${path }//member/enrollMember.do" class="text-dark">회원가입</a>

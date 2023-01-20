@@ -17,4 +17,6 @@ public interface MemberService {
 	Member findPw(Map param);
 
 
+
+
 }

@@ -37,4 +37,5 @@ public class MemberDaoImpl implements MemberDao {
     	return session.selectOne("member.findPw",param);
     }
 
+
 }

@@ -45,14 +45,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-<<<<<<< HEAD
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">NEWS</a></li>
-          <li><a class="nav-link scrollto" href="#services">EXHIBITION</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">ARTIST</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">GALLERY</a></li>
-          <li><a class="getstarted scrollto" href="${path}/member/login">LOGIN</a></li>
-=======
+
           <li><a class="nav-link scrollto active" href="#hero">HOME</a></li>
           <li><a class="nav-link scrollto " href="${path }/newslist.do">NEWS</a></li>
           <li><a class="nav-link scrollto " href="#portfolio">EXHIBITION</a></li>
@@ -60,15 +53,15 @@
           <li><a class="nav-link scrollto " href="#">GALLERY</a></li>
           <li><a class="nav-link scrollto " href="#">QUESTION</a></li>
         
-          <li><a class="getstarted scrollto" href="#about">Login</a></li>
->>>>>>> branch 'main' of https://github.com/ZeroCommit/FinalProject.git
+          <li><a class="getstarted scrollto" href="${path}/member/login">Login</a></li>
+
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
-<<<<<<< HEAD
+
   
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -82,7 +75,3 @@
 
   <!-- Template Main JS File -->
   <script src="${path}/resources/assets/js/main.js"></script>
-=======
-
-   
->>>>>>> branch 'main' of https://github.com/ZeroCommit/FinalProject.git
