@@ -50,10 +50,10 @@ public class NewsController {
 		
 		mv.addObject("news",service.selectNewsList(Map.of("cPage",cPage,"numPerpage",numPerpage)));
 		int totalData=service.selectNewsCount();
-		mv.addObject("pageBar",PageFactory.getPage(cPage,numPerpage,totalData, "NewsList.do"));
+		mv.addObject("pageBar",PageFactory.getPage(cPage,numPerpage,totalData, "newslist.do"));
 		mv.addObject("totalContents",totalData);
 		mv.setViewName("news/newsList");
-		return "newsList";
+		return "test";
 	}
 	
 	//공지사항 상세페이지
@@ -113,7 +113,7 @@ public class NewsController {
 		News n=News.builder()
 				.newsTitle(newsTitle)
 				.newsContent(newsContent)
-				.newsWriter(Member.builder().memberId(newsWriter).buid())
+				.newsWriter(Member.builder().memberId(newsWriter).build())
 				.files(files)
 				.build();
 		

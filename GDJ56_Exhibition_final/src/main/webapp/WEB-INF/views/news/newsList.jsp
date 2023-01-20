@@ -50,6 +50,7 @@ tr:last-child td:last-child {
   border-bottom-right-radius: 6px;
 }
 </style>
+ <p>총 ${totalContents }건의 게시물이 있습니다.</p>
 <table>
   <thead>
     <tr>
@@ -61,14 +62,36 @@ tr:last-child td:last-child {
     </tr>
   </thead>
   <tbody>
-    <tr>
-    	<td colspan="5">조회된 게시물이 없습니다.</td>
-    </tr>
-    <tr>
-    	<td colspan="5">조회된 게시물이 없습니다.</td>
-    </tr>
+    <c:choose>
+    	<c:when test="${empty news }">
+        	<tr>
+           		<td colspan="5">조회된 게시물이 없습니다.</td>
+            </tr>
+        </c:when>
+        	<c:otherwise>
+            	<c:forEach var="n" items="${news }">
+            		<tr>
+            			<td><c:out value="${n.newsNo }"/></td>
+            			<td>
+            				<a href="${path }/news/newsView.do?newsNo=${n.newsNo}">
+            					<c:out value="${n.newsTitle }"/>
+            				</a>
+            			</td>
+            			<td><c:out value="${n.newsWriter.userId }"/></td>
+            			<td><c:out value="${n.newsDate }"/></td>
+            			<td>
+            				<c:if test="${empty n.files }">없음</c:if>
+            				<c:if test="${not empty n.files }">있음</c:if>
+            			</td>
+            		</tr>
+            	</c:forEach>
+            </c:otherwise>
+  	</c:choose>
   </tbody>
 </table>
-
+<br>
+	<div>
+		${pageBar }
+	</div>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>

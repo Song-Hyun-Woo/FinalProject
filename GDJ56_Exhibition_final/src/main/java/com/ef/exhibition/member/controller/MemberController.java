@@ -22,7 +22,6 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/member")
 @SessionAttributes({"loginMember"})
 @Slf4j
-
 public class MemberController {
 		
 		private MemberService service;
