@@ -113,7 +113,7 @@ public class NewsController {
 		News n=News.builder()
 				.newsTitle(newsTitle)
 				.newsContent(newsContent)
-				.newsWriter(Member.builder().memberId(newsWriter).buid())
+				.newsWriter(Member.builder().memberId(newsWriter).build())
 				.files(files)
 				.build();
 		
