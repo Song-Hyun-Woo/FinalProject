@@ -16,5 +16,4 @@ public class Attachment {
 	private News news;
 	private String originalFilename;
 	private String renamedFilename;
-//	private Date uploadDate;
 }

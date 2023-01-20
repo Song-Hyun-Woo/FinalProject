@@ -12,7 +12,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Groovin Bootstrap Template - Index</title>
+  <title>Exhibition</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -33,6 +33,11 @@
 
   <!-- Template Main CSS File -->
   <link href="${path}/resources/assets/css/style.css" rel="stylesheet">
+  
+      <!-- 네이버 스마트에디터  -->
+	<!-- <head> 안에 추가 -->
+	<script type="text/javascript" src="${path }/resources/libs/smarteditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 
 <body>
@@ -41,21 +46,21 @@
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">Title</a></h1>
+      <h1 class="logo"><a href="${path }/">Title</a></h1>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">HOME</a></li>
           <li><a class="nav-link scrollto " href="${path }/newslist.do">NEWS</a></li>
           <li><a class="nav-link scrollto " href="#portfolio">EXHIBITION</a></li>
           <li><a class="nav-link scrollto " href="#team">ARTIST</a></li>
           <li><a class="nav-link scrollto " href="#">GALLERY</a></li>
-          <li><a class="nav-link scrollto " href="#">QUESTION</a></li>
+          <li><a class="nav-link scrollto " href="${path }/questionWrite.do">QUESTION</a></li>
         
           <li><a class="getstarted scrollto" href="#about">Login</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
+     
 
     </div>
   </header><!-- End Header -->

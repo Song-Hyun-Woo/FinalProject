@@ -16,7 +16,9 @@ body {
 table {
   border-collapse: separate;
   border-spacing: 0;
-  width: 100%;
+  width: 85%;
+  text-align:center;
+  margin:auto;
 }
 th,
 td {
@@ -25,7 +27,7 @@ td {
 th {
   background: #42444e;
   color: #fff;
-  text-align: left;
+  text-align: center;
 }
 tr:first-child th:first-child {
   border-top-left-radius: 6px;
@@ -49,27 +51,44 @@ tr:last-child td:first-child {
 tr:last-child td:last-child {
   border-bottom-right-radius: 6px;
 }
+.newsWrite{
+	margin-left: 1348px;
+}
+div.newscontainer{
+	width:100%;
+	height:180px;
+	background-image: url('${path}/resources/images/newstitle.png');
+}
 </style>
- <p>총 ${totalContents }건의 게시물이 있습니다.</p>
+<br><br><br><br>
+<div class="newscontainer">
+	<h3>&nbsp;&nbsp;&nbsp;&nbsp;NEWS</h3>
+</div>
+<br>
+<div class="newsWrite">
+<!-- 관리자만 보이게 분기처리 -->
+	<button class="btn btn-md btn-dark btn-block" onclick="location.assign('${path}/newsWrite.do')">작성</button>
+	
+</div>
 <table>
   <thead>
     <tr>
       <th>번호</th>
       <th>제목</th>
       <th>작성자</th>
-      <th>첨부파일</th>
       <th>작성일</th>
+      <th>첨부파일</th>
     </tr>
   </thead>
   <tbody>
     <c:choose>
-    	<c:when test="${empty news }">
+    	<c:when test="${empty newsn }">
         	<tr>
-           		<td colspan="5">조회된 게시물이 없습니다.</td>
+           		<td colspan="4">조회된 게시물이 없습니다.</td>
             </tr>
         </c:when>
         	<c:otherwise>
-            	<c:forEach var="n" items="${news }">
+            	<c:forEach var="n" items="${newsn }">
             		<tr>
             			<td><c:out value="${n.newsNo }"/></td>
             			<td>
@@ -77,8 +96,8 @@ tr:last-child td:last-child {
             					<c:out value="${n.newsTitle }"/>
             				</a>
             			</td>
-            			<td><c:out value="${n.newsWriter.userId }"/></td>
-            			<td><c:out value="${n.newsDate }"/></td>
+            			<td><c:out value="${n.newsWriter.memberId }"/></td>
+            			<td><c:out value="${n.newsEnrollDate }"/></td>
             			<td>
             				<c:if test="${empty n.files }">없음</c:if>
             				<c:if test="${not empty n.files }">있음</c:if>
@@ -89,7 +108,7 @@ tr:last-child td:last-child {
   	</c:choose>
   </tbody>
 </table>
-<br>
+<br><br>
 	<div>
 		${pageBar }
 	</div>
