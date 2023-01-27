@@ -109,4 +109,3 @@ $("#email").focusout((e)=>{
 </script>
 </html>
 
-<jsp:include page="/WEB-INF/views/common/footer.jsp"/>

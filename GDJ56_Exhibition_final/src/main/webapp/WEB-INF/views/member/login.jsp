@@ -49,11 +49,15 @@
                   <input type="checkbox" checked="checked"/>
                   <div class="control__indicator"></div>
                 </label>
-                <span class="ml-auto"><a href="#" class="forgot-pass">아이디 찾기</a></span>
-                <span class="ml-auto"><a href="#" class="forgot-pass">비밀번호 찾기</a></span>  
+                <span class="ml-auto"><a href="${path }/member/findId.do" class="forgot-pass">아이디 찾기</a></span>
+                <span class="ml-auto"><a href="${path }/member/findPw.do" class="forgot-pass">비밀번호 찾기</a></span>  
               </div>
 
               <input type="submit" value="로그인" class="btn btn-outline-dark">
+              
+            <div class="text-center" style="float:left">
+                <a href="${path}/member/enrollMember.do" class="find">회원가입</a>
+            </div>
 
               <span class="d-block text-center my-4 text-muted">&mdash; or &mdash;</span>
               

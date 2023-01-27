@@ -15,8 +15,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
   
-     <!-- daum 도로명주소 찾기 api -->
-	<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+     <!-- kakao 도로명주소 찾기 api -->
+	<script src = "https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
 
   
      <!-- Bootstrap CSS -->
@@ -133,16 +133,16 @@
         <br/>
         <p class="text">성별</p>
         <div class="custom-control custom-radio custom-control-inline">
-           <input type="radio" id="m" name="gender" value="M" class="custom-control-input" required>
-              <label class="custom-control-label textBold400" for="m">남자</label>
+        	<input type="radio" id="M" name="gender" value="M" class="custom-control-input" required>
+              <label class="custom-control-label textBold400" for="M">남자</label>
         </div>
         <div class="custom-control custom-radio custom-control-inline">
-           <input type="radio" id="w" name="gender" value="W" class="custom-control-input">
-              <label class="custom-control-label textBold400" for="w">여자</label>
+           <input type="radio" id="F" name="gender" value="W" class="custom-control-input">
+              <label class="custom-control-label textBold400" for="F">여자</label>
         </div>
         <br/>
         <p class="text">생년월일</p>
-        <input type="text" name="birthday" id="birthday" class="form-control" placeholder="ex) 19920101" required><br>
+       		 <input type="text" name="birthday" id="birthday" class="form-control" placeholder="ex) 19920101" required><br>
             <p id="birthch" class="check"> </p><br/>
         <br/> 
         <p class="text">주소</p>
@@ -195,7 +195,8 @@
   </body>
 
   <script>
-	//모든 공백 체크 정규식
+	
+  /* 모든 공백 체크 정규식 */
 	  
 	  const empJ = /\s/g;
 	  //아이디 정규식
@@ -211,9 +212,10 @@
 	
 	  /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/
 	 
+
 	  
-	  //아이디 중복확인
-	  const checkId=()=>{
+	  //아이디 중복 확인
+	  const idDuplicate=()=>{
 		  $.get("${path}/member/checkId.do?memberId="+$("#memberId").val(),
 				 data=>{console.log(data);
 				 if(data == ''){
@@ -227,6 +229,7 @@
 				 });
 	  }
 	  
+
 	  //아이디 체크
 	    $("#memberId").focusout((e)=>{
 		     if($('#memberId').val() == ""){
@@ -244,6 +247,7 @@
 		     }
 	    });
 	  
+
 	  //비밀번호 체크1
 	    $("#password").focusout((e)=>{
 	    	if($('#password').val()==""){
@@ -261,6 +265,7 @@
 	      }
 	    });
 	  
+
 	  //비밀번호 체크2
 	    $("#password2").focusout((e)=>{
 	    	if($('#password2').val()==""){
@@ -278,6 +283,7 @@
 	       }
 	    });
 	  
+
 	  //비밀번호 중복확인
 	     $("#password2").keyup((e)=>{
 	    	 if($("#password2").val()!=$("#password").val()){
@@ -304,6 +310,7 @@
 	    	 }
 	     });
 	     
+
 	   //이름 입력 체크
 	   $("#memberName").focusout((e)=>{
 		  if($('#memberName').val()==""){
@@ -323,8 +330,8 @@
 	   });
 	   
 	   
+
 	   // 생년월일 체크
-	  
 	   $("#birthday").blur((e)=>{
 		   const dateStr= $("#birthday").val();
 		   const year = Number(dateStr.substr(0,4));
@@ -369,6 +376,7 @@
 		  
 	   });
 	   
+	   
 	   // 이메일 체크
 	   $("#email").focusout((e)=>{
 		  if($("#email").val()==""){
@@ -393,15 +401,15 @@
 			  },
 			  success: function(data){
 				  const checkNum = data;
-				  alert('인증번호가 발송 되었습니다.');
+				  alert('인증번호가 발송 되었습니다. \n이메일에서 인증번호 확인을 해주십시오.');
 				  
 				  $('#enterBtn2').click((e)=>{
 					  const userNum = $('#email2').val();
 					  
 					  if(checkNum == userNum){
-						  alert('인증 성공하였습니다.');
+						  alert('인증번호가 일치합니다.');
 					  }else{
-						  alert('인증 실패하였습니다. 다시 입력해주세요.');
+						  alert('인증번호가 일치하지 않습니다. 확인해주시기 바랍니다.');
 					  }
 				  });
 			  }
@@ -409,35 +417,37 @@
 		   
 	   });
 	  
+	   
 	   //휴대폰 인증 확인
 	          $('#send').click((e)=>{
+	        	  
 					const to = $('#to').val();
 					
 					$.ajax ({
-					     url:'${path}/member/checkPhone.do',
+					     url:'${path}/member/checkPhoneNum.do',
 						type: 'GET',
 						data: {
 							"to" : to
 						},
 						success: function(data) {
 							const checkNum = data;
-							alert('인증번호가 발송 되었습니다.');
+							alert('인증번호가 발송 되었습니다. \n휴대폰에서 인증번호 확인을 해주십시오.');
 							
 							 $('#enterBtn').click((e)=>{
 								const userNum = $('#userNum').val();
 								
 								if(checkNum === userNum) {
-									alert('인증 성공하였습니다.');
+									alert('인증번호가 일치합니다.');
 								}
 								else {
-									alert('인증 실패하였습니다. 다시 입력해주세요.');
+									alert('인증번호가 일치하지 않습니다. 확인해주시기 바랍니다.');
 								}
 							});
-							
 						}
 					});
 					
 				});
+	   
 	   
 	   //휴대폰 체크
 	   $("#to").focusout((e)=>{
@@ -458,6 +468,7 @@
 		 
 		});
 	   
+	   
 	   //인증번호 체크2 
 	   $("#userNum").focusout((e)=>{
 		 if($("#userNum").val()==""){
@@ -471,10 +482,10 @@
 		 
 	     });
 	   
-		</script>
+	</script>
 		
-		<script>
-	    //주소 (도로명 주소 API)
+	<script>
+	    //주소 체크 (카카오 도로명 주소 API)
 	    function execPostCode() {
 	         new daum.Postcode({
 	             oncomplete: function(data) {
@@ -518,5 +529,5 @@
 	         }).open();
 	     };   
 	     
-	  </script>
+	 </script>
 </html>

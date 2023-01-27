@@ -3,19 +3,27 @@ package com.ef.exhibition.member.model.dao;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.SqlSessionTemplate;
 
 import com.ef.exhibition.member.model.vo.Member;
 
 public interface MemberDao {
 
-	int insertMember(SqlSession session, Member m);
+	Member selectMemberById(SqlSessionTemplate session, Member m);
 	
-	Member checkId(SqlSession session, Member m);
+	int insertMember(SqlSessionTemplate session, Member m);
+	
+	Member idDuplicate(SqlSessionTemplate session, Member m);
+	
+	/* Member idDupicate(String memberId, SqlSessionTemplate session); */
 	
 	
-	Member findId(SqlSession session,Member m);
+	Member findId(SqlSessionTemplate session,Member m);
 	
-	Member findPw(SqlSession session,Map param);
+	Member findPw(SqlSessionTemplate session,Map param);
+
+	
+
 
 	
 
