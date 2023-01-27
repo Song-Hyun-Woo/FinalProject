@@ -10,4 +10,5 @@ public interface NewsService {
 	int selectNewsCount();
 	News selectNews(int newsNo);
 	int insertNews(News n);
+	int deleteNews(int newsNo);
 }

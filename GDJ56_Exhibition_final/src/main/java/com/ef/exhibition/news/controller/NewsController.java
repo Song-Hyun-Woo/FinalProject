@@ -60,19 +60,29 @@ public class NewsController {
 	@RequestMapping("/newsView.do")
 	public ModelAndView selectNews(ModelAndView mv, int newsNo) {
 		mv.addObject("news",service.selectNews(newsNo));
+		log.debug("{}",newsNo);
 		mv.setViewName("news/newsView");
 		return mv;
 	}
+	//공지사항 수정
+	@RequestMapping("/newsUpdate.do")
+	public ModelAndView updateNews(ModelAndView mv, int newsNo) {
+		mv.addObject("news", service.updateNews(newsNo));
+		mv.setViewName("news/");
+		return mv;
+	}
 	
-	//공지사항 작성페이지
-//	@RequestMapping("/newsWrite.do")
-//	public String newsWrite() {
-//		return "news/newsWrite";
-//	}
+	//공지사항 삭제
+	@RequestMapping("/newsDelete.do")
+	public ModelAndView deleteNews(ModelAndView mv,int newsNo) {
+		mv.addObject("news",service.deleteNews(newsNo));
+		mv.setViewName("news/newsList");
+		return mv;
+	}
 	
 	//공지사항 작성 & 파일 업로드처리
 	@RequestMapping("/newsInsert.do")
-	public ModelAndView insertNews(ModelAndView mv, MultipartFile[] upFile,
+	public ModelAndView insertNews(ModelAndView mv, MultipartFile[] upfile,
 			String newsTitle, String newsContent, String newsWriter,
 			HttpSession session) {
 		
@@ -84,32 +94,32 @@ public class NewsController {
 		File dir=new File(path);
 		if(!dir.exists()) dir.mkdirs();
 		List<Attachment> files=new ArrayList();
-		
-		for(MultipartFile f: upFile) {
-			//리네임드규칙을 생성하기
-			if(!f.isEmpty()) {
-				//전송된 파일이 있다면..
-				//파일 리네임처리 직접하기
-				String originalFileName=f.getOriginalFilename();
-				String ext=originalFileName.substring(originalFileName.lastIndexOf("."));
-				
-			//중복되지 않는 이름 설정하는 값지정하기
-				SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMdd_HHmmssSSS");
-				int rnd=(int)(Math.random()*10000)+1;
-				String renameFile=sdf.format(System.currentTimeMillis())+"_"+rnd+ext;
-				
-				//파일 업로드하기
-				try {
-					//MultipartFile클래스가 제공해주는 메소드 이용해서 저장처리
-					f.transferTo(new File(path+renameFile));
-					files.add(Attachment.builder().originalFilename(f.getOriginalFilename())
-							.renamedFilename(renameFile).build());
-				}catch(IOException e) {
-					e.printStackTrace();
+		if(upfile!=null) {
+			for(MultipartFile f: upfile) {
+				//리네임드규칙을 생성하기
+				if(!f.isEmpty()) {
+					//전송된 파일이 있다면..
+					//파일 리네임처리 직접하기
+					String originalFileName=f.getOriginalFilename();
+					String ext=originalFileName.substring(originalFileName.lastIndexOf("."));
+					
+				//중복되지 않는 이름 설정하는 값지정하기
+					SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMdd_HHmmssSSS");
+					int rnd=(int)(Math.random()*10000)+1;
+					String renameFile=sdf.format(System.currentTimeMillis())+"_"+rnd+ext;
+					
+					//파일 업로드하기
+					try {
+						//MultipartFile클래스가 제공해주는 메소드 이용해서 저장처리
+						f.transferTo(new File(path+renameFile));
+						files.add(Attachment.builder().originalFilename(f.getOriginalFilename())
+								.renamedFilename(renameFile).build());
+					}catch(IOException e) {
+						e.printStackTrace();
+					}
 				}
 			}
 		}
-
 		News n=News.builder()
 				.newsTitle(newsTitle)
 				.newsContent(newsContent)
@@ -165,4 +175,7 @@ public class NewsController {
 	public String newsWrite() {
 		return "news/newsWrite";
 	}
+	
+	
+	
 }

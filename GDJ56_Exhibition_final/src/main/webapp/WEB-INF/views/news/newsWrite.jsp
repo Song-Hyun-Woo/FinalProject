@@ -3,62 +3,152 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
-<c:set var="path" value="${pageContext.request.contextPath }"/>       
-<script>
-
-function save(){
-	oEditors.getById["txtContent"].exec("UPDATE_CONTENTS_FIELD", []);  
-    		//스마트 에디터 값을 텍스트컨텐츠로 전달
-	var content = document.getElementById("smartEditor").value;
-	alert(document.getElementById("txtContent").value); 
-    		// 값을 불러올 땐 document.get으로 받아오기
-	return; 
-}
-
-</script>
-
+<c:set var="path" value="${pageContext.request.contextPath }"/>
 <jsp:include page="/WEB-INF/views/common/header.jsp">
 	<jsp:param name="title" value="MainPage"/>
 </jsp:include>
+
+<script language = "javascript">
+
+/* function writeCheck(){
+	
+   var form = document.writeform;
+   
+  if( !form.title.value ){
+    alert( "제목을 적어주세요" );
+    form.title.focus();
+    return;
+   }
+ 
+  if( !form.memo.value ){
+    alert( "내용을 적어주세요" );
+    form.memo.focus();
+    return;
+   }
+} */
+
+  $(()=>{
+		$("[name=upFile]").change(e=>{
+			console.dir(e.target);				
+			const fileName=e.target.files[0].name;
+			$(e.target).next(".custom-file-label").text(fileName);
+		});
+	});
+ </script>
+
 <style>
 div.newscontainer{
 	width:100%;
 	height:180px;
 	background-image: url('${path}/resources/images/newstitle.png');
 }
+
+div.newsWrite{
+	height:400px;
+	width:80%; 
+	margin-left:200px;
+}
+
 </style>
+
 <br><br><br><br>
 <div class="newscontainer">
 	<h3>&nbsp;&nbsp;&nbsp;&nbsp;NEWS - WRITE</h3>
 </div>
-<br>
-	<table>
-	<tr>
-		<th></th>
-	</tr>
-		<textarea id="txtContent" rows="10" cols="100" style="width: 100%;"></textarea>
-	
-		<div id="se2_sample" style="margin:10px 0;">
-			<input type="button" onclick="save();" value="제출">
-		</div>
-	</table>
-<!-- textarea 밑에 script 작성하기 -->
-<script id="smartEditor" type="text/javascript"> 
-	var oEditors = [];
-	nhn.husky.EZCreator.createInIFrame({
-	    oAppRef: oEditors,
-	    elPlaceHolder: "txtContent",  //textarea ID 입력
-	    sSkinURI: "${path}/resources/libs/smarteditor/SmartEditor2Skin.html",  //martEditor2Skin.html 경로 입력
-	    fCreator: "createSEditor2",
-	    htParams : { 
-	    	// 툴바 사용 여부 (true:사용/ false:사용하지 않음) 
-	        bUseToolbar : true, 
-		// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음) 
-		bUseVerticalResizer : true, 
-		// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음) 
-		bUseModeChanger : true 
-	    }
-	});
+<br><br>
+
+<div class="newsWrite">
+<form name="writeform" method="post" action="${path }/newsInsert.do" enctype="multipart/form-data">
+<table>
+  <tr>
+   <td>
+   <table>
+     <tr>
+      <td>&nbsp;</td>
+      <td align="center">제목</td>
+      <td><input name="newsTitle" size="130" maxlength="100"></td>
+      <td>&nbsp;</td>
+     </tr>
+     <tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td align="center">이름</td>
+      <td><input name="newsWriter" size="130" maxlength="50" value="관리자"></td>
+      <td>&nbsp;</td>
+     </tr>
+     <tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>
+     <tr>
+      <td>&nbsp;</td>
+      <td align="center">내용</td>
+      <td><textarea id="summernote" name="newsContent" cols="50" rows="50"></textarea></td>
+      <td>&nbsp;</td>
+     </tr>
+     <tr>
+      <td>&nbsp;</td>
+      <td align="center">파일첨부1</td>
+      <td><input type="file" name="upfile" id="upfile1" size="130" maxlength="50" ></td>
+      <td>&nbsp;</td>
+     </tr>
+     <tr>
+      <td>&nbsp;</td>
+      <td align="center">파일첨부2</td>
+      <td><input type="file" name="upfile" id="upfile2" size="130" maxlength="50" ></td>
+      <td>&nbsp;</td>
+     </tr>
+     <tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>
+     <tr height="1" bgcolor="#82B5DF"><td colspan="4"></td></tr>
+     <tr align="center">
+      <td>&nbsp;</td>
+      <td colspan="2"><input type="submit" value="등록" onclick="javascript:writeCheck();"> 
+			<input type=button value="취소" onclick="javascript:history.back(-1)">
+      <td>&nbsp;</td>
+     </tr>
+    </table>
+   </td>
+  </tr>
+  </form>
+ </table>
+</div>         
+        <br><br><br><br>
+
+<script >
+$('#summernote').summernote({
+    // 에디터 높이
+    height: 250,
+    // 에디터 한글 설정
+    lang: "ko-KR",
+    // 에디터에 커서 이동 (input창의 autofocus라고 생각)
+    focus : true,
+    toolbar: [
+        // 글꼴 설정
+        ['fontname', ['fontname']],
+        // 글자 크기 설정
+        ['fontsize', ['fontsize']],
+        // 굵기, 기울임꼴, 밑줄,취소 선, 서식지우기
+        ['style', ['bold', 'italic', 'underline','strikethrough', 'clear']],
+        // 글자색
+        ['color', ['forecolor','color']],
+        // 표만들기
+        ['table', ['table']],
+        // 글머리 기호, 번호매기기, 문단정렬
+        ['para', ['ul', 'ol', 'paragraph']],
+        
+        ['insert',['picture','link','video']],
+        // 줄간격
+        ['height', ['height']],
+        // 코드보기, 확대해서보기, 도움말
+        ['view', ['codeview','fullscreen', 'help']]
+    ],
+    // 추가한 글꼴
+    fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New','맑은 고딕','궁서','굴림체','굴림','돋음체','바탕체'],
+    // 추가한 폰트사이즈
+    fontSizes: ['8','9','10','11','12','14','16','18','20','22','24','28','30','36','50','72']
+
+});
+ 
 </script>
+
+
+
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>

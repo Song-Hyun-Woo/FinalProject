@@ -11,7 +11,10 @@ import com.ef.exhibition.news.model.dao.NewsDao;
 import com.ef.exhibition.news.model.vo.Attachment;
 import com.ef.exhibition.news.model.vo.News;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class NewsServiceImpl implements NewsService{
 
 	private NewsDao dao;
@@ -39,6 +42,7 @@ public class NewsServiceImpl implements NewsService{
 	//공지사항 상세페이지
 	@Override
 	public News selectNews(int newsNo) {
+		log.debug("{}",newsNo);
 		return dao.selectNews(session,newsNo);
 	}
 
@@ -59,6 +63,12 @@ public class NewsServiceImpl implements NewsService{
 			//게시물 등록이 실패하면 rollbackc처리
 			throw new RuntimeException("실패!");
 		}
+		return result;
+	}
+
+	@Override
+	public int deleteNews(int newsNo) {
+		int result=dao.deleteNews(session,newsNo);
 		return result;
 	}
 	

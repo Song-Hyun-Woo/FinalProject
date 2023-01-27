@@ -8,7 +8,13 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp">
 	<jsp:param name="title" value="MainPage"/>
 </jsp:include>
-    
+<style>
+
+</style>
+
+<script>
+
+</script>
     <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container">
@@ -267,6 +273,9 @@
 
       </div>
     </section><!-- End Portfolio Section -->
+
+
+
 
     <!-- ======= Team Section ======= -->
     <section id="team" class="team">

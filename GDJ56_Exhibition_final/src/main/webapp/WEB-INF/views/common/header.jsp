@@ -34,10 +34,16 @@
   <!-- Template Main CSS File -->
   <link href="${path}/resources/assets/css/style.css" rel="stylesheet">
   
-      <!-- 네이버 스마트에디터  -->
-	<!-- <head> 안에 추가 -->
-	<script type="text/javascript" src="${path }/resources/libs/smarteditor/js/service/HuskyEZCreator.js" charset="utf-8"></script>
-	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="${path}/resources/js/jquery-3.6.1.min.js"></script>
+ <!-- summernote -->
+  <script src="${path}/resources/summernote/summernote-lite.js"></script>
+  <script src="${path}/resources/summernote/lang/summernote-ko-KR.js"></script>
+  <link rel="stylesheet" href="${path}/resources/summernote/summernote-lite.css">
+  <!-- 웹에디터 -->
+<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.tiny.cloud/1/각자 발급받은 api key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> -->
+  
 </head>
 
 <body>

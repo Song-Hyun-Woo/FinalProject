@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -92,7 +92,7 @@ div.newscontainer{
             		<tr>
             			<td><c:out value="${n.newsNo }"/></td>
             			<td>
-            				<a href="${path }/news/newsView.do?newsNo=${n.newsNo}">
+            				<a href="${path }/newsView.do?newsNo=${n.newsNo}">
             					<c:out value="${n.newsTitle }"/>
             				</a>
             			</td>

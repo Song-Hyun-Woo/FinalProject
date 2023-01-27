@@ -14,5 +14,5 @@ public interface NewsDao {
 	News selectNews(SqlSessionTemplate session, int newsNo);
 	int insertNews(SqlSessionTemplate session, News n);
 	int insertAttachment(SqlSessionTemplate session,Attachment attachment);
-
+	int deleteNews(SqlSessionTemplate session, int newsNo);
 }

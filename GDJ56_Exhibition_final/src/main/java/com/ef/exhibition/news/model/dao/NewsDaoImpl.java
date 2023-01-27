@@ -44,5 +44,13 @@ public class NewsDaoImpl implements NewsDao{
 	public int insertAttachment(SqlSessionTemplate session, Attachment attachment) {
 		return session.insert("news.insertAttachment", attachment);
 	}
+
+	//공지사항 삭제
+	@Override
+	public int deleteNews(SqlSessionTemplate session, int newsNo) {
+		return session.delete("news.deleteNews", newsNo);
+	}
+	
+	
 	
 }

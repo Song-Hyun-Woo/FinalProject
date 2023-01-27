@@ -15,21 +15,5 @@
 
 
 
-<script>
-    $.ajax({
-      type: "GET",
-      url: "${path}/apitest",
-      data: {page:"1",perPage:"20"},
-      success: function(response){
-        console.log(response)
-        console.log(JSON.parse(response));
-        const data=JSON.parse(response).data;
-        data.forEach(e=>{
-        	console.log(e);
-        })
-      }
-    })
-</script>
-
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
