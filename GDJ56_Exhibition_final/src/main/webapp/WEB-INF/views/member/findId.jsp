@@ -62,7 +62,7 @@
 	                  </div>
 	                  <p id="emch" class="check"> </p><br/>
 	                  <div class="rememberfind">
-	                     <button id="btn-Yes"  type="submit" class="btn btn-lg btn-dark btn-block">아이디찾기</button>
+	                     <button type="submit" class="btn btn-lg btn-dark btn-block" a href="${path }/member/findIdEnd.do">아이디찾기</button>
 	                     <br/>
 	                   <div class="links"> 
 	            			<a href="${path }/member/login.do" class="text-dark">로그인</a> | <a href="${path }/member/findPw.do" class="text-dark">비밀번호 찾기</a> | <a href="${path }//member/enrollMember.do" class="text-dark">회원가입</a>
@@ -75,8 +75,11 @@
 <script>
 //아이디 정규식
 const idJ = /^[a-z0-9][a-z0-9_\-]{4,19}$/;
+
 // 이메일 검사 정규식
 const mailJ = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+
+
 //아이디 체크
 $("#memberId").focusout((e)=>{
      if($('#memberId').val() == ""){
@@ -109,4 +112,4 @@ $("#email").focusout((e)=>{
 </script>
 </html>
 
-<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+

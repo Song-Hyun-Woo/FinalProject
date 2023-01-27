@@ -57,14 +57,14 @@
       <nav id="navbar" class="navbar">
         <ul>
 
-
           <li><a class="nav-link scrollto " href="${path }/newslist.do">NEWS</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">EXHIBITION</a></li>
-          <li><a class="nav-link scrollto " href="#team">ARTIST</a></li>
-          <li><a class="nav-link scrollto " href="#">GALLERY</a></li>
+          <li><a class="nav-link scrollto " href="">EXHIBITION</a></li>
+          <li><a class="nav-link scrollto " href="">ARTIST</a></li>
+          <li><a class="nav-link scrollto " href="">GALLERY</a></li>
           <li><a class="nav-link scrollto " href="${path }/questionWrite.do">QUESTION</a></li>
         
-          <li><a class="getstarted scrollto" href="#about">Login</a></li>
+
+          <li><a class="getstarted scrollto" href="${path}/member/login.do">Login</a></li>
 
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
