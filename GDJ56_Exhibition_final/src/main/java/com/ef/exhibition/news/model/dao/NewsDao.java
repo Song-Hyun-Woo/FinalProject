@@ -15,4 +15,5 @@ public interface NewsDao {
 	int insertNews(SqlSessionTemplate session, News n);
 	int insertAttachment(SqlSessionTemplate session,Attachment attachment);
 	int deleteNews(SqlSessionTemplate session, int newsNo);
+	int updateNews(SqlSessionTemplate session, Map news);
 }

@@ -14,10 +14,13 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -60,23 +63,38 @@ public class NewsController {
 	@RequestMapping("/newsView.do")
 	public ModelAndView selectNews(ModelAndView mv, int newsNo) {
 		mv.addObject("news",service.selectNews(newsNo));
-		log.debug("{}",newsNo);
+//		log.debug("{}",newsNo);
 		mv.setViewName("news/newsView");
 		return mv;
 	}
-	//공지사항 수정
+	
+	//공지사항 수정start 페이지
+	@RequestMapping("newsUpdateWrite.do")
+	public String newsUpdateWrite(int newsNo, Model m) {
+		News n=service.selectNews(newsNo);
+		m.addAttribute("news",n);
+		return "news/newsUpdate";
+	}
+	
+	//공지사항 수정End 페이지
 	@RequestMapping("/newsUpdate.do")
-	public ModelAndView updateNews(ModelAndView mv, int newsNo) {
-		mv.addObject("news", service.updateNews(newsNo));
-		mv.setViewName("news/");
-		return mv;
+//	public ModelAndView updateNews(ModelAndView mv, int newsNo) {
+//		mv.addObject("news", service.updateNews(newsNo));
+//		mv.setViewName("redirect:/newslist.do");
+//		return mv;
+	public String updateNews(@RequestParam(value="upfile",required = false) MultipartFile upfile,
+			@RequestParam Map news) {
+		log.debug("{}",news);
+		int result=service.updateNews(news);
+		
+		return "redirect:/newslist.do";
 	}
 	
 	//공지사항 삭제
 	@RequestMapping("/newsDelete.do")
 	public ModelAndView deleteNews(ModelAndView mv,int newsNo) {
 		mv.addObject("news",service.deleteNews(newsNo));
-		mv.setViewName("news/newsList");
+		mv.setViewName("redirect:/newslist.do");
 		return mv;
 	}
 	
@@ -97,6 +115,8 @@ public class NewsController {
 		if(upfile!=null) {
 			for(MultipartFile f: upfile) {
 				//리네임드규칙을 생성하기
+				
+				log.debug("파일 : {}",f);
 				if(!f.isEmpty()) {
 					//전송된 파일이 있다면..
 					//파일 리네임처리 직접하기
@@ -128,8 +148,8 @@ public class NewsController {
 				.build();
 		
 		int result=service.insertNews(n);
-		mv.addObject("msg",result>0? "News 등록 성공":"News 등록 실패");
-		mv.addObject("loc","/news/newsList.do");
+		mv.addObject("msg",result>0? "Insert News":"Fail News");
+		mv.addObject("loc","/newslist.do");
 		mv.setViewName("common/msg");
 		
 		return mv;

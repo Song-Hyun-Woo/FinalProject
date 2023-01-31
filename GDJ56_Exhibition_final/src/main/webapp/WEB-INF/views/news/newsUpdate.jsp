@@ -3,31 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
-<c:set var="path" value="${pageContext.request.contextPath }"/>
+<c:set var="path" value="${pageContext.request.contextPath }"/>       
+
 <jsp:include page="/WEB-INF/views/common/header.jsp">
 	<jsp:param name="title" value="MainPage"/>
 </jsp:include>
-
-<script language = "javascript">
-
-/* function writeCheck(){
-	
-   var form = document.writeform;
-   
-  if( !form.title.value ){
-    alert( "제목을 적어주세요" );
-    form.title.focus();
-    return;
-   }
- 
-  if( !form.memo.value ){
-    alert( "내용을 적어주세요" );
-    form.memo.focus();
-    return;
-   }
-} */
-
- </script>
 
 <style>
 div.newscontainer{
@@ -46,12 +26,12 @@ div.newsWrite{
 
 <br><br><br><br>
 <div class="newscontainer">
-	<h3>&nbsp;&nbsp;&nbsp;&nbsp;NEWS - WRITE</h3>
+	<h3>&nbsp;&nbsp;&nbsp;&nbsp;NEWS - UPDATE</h3>
 </div>
 <br><br>
 
 <div class="newsWrite">
-<form name="writeform" method="post" action="${path }/newsInsert.do" enctype="multipart/form-data">
+<form name="writeform" method="post" action="${path }/newsUpdate.do" enctype="multipart/form-data">
 <table>
   <tr>
    <td>
@@ -59,62 +39,77 @@ div.newsWrite{
      <tr>
       <td>&nbsp;</td>
       <td align="center">제목</td>
-      <td><input name="newsTitle" size="130" maxlength="100"></td>
+      <td><input name="newsTitle" size="130" maxlength="100" value="${news.newsTitle }"></td>
       <td>&nbsp;</td>
      </tr>
      <tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>
     <tr>
       <td>&nbsp;</td>
       <td align="center">작성자</td>
-      <%-- <td><input name="newsWriter" size="130" maxlength="50" value="${loginMember.memberId }"></td> --%>
-      <td><input name="newsWriter" size="130" maxlength="50" value="5" readonly required ></td>
+      <%-- <td><input name="newsWriter" size="130" maxlength="50" value="${news.newsWriter.memberId }" readonly required ></td> --%>
+      <td><input name="writer" size="130" maxlength="50" value=5 readonly required ></td>
       <td>&nbsp;</td>
      </tr>
      <tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>
      <tr>
       <td>&nbsp;</td>
       <td align="center">내용</td>
-      <td><textarea id="summernote" name="newsContent" cols="50" rows="50"></textarea></td>
+      <td><textarea id="summernote" name="newsContent" cols="50" rows="50">${news.newsContent }</textarea></td>
       <td>&nbsp;</td>
      </tr>
      <tr>
       <td>&nbsp;</td>
       <td align="center">파일첨부</td>
-      <td><input type="file" name="upfile" id="upfile1" size="130" maxlength="50" ></td>
+      <td><input type="file" name="upfile" id="upfile1" size="130" maxlength="50">
+      	<input	type="hidden" name="oriFile" value="${news.files.get(0).renamedFilename }"/>
+      </td>
       <td>&nbsp;</td>
      </tr>
-     <!-- <tr>
+     <%-- <tr>
       <td>&nbsp;</td>
       <td align="center">파일첨부2</td>
-      <td><input type="file" name="upfile" id="upfile2" size="130" maxlength="50" ></td>
+      <td><input type="file" name="upfile" id="upfile2" size="130" maxlength="50" value="${file }"></td>
       <td>&nbsp;</td>
-     </tr> -->
+     </tr> --%>
      <tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>
      <tr height="1" bgcolor="#82B5DF"><td colspan="4"></td></tr>
      <tr align="center">
       <td>&nbsp;</td>
       <td colspan="2"><input type="submit" value="등록"> 
-      <!-- <td colspan="2"><input type="submit" value="등록" onclick="javascript:writeCheck();"> --> 
 			<input type=button value="취소" onclick="javascript:history.back(-1)">
       <td>&nbsp;</td>
      </tr>
     </table>
    </td>
   </tr>
+  <input type="hidden" name="newsNo" value="${news.newsNo }"/>
   </form>
  </table>
 </div>         
-        <br><br><br><br>
+        <br><br><br><br><br>
 
 <script >
-  $(()=>{
-		$("[name=upFile]").change(e=>{
-			console.dir(e.target);				
-			const fileName=e.target.files[0].name;
-			$(e.target).next(".custom-file-label").text(fileName);
-		});
+$(()=>{
+	$("[name=upFile]").change(e=>{
+		console.dir(e.target);				
+		const fileName=e.target.files[0].name;
+		$(e.target).next(".custom-file-label").text(fileName);
 	});
-  
+});
+
+/* const newsCheck = () => {
+	if($("[name=newsTitle]").val() == ""){
+		alert("제목을 입력해 주세요!!");
+		return false;
+	}
+	 if($("[name=newsContent]").val() == ""){
+		alert("내용을 입력해 주세요!!");
+		return false;
+	}
+}
+ */
+
+
 $('#summernote').summernote({
     // 에디터 높이
     height: 250,

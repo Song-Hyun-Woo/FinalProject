@@ -124,7 +124,7 @@
 
         <div class="section-title">
           <h2>EXHIBITION</h2>
-          <p></p>
+		<button class="btn btn-sm btn-dark btn-block" onclick="location.replace('${path}/stjsp')">MORE</button>
         </div>
 
         <div class="row">
@@ -136,7 +136,6 @@
               <li data-filter=".filter-web">디자인</li>
               <li data-filter=".filter-web">사진</li>
               <li data-filter=".filter-web">조각</li>
-              <li data-filter=".filter-web">기획전</li>
             </ul>
           </div>
         </div>

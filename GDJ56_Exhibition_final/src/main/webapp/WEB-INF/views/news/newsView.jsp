@@ -15,11 +15,12 @@ div.newscontainer{
 	background-image: url('${path}/resources/images/newstitle.png');
 }
 </style>
-<br><br><br><br>
+<br><br><br><br><br>
 <div class="newscontainer">
 	<h3>&nbsp;&nbsp;&nbsp;&nbsp;NEWS - VIEW</h3>
 </div>
 <br>
+<form>
 <div class="container col-md-6">
     <div class="card">
         <div class="card-body">
@@ -30,19 +31,35 @@ div.newscontainer{
                 <i class="far fa-clock"></i> ${news.newsEnrollDate }
             </h6>
             <p class="card-text">${news.newsContent }</p>
+            <%-- <p class="card-text">${news.files }</p> --%>
+            
+        </div>
+        <!--  첨부 파일한 것도 보여줘야함 -->
+		        
+        
+        
+        <div class="card-body">
+            <c:forEach var="file" items="${news.files }">
+            	<button type="button" 
+               		class="btn btn-sm btn-dark btn-block"
+                	onclick="fn_filedownload('${file.originalFilename}','${file.renamedFilename}');">${file.originalFilename }</button>
+            </c:forEach><br><br>
+            <a href="${path }/newsUpdateWrite.do?newsNo=${param.newsNo}" class="btn btn-sm btn-dark btn-block" role="button">수정</a>
+            <a href="${path }/newsDelete.do?newsNo=${param.newsNo}" class="btn btn-sm btn-dark btn-block " role="button">삭제</a>
         </div>
         <div class="card-body">
-            <a href="" class="btn btn-outline-secondary btn-sm" role="button">수정</a>
-            <a href="${path }/newsDelete.do" class="btn btn-outline-secondary btn-sm " role="button">삭제</a>
-        </div>
-        <div class="card-body">
-            <a href='${path }/newslist.do' class="btn btn-info" role="button">목록으로</a>
+            <a href='${path }/newslist.do' class="btn btn-sm btn-dark btn-block" role="button">목록으로</a>
         </div>
     </div>
 </div>
-<br>
-   
-
+</form>
+<br><br>
+<script>
+	const fn_filedownload=(oriname,rename)=>{
+		location.assign("${path}/filedown.do?ori="+oriname+"&re="+rename);
+		
+	}
+</script>
 
 
 

@@ -11,4 +11,6 @@ public interface NewsService {
 	News selectNews(int newsNo);
 	int insertNews(News n);
 	int deleteNews(int newsNo);
+	int updateNews(Map news);
+	
 }
