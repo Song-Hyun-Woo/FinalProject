@@ -50,6 +50,12 @@ public class MemberDaoImpl implements MemberDao {
     	return session.selectOne("member.findPw",param);
     }
 
-    //
+    
+    
+    // 비밀번호 변경 이메일 인증번호
+    @Override
+    public int pwChange(SqlSessionTemplate session,Map param) {
+    	return session.update("member.pwChange",param);
+    }
 
 }

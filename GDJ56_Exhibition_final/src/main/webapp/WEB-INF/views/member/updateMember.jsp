@@ -9,6 +9,13 @@
 	<jsp:param name="title" value="MainPage"/>
 </jsp:include>
 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>::: - 회원정보 수정 :::</title>
+</head>
+
  	<!-- kakao 도로명주소 찾기 api -->
 	<script src = "https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
 
@@ -64,6 +71,7 @@
 	        
 	        <br/>
 	          <button type="submit" id="btn-Yes" class="btn btn-lg btn-dark btn-block">정보 수정</button>
+	          <button type="submit" id="btn-No" class="btn btn-lg btn-dark btn-block">수정 취소</button>
 	        <br>
 	        <br>
 	

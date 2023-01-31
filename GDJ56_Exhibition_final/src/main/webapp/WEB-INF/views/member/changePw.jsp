@@ -49,6 +49,8 @@
 	                <form action="${path }/member/searchPwEnd.do" class="login-form" method="post">
                     <p style="font-size:35px; margin-top:44px; margin-bottom:31px; font-weight:bold;">비밀번호 변경</p><p></p>
                     <span style="margin-top:31px;">새 비밀번호를 입력해주세요.</span></p>
+                    <%--  <input type="hidden" name="memberId" value=<%= finduid %>>
+     				 <p class="check" id="check">내 아이디 : < <%= finduid %> ></p><br/> --%>
 	                  <div class="form-groupfind">
 	                      	<input type="password" name="password" id="password" class="form-control" placeholder="Password"  required>
                  			<p id="pw2ch" class="check"> </p><br/>

@@ -22,59 +22,331 @@
 </head>
 <body>
 
-<div class="d-lg-flex half">
-    <div class="bg order-1 order-md-2" style="background-image: url('images/bg_1.jpg');"></div>
-    <div class="contents order-2 order-md-1">
+<style>
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-      <div class="container">
-        <div class="row align-items-center justify-content-center">
-          <div class="col-md-7">
-            <div class="mb-4">
-              <h3>로그인</h3>
-            </div>
-            <form action="#" method="post">
-              <div class="form-group first">
-                <label for="username">아이디</label>
-                <input type="text" class="form-control" id="username">
+* {
+	box-sizing: border-box;
+}
 
-              </div>
-              <div class="form-group last mb-3">
-                <label for="password">비밀번호</label>
-                <input type="password" class="form-control" id="password">
-                
-              </div>
-              
-              <div class="d-flex mb-5 align-items-center">
-                <label class="control control--checkbox mb-0"><span class="caption">아이디 저장하기</span>
-                  <input type="checkbox" checked="checked"/>
-                  <div class="control__indicator"></div>
-                </label>
-                <span class="ml-auto"><a href="${path }/member/findId.do" class="forgot-pass">아이디 찾기</a></span>
-                <span class="ml-auto"><a href="${path }/member/findPw.do" class="forgot-pass">비밀번호 찾기</a></span>  
-              </div>
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-family: "Nanum Gothic", arial, helvetica, sans-serif;
+	height: 100vh;
+	margin: -20px 0 50px;
+}
 
-              <input type="submit" value="로그인" class="btn btn-outline-dark">
-              
-            <div class="text-center" style="float:left">
-                <a href="${path}/member/enrollMember.do" class="find">회원가입</a>
-            </div>
+h1 {
+	font-weight: bold;
+	margin: 0;
+}
 
-              <span class="d-block text-center my-4 text-muted">&mdash; or &mdash;</span>
-              
-              <div class="social-login">
-                
-                <!-- 카카오  -->
-                
-                <!-- 네이버  -->
-                
-                
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+h2 {
+	text-align: center;
+}
+
+p {
+	font-size: 14px;
+	font-weight: 100;
+	line-height: 20px;
+	letter-spacing: 0.5px;
+	margin: 20px 0 30px;
+}
+
+span {
+	font-size: 12px;
+}
+
+a {
+	color: #333;
+	font-size: 14px;
+	text-decoration: none;
+	margin: 15px 0;
+}
+
+button {
+	border-radius: 10px;
+	border: 1px solid black;
+	background-color: black;
+	color: #FFFFFF;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 12px 65px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+button:active {
+	transform: scale(0.95);
+}
+
+button:focus {
+	outline: none;
+}
+
+button.ghost {
+	background-color: transparent;
+	border-color: #FFFFFF;
+}
+
+form {
+	background-color: #FFFFFF;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 50px;
+	height: 100%;
+	text-align: center;
+}
+
+input {
+	background-color: #eee;
+	border: none;
+	padding: 12px 15px;
+	margin: 8px 0;
+	/* width: 100%; */
+}
+
+.container {
+	background-color: #fff;
+	border-radius: 10px;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
+	position: relative;
+	overflow: hidden;
+	width: 768px;
+	max-width: 100%;
+	min-height: 480px;
+}
+
+.form-container {
+	position: absolute;
+	top: 0;
+	height: 100%;
+	transition: all 0.6s ease-in-out;
+}
+
+.sign-in-container {
+	left: 0;
+	width: 50%;
+	z-index: 2;
+}
+
+.container.right-panel-active .sign-in-container {
+	transform: translateX(100%);
+}
+
+.sign-up-container {
+	left: 0;
+	width: 50%;
+	opacity: 0;
+	z-index: 1;
+}
+
+.container.right-panel-active .sign-up-container {
+	transform: translateX(100%);
+	opacity: 1;
+	z-index: 5;
+	animation: show 0.6s;
+}
+
+@keyframes show {
+	0%, 49.99% {
+		opacity: 0;
+		z-index: 1;
+	}
+	
+	50%, 100% {
+		opacity: 1;
+		z-index: 5;
+	}
+}
+
+.overlay-container {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 50%;
+	height: 100%;
+	overflow: hidden;
+	transition: transform 0.6s ease-in-out;
+	z-index: 100;
+}
+
+.container.right-panel-active .overlay-container{
+	transform: translateX(-100%);
+}
+
+.overlay {
+	
+	background: -webkit-linear-gradient(to right);
+	background: linear-gradient(to right);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 0 0;
+	color: #FFFFFF;
+	position: relative;
+	left: -100%;
+	height: 100%;
+	width: 200%;
+  	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+}
+
+.container.right-panel-active .overlay {
+  	transform: translateX(50%);
+}
+
+.overlay-panel {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0 40px;
+	text-align: center;
+	top: 0;
+	height: 100%;
+	width: 150%;
+	transform: translateX(0);
+	transition: transform 0.6s ease-in-out;
+}
+
+ .overlay-left {
+	transform: translateX(-20%);
+}
+
+.container.right-panel-active .overlay-left {
+	transform: translateX(0);
+}
+
+.overlay-right {
+	right: 0;
+	transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
+	transform: translateX(20%);
+}
+
+/* .social-container {
+	margin: 20px 0;
+}
+
+.social-container a {
+	border: 1px solid #DDDDDD;
+	border-radius: 50%;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 5px;
+	height: 40px;
+	width: 40px;
+} */
+ .checkbox{
+        margin-right: 10px;
+        text-align: right;
+}
+.logininput{
+	width: 100%;
+}
+
+</style>
+
+
+
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="${path }/login" method="post">
+			<h1>ExhibitioN</h1>
+            <br/>
+			<span>전시회 아무말 대찬치 주저리 주저리 플랫폼</span>
+			<br/>
+			<div class="checkbox">
+				<label>
+				<input type="radio" name="mode" value="member" checked> 일반회원
+						&nbsp;&nbsp;
+						<input type="radio" name="mode" value="artist"> 작가/전시관
+				</label>
+			  </div>
+			<br/>
+			<div class="logininput">
+				<input type="text" name="memberId" id="memberId" class="form-control" placeholder="아이디" autofocus required />
+				<input type="password" name="password" id="password" class="form-control" placeholder="비밀번호" required/>
+			</div>	
+			<br/>
+			<button>로그인</button>
+			<br/>
+			<div class="links"> 
+				<a href="${path }/member/findId.do" class="text-dark">아이디 찾기</a> | <a href="${path }/member/findPw.do" class="text-dark">비밀번호 찾기</a> | <a href="${path }//member/enrollMember.do" class="text-dark">회원가입</a>
+			</div>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel">
+				<img src="https://images.unsplash.com/photo-1564951434112-64d74cc2a2d7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="">
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	
+//아이디 정규식
+const idJ = /^[a-z0-9][a-z0-9_\-]{4,19}$/;
+// 비밀번호 정규식
+const pwJ = /^[A-Za-z0-9]{6,20}$/;
+//아이디 체크
+$("#memberId").focusout((e)=>{
+	     if($('#memberId').val() == ""){
+	   		$('#idch').text('*필수 정보입니다.');
+	   	  	$('#idch').css('color', 'red');
+	   		return false;
+	  }else if(!idJ.test($('#memberId').val())){
+	  		$('#idch').text('4~19자의 영문 소문자, 숫자만 사용가능합니다')
+			$('#idch').css('color', 'red')
+		   return false;
+	  }else{ 
+		  
+	       $("#idch").hide();
+	       return true;
+	     }
+});
+//비밀번호 체크2
+$("#password").focusout((e)=>{
+	if($('#password').val()==""){
+	   $('#pwch').text('*필수 정보입니다.');
+	   	   $('#pwch').css('color', 'red');
+	   	    return false;
+   }else{
+	  
+	   $("#pwch").hide();
+	   return true;
+   }
+});
+
+
+
+    const signUpButton = document.getElementById('signUp');
+	const signInButton = document.getElementById('signIn');
+	const container = document.getElementById('container');
+
+	signUpButton.addEventListener('click', () => {
+		container.classList.add("right-panel-active");
+	});
+
+	signInButton.addEventListener('click', () => {
+		container.classList.remove("right-panel-active");
+	});
+</script>
     
     
 
