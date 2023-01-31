@@ -23,6 +23,9 @@ public interface MemberDao {
 	Member findPw(SqlSessionTemplate session,Map param);
 
 	
+	int pwChange(SqlSessionTemplate session, Map param);
+
+	
 
 
 	

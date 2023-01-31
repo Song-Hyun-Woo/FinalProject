@@ -50,7 +50,7 @@ public class MypageController {
 				return "mypage/pwUpdate";
 			}
 			
-			// 비밀번호 변경
+			// 
 			
 			
 			// 회원 탈퇴 화면
