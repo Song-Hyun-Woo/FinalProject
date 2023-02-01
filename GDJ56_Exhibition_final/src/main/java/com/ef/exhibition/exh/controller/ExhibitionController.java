@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ef.exhibition.common.PageFactory;
 import com.ef.exhibition.exh.model.service.ExhibitionService;
 import com.ef.exhibition.exh.model.vo.Exhibition;
 
@@ -47,20 +49,20 @@ public class ExhibitionController {
 //			@RequestParam(value="numPerpage", defaultValue="12")int numPerpage) {
 //		mv.addObject("exh",service.selectExhList(Map.of("cPage",cPage,"numPerpage",numPerpage)));
 //		int totalData=service.selectExhCount();
-//		mv.addObject("pageBar",PageFactory.getPage(cPage, numPerpage, totalData, "exhList.do"));
+//		mv.addObject("pageBar",PageFactory.getPageBar(cPage, numPerpage, totalData, "exhList.do"));
 //		mv.setViewName("exh/exhibitionList");
 //		return mv;
 //	}
 	
-	@RequestMapping("/stjsp")
-	public String stjsp() {
+	@RequestMapping("/exhList")
+	public String exhList() {
 		return "exh/exhibitionList";
 	}
 	
 	//전시회 상세페이지
-	@RequestMapping("/exhView.do")
-	public ModelAndView selectExh(ModelAndView mv, int exNo) {
-		mv.addObject("exh",service.selectExh(exNo));
+	@RequestMapping("/exhibitionView.do")
+	public ModelAndView selectExh(ModelAndView mv, int no) {
+		mv.addObject("exh",service.selectExh(no));
 		mv.setViewName("exh/exhibitionView");
 		return mv;
 	}
@@ -72,10 +74,10 @@ public class ExhibitionController {
 	//전시회 API 적용
 	/* Java 1.8 샘플 코드 */
 	//페이징처리는 매개변수로 넣어서 변수 넣어서 pageBar 로 출력
-	@RequestMapping(value="/apit", method= {RequestMethod.GET, RequestMethod.POST})
+	@RequestMapping(value="/exhApiList.do", method= {RequestMethod.GET, RequestMethod.POST})
 	@ResponseBody
 	public String exhibition(@RequestParam(value="page", defaultValue="1") String page,
-			@RequestParam(value="perPage", defaultValue="5")String perPage) throws IOException {
+			@RequestParam(value="perPage", defaultValue="10")String perPage) throws IOException {
 			StringBuilder urlBuilder = new StringBuilder("http://openapi.seoul.go.kr:8088"); /*URL*/
 			urlBuilder.append("/" + URLEncoder.encode("5362595159676a7236394957594751","UTF-8") ); /*인증키 (sample사용시에는 호출시 제한됩니다.)*/
 			urlBuilder.append("/" + URLEncoder.encode("json","UTF-8") ); /*요청파일타입 (xml,xmlf,xls,json) */
@@ -91,7 +93,6 @@ public class ExhibitionController {
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
 			conn.setRequestProperty("Content-type", "application/json");
-			System.out.println("Response code: " + conn.getResponseCode()); /* 연결 자체에 대한 확인이 필요하므로 추가합니다.*/
 			BufferedReader rd;
 
 			// 서비스코드가 정상이면 200~300사이의 숫자가 나옵니다.
@@ -105,9 +106,10 @@ public class ExhibitionController {
 			while ((line = rd.readLine()) != null) {
 					sb.append(line);
 			}
+			
 			rd.close();
 			conn.disconnect();
-			System.out.println(sb.toString());
+			
 			return sb.toString();
 		}
 	}

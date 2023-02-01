@@ -124,7 +124,7 @@
 
         <div class="section-title">
           <h2>EXHIBITION</h2>
-		<button class="btn btn-sm btn-dark btn-block" onclick="location.replace('${path}/stjsp')">MORE</button>
+		<button class="btn btn-sm btn-dark btn-block" onclick="location.replace('${path}/exhList')">MORE</button>
         </div>
 
         <div class="row">
