@@ -78,7 +78,21 @@
 
   </main><!-- End #main -->
 
-
+<script>
+    $.ajax({
+      type: "GET",
+      url: "${path}/apit",
+      data: {page:"1",perPage:"12"},
+      success: function(response){
+        console.log(response)
+        console.log(JSON.parse(response));
+        const data=JSON.parse(response).data;
+        data.forEach(e=>{
+        	console.log(e);
+        })
+      }
+    })
+</script>
 
 
 

@@ -75,7 +75,7 @@ div.newscontainer{
     <tr>
       <th>번호</th>
       <th>제목</th>
-      <th>작성자</th>
+      <!-- <th>작성자</th> -->
       <th>작성일</th>
       <th>첨부파일</th>
     </tr>
@@ -96,7 +96,7 @@ div.newscontainer{
             					<c:out value="${n.newsTitle }"/>
             				</a>
             			</td>
-            			<td><c:out value="${n.newsWriter.memberId }"/></td>
+            			<%-- <td><c:out value="${n.newsWriter.memberId }"/></td> --%>
             			<td><c:out value="${n.newsEnrollDate }"/></td>
             			<td>
             				<c:if test="${empty n.files }">없음</c:if>
@@ -112,5 +112,7 @@ div.newscontainer{
 	<div>
 		${pageBar }
 	</div>
+	<br>
+	
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>

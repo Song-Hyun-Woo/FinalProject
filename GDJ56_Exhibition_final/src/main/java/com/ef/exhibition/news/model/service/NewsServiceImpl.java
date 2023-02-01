@@ -3,6 +3,8 @@ package com.ef.exhibition.news.model.service;
 import java.util.List;
 import java.util.Map;
 
+import javax.transaction.Transactional;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -42,21 +44,25 @@ public class NewsServiceImpl implements NewsService{
 	//공지사항 상세페이지
 	@Override
 	public News selectNews(int newsNo) {
-		log.debug("{}",newsNo);
+//		log.debug("{}",newsNo);
 		return dao.selectNews(session,newsNo);
 	}
 
 	//공지사항 작성페이지
 	@Override
+	@Transactional
 	public int insertNews(News n) {
+		log.debug("insert 전 : "+n.getNewsNo());
 		int result=dao.insertNews(session,n);
-		if(result>0) {
+		log.debug("insert 후 : "+n.getNewsNo());
+		
+		if(result>0&&n.getFiles().size()>0) {
 			result=0;
 			for(Attachment a: n.getFiles()) {
 				a.setNews(n);
 				result+=dao.insertAttachment(session, a);
 			}
-			if(result==n.getFiles().size()) {
+			if(result!=n.getFiles().size()) {
 				throw new RuntimeException();
 			}
 		}else {
@@ -67,10 +73,21 @@ public class NewsServiceImpl implements NewsService{
 	}
 
 	@Override
+	@Transactional
 	public int deleteNews(int newsNo) {
 		int result=dao.deleteNews(session,newsNo);
+//		log.debug("삭제할 번호 : ",newsNo);
 		return result;
 	}
+
+	@Override
+	@Transactional
+	public int updateNews(Map news) {
+		int result=dao.updateNews(session, news);
+//		log.debug("{}",result);
+		return result;
+	}
+	
 	
 	
 }

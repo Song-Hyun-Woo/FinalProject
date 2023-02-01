@@ -9,7 +9,7 @@
 <body>
 	<script>
 		alert("${msg}");
-		location.replace("${pageContext.request.contextPath}");
+		location.replace("${pageContext.request.contextPath}${loc}");
 	</script>
 
 </body>

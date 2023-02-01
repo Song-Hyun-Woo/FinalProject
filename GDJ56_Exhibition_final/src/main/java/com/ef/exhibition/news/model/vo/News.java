@@ -10,29 +10,27 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import com.ef.exhibition.member.model.vo.Member;
+import com.google.inject.internal.Nullable;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Entity
+@ToString(exclude = {"files"})
 public class News {
-	@Id
 	private int newsNo;
+//	private Integer newsNo;
 	private String newsTitle;
-//	private String newsWriter;
+	private int memberNo;
 	private Member newsWriter;
 	private String newsContent;
 	
-	@Temporal(TemporalType.DATE)
-	@Column(name="news_enrolldate")
 	private Date newsEnrollDate;
-	
 	private List<Attachment> files;
-	
 }

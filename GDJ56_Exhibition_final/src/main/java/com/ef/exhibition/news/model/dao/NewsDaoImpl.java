@@ -50,6 +50,11 @@ public class NewsDaoImpl implements NewsDao{
 	public int deleteNews(SqlSessionTemplate session, int newsNo) {
 		return session.delete("news.deleteNews", newsNo);
 	}
+
+	@Override
+	public int updateNews(SqlSessionTemplate session, Map news) {
+		return session.update("news.updateNews", news);
+	}
 	
 	
 	
