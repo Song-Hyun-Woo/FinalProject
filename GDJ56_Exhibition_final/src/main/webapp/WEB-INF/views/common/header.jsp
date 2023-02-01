@@ -62,7 +62,7 @@
       </nav><!-- .navbar -->
     </div>
     <div> 
-	       <c:if test="${loginMember!=null}">
+	       <%-- <c:if test="${loginMember!=null}">
 	                <c:if test="${loginMember.memberId eq 'admin'}">
 	                	<p><a href="${path}/admin/main.do">ADMINPAGE</a></p>
 	                </c:if>
@@ -74,7 +74,7 @@
                 </c:if>
                 <c:if test="${loginMember==null}">
                 	<img src="${path}/" onclick="location.assign('${path}/member/login')">
-                </c:if>
+                </c:if> --%>
       </div>
       </ul>
   </header><!-- End Header -->
