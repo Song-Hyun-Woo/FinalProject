@@ -24,9 +24,9 @@ public class MemberDaoImpl implements MemberDao {
 	
 	// 아이디 중복 확인
 	@Override
-	public Member idDuplicate(SqlSessionTemplate session, Member m) {
+	public Member idCheck(SqlSessionTemplate session, Member m) {
     	// TODO Auto-generated method stub
-    	return session.selectOne("member.idDuplicate",m);
+    	return session.selectOne("member.idCheck",m);
     }
 	
 //	// 아이디 중복 확인
@@ -57,5 +57,7 @@ public class MemberDaoImpl implements MemberDao {
     public int pwChange(SqlSessionTemplate session,Map param) {
     	return session.update("member.pwChange",param);
     }
+    
+    // Myprovider 진행
 
 }

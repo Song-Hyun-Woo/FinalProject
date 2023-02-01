@@ -1,4 +1,4 @@
-	package com.ef.exhibition.member.model.service;
+package com.ef.exhibition.member.model.service;
 
 import java.util.List;
 import java.util.HashMap;
@@ -7,6 +7,8 @@ import java.util.Random;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.ef.exhibition.member.model.dao.MemberDao;
@@ -41,9 +43,9 @@ public class MemberServiceImpl implements MemberService{
 	}
 	
 	@Override
-	public Member idDuplicate(Member m) {
+	public Member idCheck(Member m) {
 		
-		return dao.idDuplicate(session,m);
+		return dao.idCheck(session,m);
 	}
 	
 	/*
@@ -61,11 +63,11 @@ public class MemberServiceImpl implements MemberService{
 		
 		Random rand  = new Random();
 		
-    String numStr = "";
-    for(int i=0; i<4; i++) {
-       String ran = Integer.toString(rand.nextInt(10));
-       numStr+=ran;
-    }          
+	    String numStr = "";
+	    for(int i=0; i<6; i++) {
+	       String ran = Integer.toString(rand.nextInt(10));
+	       numStr+=ran;
+	    }          
 
     
     HashMap<String, String> params = new HashMap<String, String>();
@@ -105,6 +107,17 @@ public class MemberServiceImpl implements MemberService{
 		return dao.pwChange(session,param);
 	}
 	
+	// Myprovider 진행
+//	@Override
+//	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+//		// TODO Auto-generated method stub
+//		Member m=dao.findByMemberId(username,session);
+//		if(m==null) throw new UsernameNotFoundException(username+"을 찾을 수 없습니다.");
+//		
+//		return m;
+//	}
+	
+}	
 	
 	
 	
@@ -117,10 +130,3 @@ public class MemberServiceImpl implements MemberService{
 	
 	
 	
-	
-	
-	
-	
-	
-	
-}

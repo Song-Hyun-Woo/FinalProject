@@ -50,7 +50,7 @@
 	<body>
 	    <div class="findpw">
 	            <div class="account-login">
-	                <form action="${path }/member/searchPwEnd.do" class="login-form" method="post">
+	                <form action="${path }/member/findPwEnd.do" class="login-form" method="post">
                     <p style="font-size:35px; margin-top:44px; margin-bottom:31px; font-weight:bold;">비밀번호 찾기</p><p></p>
                     <span style="margin-top:31px;">회원가입 시 기입한 항목을 입력해주세요.</span></p>
 	                  <div class="form-groupfind">
@@ -65,7 +65,7 @@
 	                     <button id="btn-Yes"  type="submit" class="btn btn-lg btn-dark btn-block">비밀번호찾기</button>
 	                     <br/>
 	                   <div class="links"> 
-	            			<a href="${path }/member/login.do" class="text-dark">로그인</a> | <a href="${path }/member/findId.do" class="text-dark">아이디 찾기</a> | <a href="${path }//member/enrollMember.do" class="text-dark">회원가입</a>
+	            			<a href="${path }/member/login.do" class="text-dark">로그인</a> | <a href="${path }/member/findId.do" class="text-dark">아이디 찾기</a> | <a href="${path }/member/enrollMember.do" class="text-dark">회원가입</a>
 	                   </div>
                     </form>   
 	            </div>   

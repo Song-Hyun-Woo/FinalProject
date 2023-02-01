@@ -116,10 +116,10 @@ public class MemberController {
 		}
 		
 		// 아이디 중복확인
-		@RequestMapping("/idDuplicate.do")
+		@RequestMapping("/idCheck.do")
 		@ResponseBody
-		public Member idDuplicate(Member m) {
-			return service.idDuplicate(m);
+		public Member idCheck(Member m) {
+			return service.idCheck(m);
 		}
 		
 //		  //아이디 중복확인
@@ -278,4 +278,3 @@ public class MemberController {
 		
 
 }
-

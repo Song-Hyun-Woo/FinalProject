@@ -64,32 +64,27 @@
           <li><a class="nav-link scrollto " href="${path }/questionWrite.do">QUESTION</a></li>
         
 
-          <%-- <li><a class="getstarted scrollto" href="${path}/member/login.do">Login</a></li> --%>
+          <li><a class="getstarted scrollto" href="${path}/member/login.do">Login</a></li>
 	
 		<!-- ??  -->
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
     </div>
     <div> 
-	       <%-- <c:if test="${loginMember!=null}">
-	                <c:if test="${loginMember.memberId eq 'admin'}">
-	                	<p><a href="${path}/admin/main.do">ADMINPAGE</a></p>
+	      <c:if test="${loginMember!=null}">
+	                <c:if test="${loginMember.memberId = 'admin'}">
+	                	<p><a href="${path}/admin/adminMain.do">ADMINPAGE</a></p>
 	                </c:if>
 	                <c:if test="${loginMember.memberId ne 'admin'}">
-	                	<p><a href="${path}/mypage/orderlist.do">MYPAGE</a></p>
+	                	<p><a href="${path}/mypage/mypageMain.do">MYPAGE</a></p>
 	                </c:if>
-	                <img src="${path}/" onclick="">
-	                <img src="${path}/" onclick="logout();">
                 </c:if>
                 <c:if test="${loginMember==null}">
-                	<img src="${path}/" onclick="location.assign('${path}/member/login')">
-                </c:if> --%>
+                	<%-- <img src="${path}/" onclick="location.assign('${path}/member/login')"> --%>
+               </c:if>
       </div>
       </ul>
   </header><!-- End Header -->
-
-  
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="${path}/resources/assets/vendor/purecounter/purecounter_vanilla.js"></script>

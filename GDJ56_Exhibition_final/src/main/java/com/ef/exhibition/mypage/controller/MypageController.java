@@ -3,6 +3,7 @@ package com.ef.exhibition.mypage.controller;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
@@ -10,6 +11,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ef.exhibition.mypage.model.service.MypageService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Controller
 public class MypageController {
 	
 	private MypageService service;

@@ -137,7 +137,7 @@
               <label class="custom-control-label textBold400" for="M">남자</label>
         </div>
         <div class="custom-control custom-radio custom-control-inline">
-           <input type="radio" id="F" name="gender" value="W" class="custom-control-input">
+           <input type="radio" id="F" name="gender" value="F" class="custom-control-input">
               <label class="custom-control-label textBold400" for="F">여자</label>
         </div>
         <br/>
@@ -215,19 +215,19 @@
 
 	  
 	  //아이디 중복 확인
-	  const idDuplicate=()=>{
-		  $.get("${path}/member/checkId.do?memberId="+$("#memberId").val(),
-				 data=>{console.log(data);
-				 if(data == ''){
-					$("#userId-container span.ok").show();
-					$("#userId-container span.error").hide();
-					
-				 }else{
-					 $("#userId-container span.ok").hide();
-					 $("#userId-container span.error").show(); 
-				 }
-				 });
-	  }
+	  const checkId=()=>{
+		  $.get("${path}/member/idCheck.do?memberId="+$("#memberId").val(),
+				  data=>{console.log(data);
+					 if(data == ''){
+						$("#userId-container span.ok").show();
+						$("#userId-container span.error").hide();
+						
+					 }else{
+						 $("#userId-container span.ok").hide();
+						 $("#userId-container span.error").show(); 
+					 }
+					 });
+		  }
 	  
 
 	  //아이디 체크
@@ -435,7 +435,8 @@
 							
 							 $('#enterBtn').click((e)=>{
 								const userNum = $('#userNum').val();
-								
+								 console.log(checkNum);
+								 console.log(userNum);		
 								if(checkNum === userNum) {
 									alert('인증번호가 일치합니다.');
 								}
