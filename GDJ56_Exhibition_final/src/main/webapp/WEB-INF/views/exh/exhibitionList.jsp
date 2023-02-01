@@ -14,6 +14,13 @@ div.excontainer{
 	height:180px;
 	background-image: url('${path}/resources/images/exhibitiontitle.png');
 }
+div#exhibition-container{
+	height:auto !important;
+}
+div#pageBar{
+	text-align:center;
+	font-size:25px;
+}
 </style>
 
 <br><br><br><br>
@@ -27,173 +34,94 @@ div.excontainer{
         <div class="row">
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">전체</li>
-              <li data-filter=".filter-app">회화</li>
-              <li data-filter=".filter-card">미디어</li>
-              <li data-filter=".filter-web">디자인</li>
-              <li data-filter=".filter-web">사진</li>
-              <li data-filter=".filter-web">조각</li>
+              <li data-filter="*" class="filter-active" onclick='searchCategory("all")'>전체</li>
+              <li data-filter=".filter-app" onclick='searchCategory("회화")'>회화</li>
+              <li data-filter=".filter-card" onclick='searchCategory("미디어")'>미디어</li>
+              <li data-filter=".filter-web"onclick='searchCategory("디자인")'>디자인</li>
+              <li data-filter=".filter-web" onclick='searchCategory("사진")'>사진</li>
+              <li data-filter=".filter-web" onclick='searchCategory("조각")'>조각</li>
             </ul>
           </div>
         </div>
-
-        <div class="row portfolio-container">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="${path}/resources/assets/img/portfolio/Exhibition1.png" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>App</p>
-                <div class="portfolio-links">
-                  <a href="${path}/resources/assets/img/portfolio/Exhibition1.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href="${path}/resources/portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="${path}/resources/assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
-                <div class="portfolio-links">
-                  <a href="${path}/resources/assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                  <a href="${path}/resources/portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="${path}/resources/assets/img/portfolio/Exhibition1.png" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>마틴 마르지엘라</h4>
-                <p>롯데뮤지엄 서울</p>
-                <div class="portfolio-links">
-                  <a href="${path}/resources/assets/img/portfolio/Exhibition1.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-                  <a href="${path}/resources/portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="${path}/resources/assets/img/portfolio/Exhibition2.png" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Card 2</h4>
-                <p>Card</p>
-                <div class="portfolio-links">
-                  <a href="${path}/resources/assets/img/portfolio/Exhibition2.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                  <a href="${path}/resources/portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="${path}/resources/assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Web 2</h4>
-                <p>Web</p>
-                <div class="portfolio-links">
-                  <a href="${path}/resources/assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-                  <a href="${path}/resources/portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="${path}/resources/assets/img/portfolio/Exhibition1.png" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 3</h4>
-                <p>App</p>
-                <div class="portfolio-links">
-                  <a href="${path}/resources/assets/img/portfolio/Exhibition1.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-                  <a href="${path}/resources/portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="${path}/resources/assets/img/portfolio/Exhibition2.png" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Card 1</h4>
-                <p>Card</p>
-                <div class="portfolio-links">
-                  <a href="${path}/resources/assets/img/portfolio/Exhibition2.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-                  <a href="${path}/resources/portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="${path}/resources/assets/img/portfolio/Exhibition2.png" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Card 3</h4>
-                <p>Card</p>
-                <div class="portfolio-links">
-                  <a href="${path}/resources/assets/img/portfolio/Exhibition2.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-                  <a href="${path}/resources/portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="${path}/resources/assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
-                <div class="portfolio-links">
-                  <a href="${path}/resources/assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                  <a href="${path}/resources/portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
+        <div id="exhibition-container" class="row portfolio-container">
+			<h3>loading......</h3>
         </div>
 
       </div>
     </section><!-- End Portfolio Section -->
-
+    
 <br><br>
-	<div>
-		${pageBar }
-	</div>
+	<!--페이징처리  -->
+	<!-- <div id="pageBar">
+		<a href="javascript:requestExhibition(1)">1</a>
+		<a href="javascript:requestExhibition(2)">2</a>
+		<a href="javascript:requestExhibition(3)">3</a>
+		<a href="javascript:requestExhibition(4)">4</a>
+	</div> -->
 	<br>
-	
-
-
-<!--for문으로 API 파싱해서 데이터 출력  -->
-
+<!--
+	row를 배열로 저장해서 for문으로 
+	API 파싱해서 데이터 출력
+-->
 <script>
-    $.ajax({
-      type: "GET",
-      url: "${path}/apit",
-      data: {page:"1",perPage:"12"},
-      success: function(response){
-        console.log(response)
-        console.log(JSON.parse(response));
-        const data=JSON.parse(response).data;
-        data.forEach(e=>{
-        	console.log(e);
-        })
-      }
-    })
+	let exhibitionData={};
+	$(()=>{								//onload함수
+		requestExhibition();
+	});
+    function requestExhibition(page=1,perpage=50){
+    	$.ajax({
+		      type: "GET",
+		      url: "${path}/exhApiList.do",
+		      data: {page:page,perPage:perpage},
+		      success: function(response){
+		        const data=JSON.parse(response).ListExhibitionOfSeoulMOAInfo.row;
+		        exhibitionData=data;
+		        createDataTag(data);
+		    }}
+    	);
+    }
+    
+    function searchCategory(type){
+    	if(type!='all'){
+	    	const searchData=exhibitionData.filter(e=>e['DP_ART_PART'].includes(type));
+	    	createDataTag(searchData).css("height",'auto !important');
+    	}else{
+    		createDataTag(exhibitionData).css("height",'auto !important');
+    	}
+    }
+    
+    
+    function createDataTag(data){
+    	console.log(data);
+    	 const dataContainer=$("div#exhibition-container").css("height",'auto');
+	     dataContainer.html('');
+    	 data.forEach(e=>{
+	        	const container=$("<div  class='col-lg-4 col-md-6 portfolio-item filter-web'>");
+	        	const maincontainer=$("<div class='portfolio-wrap'>");
+	        	const headerImage=$("<img class='img-fluid' alt=''>").attr({
+	        		src:e['DP_MAIN_IMG']
+	        	});
+	        	const content=$("<div class='portfolio-info'>");
+	        	const no=$("<p>").text(e['DP_SEQ']);
+	        	content.append(no);
+	        	const p=$("<h4>").text(e['DP_NAME']);
+	        	content.append(p);
+	        	const subcontent=$('<div class="portfolio-links">');
+	        	const linka=$('<a>').attr({
+	        		"href" : "${path}/exhibitionView.do=",
+	        		"title":"More Details"
+	        	}).html('<i class="bx bx-link"></i>');
+	        	subcontent.append(linka);
+	        	content.append(subcontent);
+	        	
+	        	maincontainer.append(headerImage);
+	        	maincontainer.append(content);
+	        	
+	        	container.append(maincontainer);
+	        	
+	        	dataContainer.append(container);
+	    });
+	}
 </script>
 
 

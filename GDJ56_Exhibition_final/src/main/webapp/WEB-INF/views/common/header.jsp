@@ -38,12 +38,7 @@
  <!-- summernote -->
   <script src="${path}/resources/summernote/summernote-lite.js"></script>
   <script src="${path}/resources/summernote/lang/summernote-ko-KR.js"></script>
-  <link rel="stylesheet" href="${path}/resources/summernote/summernote-lite.css">
-  <!-- 웹에디터 -->
-<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://cdn.tiny.cloud/1/각자 발급받은 api key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> -->
-  
+  <link rel="stylesheet" href="${path}/resources/summernote/summernote-lite.css"> 
 </head>
 
 <body>
@@ -56,18 +51,14 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-
           <li><a class="nav-link scrollto " href="${path }/newslist.do">NEWS</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">EXHIBITION</a></li>
+          <li><a class="nav-link scrollto " href="${path }/exhList">EXHIBITION</a></li>
           <li><a class="nav-link scrollto " href="#team">ARTIST</a></li>
           <li><a class="nav-link scrollto " href="">GALLERY</a></li>
           <li><a class="nav-link scrollto " href="${path }/questionWrite.do">QUESTION</a></li>
-        
+        </ul>
 
-          <%-- <li><a class="getstarted scrollto" href="${path}/member/login.do">Login</a></li> --%>
-	
-		<!-- ??  -->
-        <i class="bi bi-list mobile-nav-toggle"></i>
+     
       </nav><!-- .navbar -->
     </div>
     <div> 
