@@ -13,7 +13,7 @@ public interface MemberDao {
 	
 	int insertMember(SqlSessionTemplate session, Member m);
 	
-	Member idDuplicate(SqlSessionTemplate session, Member m);
+	Member idCheck(SqlSessionTemplate session, Member m);
 	
 	/* Member idDupicate(String memberId, SqlSessionTemplate session); */
 	
@@ -24,6 +24,10 @@ public interface MemberDao {
 
 	
 	int pwChange(SqlSessionTemplate session, Map param);
+
+	
+	// Myprovider 진행
+//	Member findByMemberId(String username, SqlSessionTemplate session);
 
 	
 

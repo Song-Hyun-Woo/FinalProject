@@ -285,7 +285,7 @@ input {
 			<button>로그인</button>
 			<br/>
 			<div class="links"> 
-				<a href="${path }/member/findId.do" class="text-dark">아이디 찾기</a> | <a href="${path }/member/findPw.do" class="text-dark">비밀번호 찾기</a> | <a href="${path }//member/enrollMember.do" class="text-dark">회원가입</a>
+				<a href="${path }/member/findId.do" class="text-dark">아이디 찾기</a> | <a href="${path }/member/findPw.do" class="text-dark">비밀번호 찾기</a> | <a href="${path }/member/enrollMember.do" class="text-dark">회원가입</a>
 			</div>
 		</form>
 	</div>

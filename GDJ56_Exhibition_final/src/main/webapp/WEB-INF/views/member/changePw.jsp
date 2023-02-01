@@ -66,7 +66,7 @@
 	                     <button type="submit" class="btn btn-lg btn-dark btn-block" a href="${path }/member/findIdEnd.do">비밀번호 변경</button>
 	                     <br/>
 	                   <div class="links"> 
-	            			<a href="${path }/member/login.do" class="text-dark">로그인</a> | <a href="${path }/member/searchId.do" class="text-primary">아이디 찾기</a>
+	            			<a href="${path }/member/login.do" class="text-dark">로그인</a> | <a href="${path }/member/findId.do" class="text-primary">아이디 찾기</a>
 	                   </div>
                     </form>   
 	            </div>   

@@ -57,11 +57,15 @@
           <li><a class="nav-link scrollto " href="">GALLERY</a></li>
           <li><a class="nav-link scrollto " href="${path }/questionWrite.do">QUESTION</a></li>
         </ul>
-
       <li><a class="getstarted scrollto" href="${path}/member/login.do">Login</a></li>
+
+       
+	
+
       </nav><!-- .navbar -->
     </div>
     <div> 
+
 	       <c:if test="${loginMember!=null}">
                    <c:if test="${loginMember.memberId = 'admin'}">
                       <p><a href="${path}/admin/adminMain.do">ADMINPAGE</a></p>
@@ -69,16 +73,21 @@
                    <c:if test="${loginMember.memberId ne 'admin'}">
                       <p><a href="${path}/mypage/mypageMain.do">MYPAGE</a></p>
                    </c:if>
+	      <c:if test="${loginMember!=null}">
+	                <c:if test="${loginMember.memberId = 'admin'}">
+	                	<p><a href="${path}/admin/adminMain.do">ADMINPAGE</a></p>
+	                </c:if>
+	                <c:if test="${loginMember.memberId ne 'admin'}">
+	                	<p><a href="${path}/mypage/mypageMain.do">MYPAGE</a></p>
+	                </c:if>
                 </c:if>
                 <c:if test="${loginMember==null}">
                    <%-- <img src="${path}/" onclick="location.assign('${path}/member/login')"> --%>
                </c:if>
                
+               </c:if>
       </div>
   </header><!-- End Header -->
-
-  
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="${path}/resources/assets/vendor/purecounter/purecounter_vanilla.js"></script>
