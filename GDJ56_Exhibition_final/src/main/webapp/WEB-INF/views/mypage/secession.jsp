@@ -11,6 +11,9 @@
 <title>::: - 회원 탈퇴(마이페이지) :::</title>
 </head>
 
+<style>
+
+</style>
 
 <main>
 	
