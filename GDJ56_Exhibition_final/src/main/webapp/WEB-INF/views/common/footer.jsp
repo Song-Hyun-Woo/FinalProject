@@ -30,7 +30,7 @@
             <h4>Service list</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="${path }/newslist.do">NEWS</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="${path }/">EXHIBITION</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="${path }/exhApiList.do">EXHIBITION</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="${path }/">ARTIST</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="${path }/">GALLERY</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="${path }/questionWrite.do">QUESTION</a></li>
@@ -48,13 +48,12 @@
             </ul>
           </div> -->
 
-          <div class="col-lg-4 col-md-6 footer-newsletter">
+          <!-- <div class="col-lg-4 col-md-6 footer-newsletter">
             <h4>Our Newsletter</h4>
             <form action="" method="post">
               <input type="email" name="email"><input type="submit" value="Subscribe">
             </form>
-
-          </div>
+          </div> -->
 
         </div>
       </div>

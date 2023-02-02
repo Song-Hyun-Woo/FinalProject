@@ -56,11 +56,9 @@
           <li><a class="nav-link scrollto " href="#team">ARTIST</a></li>
           <li><a class="nav-link scrollto " href="">GALLERY</a></li>
           <li><a class="nav-link scrollto " href="${path }/questionWrite.do">QUESTION</a></li>
+	      <li><a class="getstarted scrollto" href="${path}/member/login.do">Login</a></li>
         </ul>
-      <li><a class="getstarted scrollto" href="${path}/member/login.do">Login</a></li>
 
-       
-	
 
       </nav><!-- .navbar -->
     </div>
@@ -73,14 +71,7 @@
                    <c:if test="${loginMember.memberId ne 'admin'}">
                       <p><a href="${path}/mypage/mypageMain.do">MYPAGE</a></p>
                    </c:if>
-	      <c:if test="${loginMember!=null}">
-	                <c:if test="${loginMember.memberId = 'admin'}">
-	                	<p><a href="${path}/admin/adminMain.do">ADMINPAGE</a></p>
-	                </c:if>
-	                <c:if test="${loginMember.memberId ne 'admin'}">
-	                	<p><a href="${path}/mypage/mypageMain.do">MYPAGE</a></p>
-	                </c:if>
-                </c:if>
+	      
                 <c:if test="${loginMember==null}">
                    <%-- <img src="${path}/" onclick="location.assign('${path}/member/login')"> --%>
                </c:if>

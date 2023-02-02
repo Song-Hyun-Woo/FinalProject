@@ -25,39 +25,39 @@
         <div class="carousel-inner" role="listbox">
 
           <!-- Slide 1 -->
-          <div class="carousel-item active" style="background-image: url(${path}/resources/assets/img/slide/leeJung.png);">
+          <div class="carousel-item active" style="background-image: url(${path}/resources/assets/img/slide/mainslide.png);">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animate__animated animate__fadeInDown">이정 LEE JUNG</h2>
-                <p class="animate__animated animate__fadeInUp">S2A는 현대미술작가 이정의 | SOMEWHERE BETWEEN DAY AND NIGHT | 기획전을 개최합니다. </p>
+                <h2 class="animate__animated animate__fadeInDown">제제 《 BAD BOY 》</h2>
+                <p class="animate__animated animate__fadeInUp">장디자인아트는 12월 27일(화) 부터 2월 4일(토) 까지 | 순수한 어린아이의 형상에 과감하게 표현된 컬러풀한 색상으로 이루어져 귀엽고 사랑스러운 모습이지만 자유로운 드로잉과 함게 쓰인 단어들은 반항기 가득한 이중적인 표현을 시각화한 제제의 작품을 소개합니다. </p>
                 <div>
-                  <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">더보기</a>
+                  <a href="https://www.jeandesignart.com/jeje-4" target='_blank' class="btn-get-started animate__animated animate__fadeInUp scrollto">사이트 바로가기</a>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Slide 2 -->
-          <div class="carousel-item" style="background-image: url(${path}/resources/assets/img/slide/maria.png);">
+          <div class="carousel-item" style="background-image: url(${path}/resources/assets/img/slide/mainslide2.png);">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animate__animated animate__fadeInDown">마리아 스바로바 MARIA SVARBOVA</h2>
-                <p class="animate__animated animate__fadeInUp">어제의 미래 : 슬로바키아 출신의 사진작가 마리아 스바르보바는 2016년 International Photography Awards 수상을 시작으로 포브스에서 선정한 30세 이하 영향력 있는 30인 선정 2018년 핫셀블라드 마스터 아트 부분 1위에 오르며 작품성과 대중성을 모두 인정받은 세계적으로 주목받는 여성이다.</p>
+                <h2 class="animate__animated animate__fadeInDown">마우리치오 카텔란 《 WE 》</h2>
+                <p class="animate__animated animate__fadeInUp">리움미술관은 2023년 1월 31일(화) 부터 7월 16일(일) 까지 | 이 시대의 가장 논쟁적인 작가로 알려진 마우리치오 카텔란의 작품을 소개합니다.</p>
                 <div>
-                  <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">더보기</a>
+                  <a href="https://www.leeum.org/exhibition/exhibition01_detail.asp?seq=56" target='_blank' class="btn-get-started animate__animated animate__fadeInUp scrollto">사이트 바로가기</a>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Slide 3 -->
-          <div class="carousel-item" style="background-image: url(${path}/resources/assets/img/slide/slide-3.jpg);">
+          <div class="carousel-item" style="background-image: url(${path}/resources/assets/img/slide/mainslide3.png);">
             <div class="carousel-container">
               <div class="carousel-content">
-                <h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>
-                <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+                <h2 class="animate__animated animate__fadeInDown">유재연 《 장미산책 》</h2>
+                <p class="animate__animated animate__fadeInUp">아트스페이스에서는 2023년 1월 5일(목) 부터 2월 2일(목) 까지 | 밤의 사유들로부터 출발한 일상과 환상이 병존하는 풍경, 인물들이 겪는 크고 작은 사건을 표현한 작가 유재연의 작품을 소개합니다.</p>
                 <div>
-                  <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+                  <a href="https://www.shinsegae.com/culture/gallery/exhibition/view.do?glrySeq=1049&" target='_blank' class="btn-get-started animate__animated animate__fadeInUp scrollto">사이트 바로가기</a>
                 </div>
               </div>
             </div>
@@ -112,193 +112,36 @@
       </div>
     </section><!-- End Clients Section -->
 
-
-  
-
   
 
 
-    <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>EXHIBITION</h2>
-		<button class="btn btn-sm btn-dark btn-block" onclick="location.replace('${path}/exhList')">MORE</button>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">전체</li>
-              <li data-filter=".filter-app">회화</li>
-              <li data-filter=".filter-card">미디어</li>
-              <li data-filter=".filter-web">디자인</li>
-              <li data-filter=".filter-web">사진</li>
-              <li data-filter=".filter-web">조각</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="row portfolio-container">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="${path}/resources/assets/img/portfolio/Exhibition1.png" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 1</h4>
-                <p>App</p>
-                <div class="portfolio-links">
-                  <a href="${path}/resources/assets/img/portfolio/Exhibition1.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href="${path}/resources/portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="${path}/resources/assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
-                <div class="portfolio-links">
-                  <a href="${path}/resources/assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                  <a href="${path}/resources/portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="${path}/resources/assets/img/portfolio/Exhibition1.png" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>마틴 마르지엘라</h4>
-                <p>롯데뮤지엄 서울</p>
-                <div class="portfolio-links">
-                  <a href="${path}/resources/assets/img/portfolio/Exhibition1.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-                  <a href="${path}/resources/portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="${path}/resources/assets/img/portfolio/Exhibition2.png" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Card 2</h4>
-                <p>Card</p>
-                <div class="portfolio-links">
-                  <a href="${path}/resources/assets/img/portfolio/Exhibition2.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                  <a href="${path}/resources/portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="${path}/resources/assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Web 2</h4>
-                <p>Web</p>
-                <div class="portfolio-links">
-                  <a href="${path}/resources/assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-                  <a href="${path}/resources/portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="${path}/resources/assets/img/portfolio/Exhibition1.png" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>App 3</h4>
-                <p>App</p>
-                <div class="portfolio-links">
-                  <a href="${path}/resources/assets/img/portfolio/Exhibition1.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-                  <a href="${path}/resources/portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="${path}/resources/assets/img/portfolio/Exhibition2.png" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Card 1</h4>
-                <p>Card</p>
-                <div class="portfolio-links">
-                  <a href="${path}/resources/assets/img/portfolio/Exhibition2.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-                  <a href="${path}/resources/portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="${path}/resources/assets/img/portfolio/Exhibition2.png" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Card 3</h4>
-                <p>Card</p>
-                <div class="portfolio-links">
-                  <a href="${path}/resources/assets/img/portfolio/Exhibition2.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-                  <a href="${path}/resources/portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="${path}/resources/assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
-                <div class="portfolio-links">
-                  <a href="${path}/resources/assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                  <a href="${path}/resources/portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Portfolio Section -->
-
+    
 
 
 
     <!-- ======= Team Section ======= -->
+    <!-- 작가.. -->
     <section id="team" class="team">
       <div class="container">
 
         <div class="section-title">
           <h2>ARTIST</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>EXHIBITION은 미술시장의 폐쇄성을 타파하고, 미술을 확산시키기 위해 각 분야의 전문가들이 모여 창립했습니다.<br>큐레이터, 도슨트, 기획자, 디자이너 각 분야에서 우수한 능력을 발휘하고 있는 이들이 함께합니다.<br>작품 및 전시회 선호도, 미술 취향에 대한 메타데이터를 구축해 작가ㆍ전시관ㆍ관람객 3주체가 모두 만족하는 서비스를 제공합니다.</p>
         </div>
 
         <div class="row">
 
           <div class="col-xl-3 col-lg-4 col-md-6">
             <div class="member">
-              <img src="${path}/resources/assets/img/team/team-1.jpg" class="img-fluid" alt="">
+              <img src="${path}/resources/assets/img/team/team-1.png" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Walter White</h4>
-                  <span>Chief Executive Officer</span>
+                  <h4>김영수 Kim yeongsu</h4>
+                  <span>Picture Artist</span>
                   <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
+                    <a href="http://www.mu-um.com/?mid=01&act=dtl&idx=5899&flag=cv"><i class="bi bi-twitter"></i></a>
+                    <a href="http://www.mu-um.com/?mid=01&act=dtl&idx=5899&flag=cv"><i class="bi bi-facebook"></i></a>
+                    <a href="http://www.mu-um.com/?mid=01&act=dtl&idx=5899&flag=cv"><i class="bi bi-instagram"></i></a>
                   </div>
                 </div>
               </div>
@@ -307,16 +150,15 @@
 
           <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.1s">
             <div class="member">
-              <img src="${path}/resources/assets/img/team/team-2.jpg" class="img-fluid" alt="">
+              <img src="${path}/resources/assets/img/team/team-2.png" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Sarah Jhonson</h4>
-                  <span>Product Manager</span>
+                  <h4>나탈리 레테 Nathalie Lété</h4>
+                  <span>Painting Artist</span>
                   <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
+                    <a href="http://www.mu-um.com/?mid=01&act=dtl&idx=6497"><i class="bi bi-twitter"></i></a>
+                    <a href="http://www.mu-um.com/?mid=01&act=dtl&idx=6497"><i class="bi bi-facebook"></i></a>
+                    <a href="http://www.mu-um.com/?mid=01&act=dtl&idx=6497"><i class="bi bi-instagram"></i></a>
                   </div>
                 </div>
               </div>
@@ -325,16 +167,15 @@
 
           <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.2s">
             <div class="member">
-              <img src="${path}/resources/assets/img/team/team-3.jpg" class="img-fluid" alt="">
+              <img src="${path}/resources/assets/img/team/team-3.png" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>William Anderson</h4>
-                  <span>CTO</span>
+                  <h4>차계남 Cha keanam</h4>
+                  <span>Molding Artist</span>
                   <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
+                    <a href="http://www.mu-um.com/?mid=01&act=dtl&idx=1751"><i class="bi bi-twitter"></i></a>
+                    <a href="http://www.mu-um.com/?mid=01&act=dtl&idx=1751"><i class="bi bi-facebook"></i></a>
+                    <a href="http://www.mu-um.com/?mid=01&act=dtl&idx=1751"><i class="bi bi-instagram"></i></a>
                   </div>
                 </div>
               </div>
@@ -343,16 +184,15 @@
 
           <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.3s">
             <div class="member">
-              <img src="${path}/resources/assets/img/team/team-4.jpg" class="img-fluid" alt="">
+              <img src="${path}/resources/assets/img/team/team-4.png" class="img-fluid" alt="">
               <div class="member-info">
                 <div class="member-info-content">
-                  <h4>Amanda Jepson</h4>
-                  <span>Accountant</span>
+                  <h4>파블로 피카소 Pablo Ruiz Picasso</h4>
+                  <span>Cubism Artist</span>
                   <div class="social">
-                    <a href=""><i class="bi bi-twitter"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
+                    <a href="http://www.mu-um.com/?mid=01&act=dtl&idx=311"><i class="bi bi-twitter"></i></a>
+                    <a href="http://www.mu-um.com/?mid=01&act=dtl&idx=311"><i class="bi bi-facebook"></i></a>
+                    <a href="http://www.mu-um.com/?mid=01&act=dtl&idx=311"><i class="bi bi-instagram"></i></a>
                   </div>
                 </div>
               </div>
@@ -363,6 +203,76 @@
 
       </div>
     </section><!-- End Team Section -->
+    
+    
+    
+    
+    <!-- ======= Frequently Asked Questions Section ======= -->
+    <!--FaQ 소개 Section  -->
+    <section id="faq" class="faq section-bg">
+      <div class="container">
+
+        <div class="section-title">
+          <h2 >Exhibition Introduce</h2>
+        </div>
+        <div class="faq-list">
+          <ul>
+            <li data-aos="fade-up">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Exhibition 이란?? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
+                <p>
+                  Exhibition은 사용자의 미술적 '취향', '호감도'를 파악하여 취향의 자유만큼이나, 나와 다른 취향에 대한 공감, 예술작가의 작품에 대한 존중이<br> 중요하다는 취지로 보다 많은 작품과 좋은 전시회를 사용자 맞춤으로 추천 드립니다.<br>Exhibition은 전국의 미술관, 갤러리 장소 정보 데이터를 구축해서 사용자의 위치, 거주지 체크인 정보를 분석하여 실시간 개최중인 미술 전시 관람의<br> 접근이 용이하도록 노력하겠습니다.
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="100">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Exhibition 회원에게는 어떤 혜택이 있나요?? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Exhibition 회원이 되시면, 회원님의 개인 취향과 더불어 거주지에서 가까운 전시회를 알려드리며, 취향분석을 기반으로 <br>전시회를 추천해드립니다.
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="200">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">Exhibition에 나의 작품을 등록하고 홍보하고 싶습니다. <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  창작 활동을 하는 작가 회원님들은 회원가입을 작가로 하신후 Exhibition에서 전시회를 등록할 수 있습니다. 작품등록에 대한 오류나 해상도가 큰파일에 대한 등록 요청은 Exhibition 지원센터 exhibition0101@gmail.com 로 메일을 보내주시면 최선을 다해 도와드리겠습니다.
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="300">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">작품 정보 or 전시회 or 갤러리의 정보가 올바르지 않아요! <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                	Exhibition의 작가, 작품정보는 서울시립미술관, 한국문화예술위원회_미술작가목록을 기반으로 구축되었습니다. 이에, 실시간 정확하지 않은 정보가<br> 있을 수 있는 점을 양해 부탁드리며, 전시회, 작품 이미지, 작가 프로필이 사실과 다를 경우, exhibition0101@gmail.com로 메일을 보내 주시면<br> 최대한 빨리 수정 내용을 반영해드리겠습니다. 
+                </p>
+              </div>
+            </li>
+
+            <li data-aos="fade-up" data-aos-delay="400">
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">Exhibition이 나아갈 방향! <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                	저희 홈페이지는 회원, 작가 여러분의 관심을 받아 더욱 성장하는 Exhibition이 되도록 항상 노력하고 있습니다.<br>홈페이지를 이용하시면서 불편한 점이나 요구사항이 있는 경우엔 Question을 이용해 주시면 확인 후 최대한 반영이 되도록 수정, 업데이트 하도록 노력하겠습니다<br>
+                </p>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+
+      </div>
+    </section><!-- End Frequently Asked Questions Section -->
+    
+    
+    
+    
+    
+    
 
 </body>
 </html>
