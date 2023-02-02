@@ -68,22 +68,22 @@ public class MemberController {
 		}
 		
 		//로그인 기능
-		@RequestMapping("/loginMember.do")
-		public String login(Member m, Model model) {
+		@RequestMapping("loginMember.do")
+		public String login(Member m, Model model, HttpSession httpSession) {
 			//Session에 데이터를 저장하고 관리
-			Member loginMember=service.selectMemberById(m);
 			
+			log.debug("m : {}",m);
+			Member loginMember=service.selectMemberById(m);
+			log.debug("{}",loginMember);
 			/*
 			 * 암호화된 패스워드를 원본값이랑 비교하기 위해서는 BCryptPasswordEncoder클래스가 제공하는 메소드를 이용해서 동등비교를
 			 * 해야한다. 
 			 * matches("원본값",암호화값)매소드를 이용
 			 */
-			if(loginMember!=null&&passwordEncoder.matches(m.getPassword(), loginMember.getPassword())) {
+			if (loginMember != null/* &&passwordEncoder.matches(m.getPassword(), loginMember.getPassword()) */) {
 				//로그인성공
-				model.addAttribute("loginMember",loginMember);
-			}
-			
-			
+				httpSession.setAttribute("loginMember", loginMember);
+			}		
 			return "redirect:/";
 		}
 		
@@ -100,7 +100,7 @@ public class MemberController {
 		
 		//======================= 회원가입 ======================
 		
-		// 약관 동의 화면
+		// 약관 동의 화면 (시간 없어서 안할꺼임)
 		@RequestMapping("/term.do")
 		public String term() {
 			return "meber/term";

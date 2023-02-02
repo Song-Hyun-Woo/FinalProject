@@ -264,7 +264,7 @@ input {
 	<div class="form-container sign-up-container">
 	</div>
 	<div class="form-container sign-in-container">
-		<form action="${path }/login" method="post">
+		<form action="${path }/member/loginMember.do" method="post">
 			<h1>ExhibitioN</h1>
             <br/>
 			<span>전시회 아무말 대찬치 주저리 주저리 플랫폼</span>
@@ -279,10 +279,11 @@ input {
 			<br/>
 			<div class="logininput">
 				<input type="text" name="memberId" id="memberId" class="form-control" placeholder="아이디" autofocus required />
+			</div>
+			<div class="logininput">	
 				<input type="password" name="password" id="password" class="form-control" placeholder="비밀번호" required/>
-			</div>	
-			<br/>
-			<button>로그인</button>
+			</div>		
+			<button id="btn-Yes" type="submit" name="save" id="save" class="btn btn-lg btn-dark btn-block">로그인</button>
 			<br/>
 			<div class="links"> 
 				<a href="${path }/member/findId.do" class="text-dark">아이디 찾기</a> | <a href="${path }/member/findPw.do" class="text-dark">비밀번호 찾기</a> | <a href="${path }/member/enrollMember.do" class="text-dark">회원가입</a>
@@ -304,6 +305,7 @@ input {
 const idJ = /^[a-z0-9][a-z0-9_\-]{4,19}$/;
 // 비밀번호 정규식
 const pwJ = /^[A-Za-z0-9]{6,20}$/;
+
 //아이디 체크
 $("#memberId").focusout((e)=>{
 	     if($('#memberId').val() == ""){
@@ -320,6 +322,7 @@ $("#memberId").focusout((e)=>{
 	       return true;
 	     }
 });
+
 //비밀번호 체크2
 $("#password").focusout((e)=>{
 	if($('#password').val()==""){
@@ -335,7 +338,7 @@ $("#password").focusout((e)=>{
 
 
 
-    const signUpButton = document.getElementById('signUp');
+   /*  const signUpButton = document.getElementById('signUp');
 	const signInButton = document.getElementById('signIn');
 	const container = document.getElementById('container');
 
@@ -345,7 +348,7 @@ $("#password").focusout((e)=>{
 
 	signInButton.addEventListener('click', () => {
 		container.classList.remove("right-panel-active");
-	});
+	}); */
 </script>
     
     

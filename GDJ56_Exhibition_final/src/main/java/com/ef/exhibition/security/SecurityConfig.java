@@ -26,11 +26,12 @@ public class SecurityConfig {
 		public SecurityFilterChain authenticationPath(HttpSecurity http) throws Exception{
 		
 			return http.csrf().disable()
-						.formLogin()
-							.successForwardUrl("/loginsuccess")
-							.and()
+//						.formLogin()
+//							//.successForwardUrl("/loginsuccess")
+//							.and()
 						.authorizeHttpRequests()
-							.antMatchers("/**").permitAll()
+							//.antMatchers("/**").permitAll()
+							.anyRequest().permitAll()
 							.and()
 						.logout()
 							.logoutUrl("/logout.do")
