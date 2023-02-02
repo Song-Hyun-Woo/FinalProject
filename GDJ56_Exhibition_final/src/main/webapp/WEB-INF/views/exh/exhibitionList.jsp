@@ -39,12 +39,12 @@ div#pageBar{
               <li data-filter=".filter-card" onclick='searchCategory("미디어")'>미디어</li>
               <li data-filter=".filter-web"onclick='searchCategory("디자인")'>디자인</li>
               <li data-filter=".filter-web" onclick='searchCategory("사진")'>사진</li>
-              <li data-filter=".filter-web" onclick='searchCategory("조각")'>조각</li>
+              <li data-filter=".filter-web" onclick='searchCategory("영상")'>영상</li>
             </ul>
           </div>
         </div>
         <div id="exhibition-container" class="row portfolio-container">
-			<h3>loading......</h3>
+			<img src="${path }/resources/images/ajax-loader.gif">
         </div>
 
       </div>

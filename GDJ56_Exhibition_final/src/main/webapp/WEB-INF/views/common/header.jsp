@@ -56,6 +56,7 @@
           <li><a class="nav-link scrollto " href="#team">ARTIST</a></li>
           <li><a class="nav-link scrollto " href="">GALLERY</a></li>
           <li><a class="nav-link scrollto " href="${path }/questionWrite.do">QUESTION</a></li>
+          
           <%-- <li><a class="getstarted scrollto" href="${path}/member/login.do">Login</a></li> --%>
         
         	<c:if test="${loginMember==null }">
@@ -74,13 +75,7 @@
          		<li class="dropdown"><a href="${path }/admin/adminMain.do" >관리자페이지</a></li>
          		<li class="dropdown"><a href="${path }/member/logout.do" >로그아웃</a></li>  
    	  		</c:if>	
-        </ul>
-
-
-	
-      </nav><!-- .navbar -->
-    </div>
-      </div>
+   	  		
   </header><!-- End Header -->
 
   <!-- Vendor JS Files -->
