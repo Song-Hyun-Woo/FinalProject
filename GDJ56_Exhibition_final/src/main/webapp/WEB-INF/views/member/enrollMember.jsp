@@ -434,7 +434,7 @@
 							alert('인증번호가 발송 되었습니다. \n휴대폰에서 인증번호 확인을 해주십시오.');
 							
 							 $('#enterBtn').click((e)=>{
-								const userNum = $('#userNum').val();
+								const userNum = $('#phone2').val(); // 주의
 								 console.log(checkNum);
 								 console.log(userNum);		
 								if(checkNum === userNum) {

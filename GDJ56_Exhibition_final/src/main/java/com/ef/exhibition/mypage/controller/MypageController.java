@@ -59,7 +59,7 @@ public class MypageController {
 			
 			
 			// 회원 탈퇴 화면
-			@RequestMapping("/Secession")
+			@RequestMapping("/secession.do")
 			public String secession() {
 				return "mypage/secession";
 			}

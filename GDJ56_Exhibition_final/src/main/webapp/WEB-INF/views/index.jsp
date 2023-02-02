@@ -9,11 +9,9 @@
 	<jsp:param name="title" value="MainPage"/>
 </jsp:include>
 <style>
-
 </style>
 
 <script>
-
 </script>
     <!-- ======= Hero Section ======= -->
   <section id="hero">
