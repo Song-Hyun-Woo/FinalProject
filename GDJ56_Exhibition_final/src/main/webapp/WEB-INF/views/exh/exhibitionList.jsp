@@ -44,7 +44,7 @@ div#pageBar{
           </div>
         </div>
         <div id="exhibition-container" class="row portfolio-container">
-			<img src="${path }/resources/images/ajax-loader.gif">
+			<h4>loading...</h4>
         </div>
 
       </div>
@@ -65,9 +65,11 @@ div#pageBar{
 -->
 <script>
 	let exhibitionData={};
+	
 	$(()=>{								//onload함수
 		requestExhibition();
 	});
+	
     function requestExhibition(page=1,perpage=50){
     	$.ajax({
 		      type: "GET",
@@ -90,9 +92,10 @@ div#pageBar{
     	}
     }
     
+	        		/* "href" : "${path}/exhView.do?no="+e['DP_SEQ'], */
     
     function createDataTag(data){
-    	console.log(data);
+    	//console.log(data);
     	 const dataContainer=$("div#exhibition-container").css("height",'auto');
 	     dataContainer.html('');
     	 data.forEach(e=>{
@@ -102,15 +105,17 @@ div#pageBar{
 	        		src:e['DP_MAIN_IMG']
 	        	});
 	        	const content=$("<div class='portfolio-info'>");
-	        	const no=$("<p>").text(e['DP_SEQ']);
+	        	const no=$("<p>").text(e['DP_SEQ'])[0].innerText;
+	        	console.log(no);
 	        	content.append(no);
 	        	const p=$("<h4>").text(e['DP_NAME']);
 	        	content.append(p);
 	        	const subcontent=$('<div class="portfolio-links">');
 	        	const linka=$('<a>').attr({
-	        		"href" : "${path}/exhibitionView.do=",
+	        		"href" : "${path}/exhView.do?no="+no,
 	        		"title":"More Details"
 	        	}).html('<i class="bx bx-link"></i>');
+	        	console.log(linka);
 	        	subcontent.append(linka);
 	        	content.append(subcontent);
 	        	

@@ -64,18 +64,19 @@ div.newscontainer{
 <div class="newscontainer">
 	<h3>&nbsp;&nbsp;&nbsp;&nbsp;NEWS</h3>
 </div>
-<br>
+<br><br>
 <div class="newsWrite">
 <!-- 관리자만 보이게 분기처리 -->
-	<button class="btn btn-md btn-dark btn-block" onclick="location.assign('${path}/newsWrite.do')">작성</button>
-	
+	<c:if test="${loginMember.memberId eq 'admin' }">
+		<button class="btn btn-md btn-dark btn-block" onclick="location.assign('${path}/newsWrite.do')">작성</button>
+	</c:if>
 </div>
 <table>
   <thead>
     <tr>
       <th>번호</th>
       <th>제목</th>
-      <!-- <th>작성자</th> -->
+      <th>작성자</th>
       <th>작성일</th>
       <th>첨부파일</th>
     </tr>
@@ -84,7 +85,7 @@ div.newscontainer{
     <c:choose>
     	<c:when test="${empty newsn }">
         	<tr>
-           		<td colspan="4">조회된 게시물이 없습니다.</td>
+           		<td colspan="5">조회된 게시물이 없습니다.</td>
             </tr>
         </c:when>
         	<c:otherwise>
@@ -96,7 +97,7 @@ div.newscontainer{
             					<c:out value="${n.newsTitle }"/>
             				</a>
             			</td>
-            			<%-- <td><c:out value="${n.newsWriter.memberId }"/></td> --%>
+             			<td><c:out value="관리자"/></td>
             			<td><c:out value="${n.newsEnrollDate }"/></td>
             			<td>
             				<c:if test="${empty n.files }">없음</c:if>

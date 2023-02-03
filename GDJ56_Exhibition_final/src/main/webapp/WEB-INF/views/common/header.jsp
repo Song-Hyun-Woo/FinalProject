@@ -75,7 +75,8 @@
          		<li class="dropdown"><a href="${path }/admin/adminMain.do" >관리자페이지</a></li>
          		<li class="dropdown"><a href="${path }/member/logout.do" >로그아웃</a></li>  
    	  		</c:if>	
-   	  		
+   	  		</ul>
+   	  		</nav>
   </header><!-- End Header -->
 
   <!-- Vendor JS Files -->
