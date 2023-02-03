@@ -74,7 +74,7 @@ public class ExhibitionController {
 			if(no!=null) urlBuilder.append("/" + URLEncoder.encode(no,"UTF-8"));
 			
 //			log.debug("{}",no);
-			log.debug("{}",urlBuilder);
+//			log.debug("{}",urlBuilder);
 			
 			// 서비스별 추가 요청 인자이며 자세한 내용은 각 서비스별 '요청인자'부분에 자세히 나와 있습니다.
 			//urlBuilder.append("/" + URLEncoder.encode("20220301","UTF-8")); /* 서비스별 추가 요청인자들*/

@@ -134,6 +134,16 @@ section.portfolio-details{
 		li4.prepend(strong4).css("list-style-type","square");
 		contentinfo.append(li4);
 		
+		
+		
+		const strong6=$("<strong>").text("가격\u00a0\u00a0\u00a0:\u00a0\u00a0\u00a0");
+		const li6=$("<li>").text(data['DP_VIEWCHARGE']);
+		//전시 비용이 무료이면 값이 출력 안돼는데.... 디폴트 무료.....
+		li6.prepend(strong6).css("list-style-type","square");
+		contentinfo.append(li6);
+		
+		
+		
 		const strong5=$("<strong>").text("홈페이지 URL\u00a0\u00a0\n");
 		const at=$("<a>").attr({
 			"href" : "data['DP_LNK']"
@@ -146,8 +156,12 @@ section.portfolio-details{
 		contentinfo.append(li5);
 		
 		
-		const button=$("<button class='btn btn-sm btn-dark btn-block'  onclick='location.replace('${path}')'>").text("결제");
+		const li7=$("<li>").text("\u00a0");
+		li7.css("list-style","none");
+		contentinfo.append(li7);
 		
+		const button=$("<button class='btn btn-success' onclick='location.replace('${path}/')'>").text("예매");
+		button.css("margin-left","180px");
 		contentinfo.append(button);
 		
 		/* 태그 변수 생성해서 append 해서 추가 해서 사용하기  */
@@ -166,7 +180,7 @@ section.portfolio-details{
 		let h5=$("<h5>");
 		h5.text("전시 정보");
 		detail.append(h5);
-		let content1=data['DP_INFO'].replace(/(<[a-z ="/]*>)|&lt;|&gt;|&nbsp;/g,"");
+		let content1=data['DP_INFO'].replace(/(<[a-z ="/]*>)|&lt;|&gt;|&nbsp;|<[^>]*>?/g,"");
 		let pp=$("<p>").text(content1);
 		//pp.replace(/&nbsp;/gi,' ');		//&nbsp;는 공백으로 교체
 		//pp.replace(/\&lt;/g,"<");			//&lt는 < 교체
