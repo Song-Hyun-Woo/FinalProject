@@ -15,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
+@RequestMapping("/mypage")
 public class MypageController {
 	
 	private MypageService service;
@@ -59,7 +60,7 @@ public class MypageController {
 			
 			
 			// 회원 탈퇴 화면
-			@RequestMapping("/Secession")
+			@RequestMapping("/secession")
 			public String secession() {
 				return "mypage/secession";
 			}
@@ -86,6 +87,28 @@ public class MypageController {
 				
 				return mv;
 			}
+			
+			// 찜(전시회) 
+			
+			// 마이페이지 찜한 전시회 화면
+			@RequestMapping("/myLike")
+			public String myLike() {
+				return "mypage/myLike";
+			}
+			
+			// 찜(전시회 확인하기)
+			
+			// 나의 예매 내역(결제)
+			
+			
+			
+			// 나의 문의 내역
+			
+		
+			
+			
+			
+			
 			
 
 }

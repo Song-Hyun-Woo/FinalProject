@@ -53,30 +53,34 @@
         <ul>
           <li><a class="nav-link scrollto " href="${path }/newslist.do">NEWS</a></li>
           <li><a class="nav-link scrollto " href="${path }/exhList">EXHIBITION</a></li>
-          <li><a class="nav-link scrollto " href="#team">ARTIST</a></li>
+          <li><a class="nav-link scrollto " href="">ARTIST</a></li>
           <li><a class="nav-link scrollto " href="">GALLERY</a></li>
           <li><a class="nav-link scrollto " href="${path }/questionWrite.do">QUESTION</a></li>
-        </ul>
-
-
-          <li><a class="getstarted scrollto" href="${path}/member/login.do">Login</a></li>
-	
-      </nav><!-- .navbar -->
-    </div>
-    <div> 
-	      <c:if test="${loginMember!=null}">
-	                <c:if test="${loginMember.memberId = 'admin'}">
-	                	<p><a href="${path}/admin/adminMain.do">ADMINPAGE</a></p>
-	                </c:if>
-	                <c:if test="${loginMember.memberId ne 'admin'}">
-	                	<p><a href="${path}/mypage/mypageMain.do">MYPAGE</a></p>
-	                </c:if>
-                </c:if>
-                <c:if test="${loginMember==null}">
-                	<%-- <img src="${path}/" onclick="location.assign('${path}/member/login')"> --%>
-               </c:if>
-      </div>
-      </ul>
+          
+          <%-- <li><a class="getstarted scrollto" href="${path}/member/login.do">Login</a></li> --%>
+        
+        	<c:if test="${loginMember==null }">
+                 <li> <a class="getstarted scrollto" href="${path}/member/login.do">Login</a></li>
+              </c:if>
+              <!-- 일반회원 로그인 -->
+              <c:if test="${ (loginMember!=null) && (loginMember.memberId ne 'admin') }">
+                 <li class="dropdown"><a class="dropdown-toggle" href="${path }/mypage/mypageMain.do" data-toggle="dropdown">MYPAGE</a> 
+                 <ul class="dropdown-menu" role="menu">
+                 <li class="dropdown"><a href="${path }/member/logout.do" >MODIFY</a></li>
+                 <li class="dropdown"><a href="${path }/member/booking.do" >RESERVATION</a></li>
+                 <li class="dropdown"><a href="${path }/member/myLike.do" >ZZIM</a></li>
+                 <li class="dropdown"><a href="${path }/member/logout.do" >LOGOUT</a></li>              
+                   </ul>
+                 </li> 
+              </c:if>
+              <!-- 관리자 로그인-->
+              <c:if test="${(loginMember!=null) && (loginMember.memberId eq 'admin') }" >
+         		<li class="dropdown"><a class="dropdown-toggle" href="${path }/admin/adminMain.do" data-toggle="dropdown">ADMINPAGE</a></li>
+         		 <ul class="dropdown-menu" role="menu">
+                 	<li class="dropdown"><a href="${path }/member/logout.do" >LOGOUT</a></li>              
+                   </ul>
+   	  		</c:if>	
+   	  		
   </header><!-- End Header -->
 
   <!-- Vendor JS Files -->
@@ -89,4 +93,3 @@
 
   <!-- Template Main JS File -->
   <script src="${path}/resources/assets/js/main.js"></script>
-

@@ -34,6 +34,7 @@
 <div class="pinput_right"><input type="text" name="email" id="email" placeholder="이메일"></div>
 <div style="clear:both;"></div>
 
+<div class="pinput_right"><input type="text" name="" id="" placeholder="문의 제목"></div>
 <div class="pinput_left">문의 내용<font color="red">*</font></div>
 <div class="pinput_right">
 <textarea rows="6" name="content" id="m_content" style="margin-top:10px; border:none; border-bottom:1px solid #b4b4b4; width:500px; outline:0; margin-top:10px; padding:5px;" placeholder="문의하실 내용을 입력해 주세요"></textarea>
