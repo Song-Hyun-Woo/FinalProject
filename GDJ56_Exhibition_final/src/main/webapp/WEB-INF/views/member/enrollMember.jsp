@@ -2,7 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<c:set var="path" value=""/>    
+<c:set var="path" value=""/> 
+<jsp:include page="/WEB-INF/views/common/header.jsp"/>   
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -434,7 +435,7 @@
 							alert('인증번호가 발송 되었습니다. \n휴대폰에서 인증번호 확인을 해주십시오.');
 							
 							 $('#enterBtn').click((e)=>{
-								const userNum = $('#phone2').val();
+								const userNum = $('#phone2').val(); // 주의
 								 console.log(checkNum);
 								 console.log(userNum);		
 								if(checkNum === userNum) {
@@ -532,3 +533,5 @@
 	     
 	 </script>
 </html>
+
+<jsp:include page="/WEB-INF/views/common/footer.jsp"/>

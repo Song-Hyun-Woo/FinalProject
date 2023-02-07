@@ -54,6 +54,7 @@ public class NewsController {
 		mv.addObject("newsn",service.selectNewsList(Map.of("cPage",cPage,"numPerpage",numPerpage)));
 //		log.debug("{}",mv.getModel().get("newsn"));
 		int totalData=service.selectNewsCount();
+		log.debug("{}",totalData);
 		mv.addObject("pageBar",PageFactory.getPageBar(cPage,numPerpage,totalData, "newslist.do"));
 		mv.setViewName("news/newsList");
 		return mv;
@@ -151,7 +152,6 @@ public class NewsController {
 		mv.addObject("msg",result>0? "Insert News":"Fail News");
 		mv.addObject("loc","/newslist.do");
 		mv.setViewName("common/msg");
-		
 		return mv;
 	}
 	

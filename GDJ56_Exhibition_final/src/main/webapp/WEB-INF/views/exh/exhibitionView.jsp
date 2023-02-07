@@ -3,6 +3,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
+<!-- 카카오맵 스크립트 -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e610ab514914e179634c73ca831a83ac&libraries=services"></script>
+
+<!-- 카카오 공유하기 -->        
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.1.0/kakao.min.js"
+  integrity="sha384-dpu02ieKC6NUeKFoGMOKz6102CLEWi9+5RQjWSV0ikYSFFd8M3Wp2reIcquJOemx" crossorigin="anonymous"></script>
+<script>
+  Kakao.init('e610ab514914e179634c73ca831a83ac'); // 사용하려는 앱의 JavaScript 키 입력
+</script>
+
 <c:set var="path" value="${pageContext.request.contextPath }"/>       
 
 <jsp:include page="/WEB-INF/views/common/header.jsp">
@@ -16,113 +26,186 @@ div.excontainer{
 	background-image: url('${path}/resources/images/exhibitiontitle.png');
 }
 
+div.swiper-slide>img{
+	width: 800px;
+    height: 1000px;
+    margin-left:80px;
+}
+div.portfolio-info{
+	width:500px;
+	margin-right:31px;
+}
+div.col-lg-8{
+	width:auto;
+}
+div.col-lg-4{
+	margin-left:40px;
+	border-top: 1px solid #e6e6e6;
+}
+section.portfolio-details{
+	border-top: 1px solid #e6e6e6;
+}
 </style>
 <br><br><br><br>
 <div class="excontainer">
 	<h3>&nbsp;&nbsp;&nbsp;&nbsp;EXHIBITION - VIEW</h3>
 </div>
 <br>
-    <section id="portfolio-details" class="portfolio-details">
-      <div class="container">
-        <%-- <div class="row gy-4">
-          <div class="col-lg-8">
-              <div class="swiper-wrapper align-items-center">
-                <div class="swiper-slide">
-                  <img src="${path }/assets/img/portfolio/portfolio-1.jpg" alt="">
-                </div>
-              </div>
-          </div>
 
-          <div class="col-lg-4">
-            <div class="portfolio-info">
-              <h3>Project information</h3>
-              <ul>
-                <li><strong>Category</strong>: Web design</li>		<!--작가 이름  -->
-                <li><strong>Client</strong>: ASU Company</li>		<!-- 전시장소 -->
-                <li><strong>Project date</strong>: 01 March, 2020</li>	<!-- 전시 시작 기간 -->
-                <li><strong>Project date</strong>: 01 March, 2020</li>	<!-- 전시 종료 기간 -->
-                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>		<!-- 전시 URL -->
-                <li><strong>Project URL</strong>: <button onclick="location.replace('')">예매</button></li>		<!-- 전시 URL -->
-              </ul>
-            </div>
-            <div class="portfolio-description">
-              <h2>This is an example of portfolio detail</h2>	<!--전시 내용  -->
-              <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div> --%>
+<main id="main">
+    <section id="portfolio-details" class="portfolio-details" >
+      <div class="viewcontainer">
+       
+      </div>
     </section><!-- End Portfolio Details Section -->
+</main>
+    
+    
+    
+<br>
+		<h5 style="text-align:center;">전시회 주소</h5> 
+	<div id="map" style="width:80%;height:400px;margin:auto;border:3px solid;border-color:rgba(18, 63, 63, 63);">
+	</div>
+<br>
+
+		<div class="card-body" style="text-align:center;">
+            <a href='${path }/exhList' class="btn btn-sm btn-dark btn-block" role="button">목록</a>
+        </div>
+        <br>
+
 
 <script>
-    let exhibitionView={};
+	
+////////////////////////////////////////////////////////////////////////		
+
+/* 	      url: "${path}/exhibitionView.do?no="+['DP_SEQ'], */
+		
+   let exhibitionViews={};
+    //let exhibitionViews;
+   //let place="";
     
-	$(()=>{								//onload함수
+	$(()=>{								//onload함수 적용
 		requestExhibition();
 	});
 	
 	function requestExhibition(no){
+		//console.log("${no}");
 		$.ajax({
 	      type: "GET",
-	      url: "${path}/exhApiList.do",
+	      url: "${path}/exhibitionView.do?no="+"${no}",
 	      data: {no:no},
 	      success: function(response){
+	    	  //console.log(no);
 	        const data=JSON.parse(response).ListExhibitionOfSeoulMOAInfo.row;
-	        exhibitionView=data;
-	        createViewTag(data);
+	        //console.log(data);
+	        exhibitionViews=data;
+	        createViewTag(data[0]);
+	        makeMap(data[0]['DP_PLACE']);
 	    }}
 	);
 }
+	
 	function createViewTag(data){
-		const dataContainer=$("div.container").css("height","auto");
+		//console.log(data);
+		//console.log(data['DP_NAME']);
+		//place=data['DP_PALECE'];
+		const dataContainer=$("div.viewcontainer").css("height","auto");
 		dataContainer.html('');
 		const container=$("<div class='row gy-4'>");
 		const maincontainer=$("<div class='col-lg-8'>");
 		const imgcontainer=$("<div class='swiper-slide'>");
 		const mainimg=$("<img alt=''>").attr({
-			src:['DP_MAIN_IMG']
+			src:data['DP_MAIN_IMG']
 		});
 		const content=$("<div class='col-lg-4'>");
 		const contentinfo=$("<div class='portfolio-info'>");
-		
-		const title=$("<h3>").text(['DP_NAME']);
-		const ul=$("<ul>");
-		const strong1=$("<strong>").text("작가 이름 : ");
-		const li1=$("<li>").append(strong1).text(['DP_ARTIST']);
-		
-		const strong2=$("<strong>").text("전시 장소 : ");
-		const li2=$("<li>").append(storng2).text(['DP_PLACE']);
-		
-		const strong3=$("<strong>").text("전시 시작일 : ");
-		const li3=$("<li>").append(strong3).text(['DP_START']);
-		const strong4=$("<strong>").text("전시 종료일 : ");
-		const li4=$("<li>").append(strong4).text(['DP_END']);
-		
-		const strong5=$("<strong>").text("홈페이지 URL : ");
-		const a=$("<a>").attr({
-			"href" : "[DP_LNK]"
-		});
-		strong5.append(a);
-		const li5=$("<li>").append(strong5);
-		
-		const button=$("<button class='btn btn-md btn-dark btn-block' onclick='location.replace('${path}')'>결제");
-		const li6=$("<li>").append(button);
-		
-		//////////////////////////////////////////////////////
-		contentinfo.append(li6);
-		contentinfo.append(li5);
-		contentinfo.append(li4);
-		contentinfo.append(li3);
-		contentinfo.append(li2);
-		contentinfo.append(li1);
-		contentinfo.append(ul);
+		const title=$("<h3>").text(data['DP_NAME']);
 		contentinfo.append(title);
 		
+		const ul=$("<ul>");
+		const strong1=$("<strong>").text(" 작가\u00a0\u00a0\u00a0:\u00a0\u00a0\u00a0");
+		/* const li1=$("<li>").append(strong1); */
+		const li1=$("<li>").text(data['DP_ARTIST']);
+		li1.prepend(strong1).css("list-style-type","square");
+		contentinfo.append(li1);
+		
+		const strong2=$("<strong>").text(" 장소\u00a0\u00a0\u00a0:\u00a0\u00a0\u00a0");
+		const li2=$("<li>").text(data['DP_PLACE']);
+		li2.prepend(strong2).css("list-style-type","square");
+		contentinfo.append(li2);
+		
+		const strong3=$("<strong>").text("전시 시작일\u00a0\u00a0\u00a0:\u00a0\u00a0\u00a0");
+		const li3=$("<li>").text(data['DP_START']);
+		li3.prepend(strong3).css("list-style-type","square");
+		contentinfo.append(li3);
+		
+		const strong4=$("<strong>").text("전시 종료일\u00a0\u00a0\u00a0:\u00a0\u00a0\u00a0");
+		const li4=$("<li>").text(data['DP_END']);
+		li4.prepend(strong4).css("list-style-type","square");
+		contentinfo.append(li4);
+		
+		
+		
+		const strong6=$("<strong>").text("가격\u00a0\u00a0\u00a0:\u00a0\u00a0\u00a0");
+		const li6=$("<li>").text(data['DP_VIEWCHARGE'].replace(/(<[a-z ="/]*>)|&lt;|&gt;|&nbsp;|<[^>]*>?/g,""));
+		
+		//전시 비용이 무료이면 값이 출력 안돼는데.... 디폴트 무료.....
+		li6.prepend(strong6).css("list-style-type","square");
+		contentinfo.append(li6);
+		
+		
+		
+		const strong5=$("<strong>").text("홈페이지 URL\u00a0\u00a0\n");
+		const at=$("<a>").attr({
+			"href" : "data['DP_LNK']"
+		});
+		at.text(data['DP_LNK']);
+		strong5.append(at);
+		//const li5=$("<li>").text(data['DP_LNK']);
+		const li5=$("<li>");
+		li5.prepend(strong5).css("list-style-type","square");
+		contentinfo.append(li5);
+		
+		
+		const li7=$("<li>").text("\u00a0");
+		li7.css("list-style","none");
+		contentinfo.append(li7);
+		
+		const button=$("<button class='btn btn-success' onclick='location.replace('${path}/')'>").text("예매");
+		button.css("margin-left","180px");
+		contentinfo.append(button);
+		
+		
+		//카카오 공유하기 추가
+		
+		
+		
+		/* 태그 변수 생성해서 append 해서 추가 해서 사용하기  */
+		////////////////////////////////////////////////////////////////////////////////////
+		contentinfo.append(ul);
+		
+		//태그는 리플레이스로 잘라내서 사용
+		//패턴으로 정규표현식 써서 잘라낸다
+		// 전체 태그 삭제 .replace(/(<[a-z ="/]*>)/g,"");
+		// nbsp; 삭제 .replace(/&nbsp;/gi,' ');
+		//innerText로 보내줌
+		
+		//객체에 .replace해서 못찾았다 받아오는 데이터에 .replace해야 잘 찾는다
+		
 		const detail=$("<div class='portfolio-description'>");
-		const h4=$("<h4>").text('[DP_INFO]');
-		detail.append(h4);
+		let h5=$("<h5>");
+		h5.text("전시 정보");
+		detail.append(h5);
+		let content1=data['DP_INFO'].replace(/(<[a-z ="/]*>)|&lt;|&gt;|&nbsp;|<[^>]*>?/g,"");
+		let pp=$("<p>").text(content1);
+		//pp.replace(/&nbsp;/gi,' ');		//&nbsp;는 공백으로 교체
+		//pp.replace(/\&lt;/g,"<");			//&lt는 < 교체
+		//pp.replace(/\&gt;/g,">");			//&gt는 > 교체
+		/////////////////////////////////////////////////////////////전부 삭제로 교체
+		
+		//console.log(pp);
+		detail.append(pp).css("border-top","2px solid #e6e6e6");
+		
 		
 		//div.col-lg-4 > div.portfolio-info > div.portfolio-description
 		content.append(contentinfo);
@@ -134,36 +217,74 @@ div.excontainer{
 		//div.col-lg-8 > div.swiper-slide
 		maincontainer.append(imgcontainer);
 		
-		//div.row gy-4 > div.col-lg-8
+		//div.row gy-4 > div.col-lg-4
 		container.append(maincontainer);
+		//div.row gy-4 > div.col-lg-8
+		container.append(content).css("border-bottom","1px solid #e6e6e6");
 		
 		//div.container > div.row gy-4
 		dataContainer.append(container);
 		
 		
-		
-		
-		
-		/* 태그 변수 생성해서 append 해서 추가 해서 사용하기  */
-		
 	}
-    
-    
-    
-    
-    
-    
+    ///////////////////////////////////////////////////
+//카카오맵 api 적용 키워드(['DP_PLACE'])를 이용해서 맵핑찍기
+  function makeMap(place){ 
+	// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
+	var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+
+	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+	    mapOption = {
+	        center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+	        level: 3 // 지도의 확대 레벨
+	    };  
+
+	// 지도를 생성합니다    
+	var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+	// 장소 검색 객체를 생성합니다
+	var ps = new kakao.maps.services.Places(); 
+	console.log(place);
+	
+	// 키워드로 장소를 검색합니다
+	ps.keywordSearch(place, placesSearchCB); 
+
+	// 키워드 검색 완료 시 호출되는 콜백함수 입니다
+	function placesSearchCB (data, status, pagination) {
+	    if (status === kakao.maps.services.Status.OK) {
+
+	        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+	        // LatLngBounds 객체에 좌표를 추가합니다
+	        var bounds = new kakao.maps.LatLngBounds();
+
+	        for (var i=0; i<data.length; i++) {
+	            displayMarker(data[i]);    
+	            bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+	        }       
+
+	        // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+	        map.setBounds(bounds);
+	    } 
+	}
+
+	// 지도에 마커를 표시하는 함수입니다
+	function displayMarker(place) {
+	    
+	    // 마커를 생성하고 지도에 표시합니다
+	    var marker = new kakao.maps.Marker({
+	        map: map,
+	        position: new kakao.maps.LatLng(place.y, place.x) 
+	    });
+
+	    // 마커에 클릭이벤트를 등록합니다
+	    kakao.maps.event.addListener(marker, 'click', function() {
+	        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+	        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+	        infowindow.open(map, marker);
+	    });
+	}
+  }	
+	
 </script>
-
-
-
-
-
-
-
-
-
-
-
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>

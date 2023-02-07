@@ -34,7 +34,7 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
             <div class="portfolio-wrap">
-              <img src="${path}/resources/images/mypage/회원수정.jpg" class="img-fluid" alt="">
+              <img src="${path}/resources/images/mypage/.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <div class="portfolio-links">
                   <h2>나의 예매</h2>

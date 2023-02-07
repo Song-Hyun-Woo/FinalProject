@@ -67,7 +67,7 @@ div.newsWrite{
       <td>&nbsp;</td>
       <td align="center">작성자</td>
       <%-- <td><input name="newsWriter" size="130" maxlength="50" value="${loginMember.memberId }"></td> --%>
-      <td><input name="newsWriter" size="130" maxlength="50" value="5" readonly required ></td>
+      <td><input name="newsWriter" size="130" maxlength="50" value="${loginMember.memberId }"readonly required ></td>
       <td>&nbsp;</td>
      </tr>
      <tr height="1" bgcolor="#dddddd"><td colspan="4"></td></tr>

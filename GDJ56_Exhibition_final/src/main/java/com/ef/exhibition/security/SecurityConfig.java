@@ -22,23 +22,23 @@ public class SecurityConfig {
 	   }
 	
 	//3. 시큐리티 설정	
-	@Bean
-	public SecurityFilterChain authenticationPath(HttpSecurity http) throws Exception{
-	
-		return http.csrf().disable()
-//					.formLogin()
-//						//.successForwardUrl("/loginsuccess")
-//						.and()
-					.authorizeHttpRequests()
-						//.antMatchers("/**").permitAll()
-						.anyRequest().permitAll()
-						.and()
-					.logout()
-						.logoutUrl("/logout.do")
-						.and()
-					.build();
-	
-	}
+		@Bean
+		public SecurityFilterChain authenticationPath(HttpSecurity http) throws Exception{
+		
+			return http.csrf().disable()
+//						.formLogin()
+//							//.successForwardUrl("/loginsuccess")
+//							.and()
+						.authorizeHttpRequests()
+							//.antMatchers("/**").permitAll()
+							.anyRequest().permitAll()
+							.and()
+						.logout()
+							.logoutUrl("/logout.do")
+							.and()
+						.build();
+		
+		}
 	
 	
 	

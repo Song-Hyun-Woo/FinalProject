@@ -2,7 +2,7 @@ package com.ef.exhibition.common;
 
 public class PageFactory {
 		
-	public static String getPageBar(int totalData, int numPerpage, int cPage, String url) {
+	public static String getPageBar(int cPage, int numPerpage,int totalData , String url) {
 			//pagebar를 만들어서 반환해주는 기능을 하는 메소드
 			String pageBar="";
 			int totalPage=(int)Math.ceil((double)totalData/numPerpage);

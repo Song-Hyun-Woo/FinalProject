@@ -273,6 +273,7 @@ input {
 const idJ = /^[a-z0-9][a-z0-9_\-]{4,19}$/;
 // 비밀번호 정규식
 const pwJ = /^[A-Za-z0-9]{6,20}$/;
+
 //아이디 체크
 $("#memberId").focusout((e)=>{
 	     if($('#memberId').val() == ""){
@@ -289,6 +290,7 @@ $("#memberId").focusout((e)=>{
 	       return true;
 	     }
 });
+
 //비밀번호 체크2
 $("#password").focusout((e)=>{
 	if($('#password').val()==""){

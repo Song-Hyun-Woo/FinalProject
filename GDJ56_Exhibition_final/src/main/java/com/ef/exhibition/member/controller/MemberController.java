@@ -67,6 +67,8 @@ public class MemberController {
 			return "/member/login";
 		}
 		
+		//로그인 기능
+
 		@RequestMapping("loginMember.do")
 		public String login(Member m, Model model, HttpSession httpSession) {
 			//Session에 데이터를 저장하고 관리
@@ -79,7 +81,9 @@ public class MemberController {
 			 * 해야한다. 
 			 * matches("원본값",암호화값)매소드를 이용
 			 */
+
 			if (loginMember != null && passwordEncoder.matches(m.getPassword(), loginMember.getPassword())) {
+
 				//로그인성공
 				httpSession.setAttribute("loginMember", loginMember);
 			}		
@@ -99,7 +103,7 @@ public class MemberController {
 		
 		//======================= 회원가입 ======================
 		
-		// 약관 동의 화면
+		// 약관 동의 화면 (시간 없어서 안할꺼임)
 		@RequestMapping("/term.do")
 		public String term() {
 			return "meber/term";

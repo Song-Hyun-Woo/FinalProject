@@ -39,12 +39,12 @@ div#pageBar{
               <li data-filter=".filter-card" onclick='searchCategory("미디어")'>미디어</li>
               <li data-filter=".filter-web"onclick='searchCategory("디자인")'>디자인</li>
               <li data-filter=".filter-web" onclick='searchCategory("사진")'>사진</li>
-              <li data-filter=".filter-web" onclick='searchCategory("조각")'>조각</li>
+              <li data-filter=".filter-web" onclick='searchCategory("영상")'>영상</li>
             </ul>
           </div>
         </div>
         <div id="exhibition-container" class="row portfolio-container">
-			<h3>loading......</h3>
+			<h4>loading...</h4>
         </div>
 
       </div>
@@ -65,9 +65,11 @@ div#pageBar{
 -->
 <script>
 	let exhibitionData={};
+	
 	$(()=>{								//onload함수
 		requestExhibition();
 	});
+	
     function requestExhibition(page=1,perpage=50){
     	$.ajax({
 		      type: "GET",
@@ -90,9 +92,11 @@ div#pageBar{
     	}
     }
     
+	        		/* "href" : "${path}/exhView.do?no="+e['DP_SEQ'], */
     
     function createDataTag(data){
-    	console.log(data);
+	     let jjimdata=JSON.parse('${jjim}');
+	     console.log(jjimdata);
     	 const dataContainer=$("div#exhibition-container").css("height",'auto');
 	     dataContainer.html('');
     	 data.forEach(e=>{
@@ -102,16 +106,37 @@ div#pageBar{
 	        		src:e['DP_MAIN_IMG']
 	        	});
 	        	const content=$("<div class='portfolio-info'>");
-	        	const no=$("<p>").text(e['DP_SEQ']);
+	        	const no=$("<p>").text(e['DP_SEQ'])[0].innerText;
+	        	console.log(no);
 	        	content.append(no);
 	        	const p=$("<h4>").text(e['DP_NAME']);
 	        	content.append(p);
 	        	const subcontent=$('<div class="portfolio-links">');
 	        	const linka=$('<a>').attr({
-	        		"href" : "${path}/exhibitionView.do=",
+	        		"href" : "${path}/exhView.do?no="+no,
 	        		"title":"More Details"
 	        	}).html('<i class="bx bx-link"></i>');
+	        	
+	        	//json형식으로 받아온 데이터를 for문을 돌려서 데이터 안에 있는 dpseq랑
+	        	//ajax로 가져온 API 데이터 DP_SEQ랑 같은 게 있다면 멈춰라
+	        	let jjimcheck="\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0♡"
+	        	for(let i=0;i<jjimdata.length;i++){
+
+	        		if(jjimdata[i].ex_No==e['DP_SEQ']){
+	        			jjimcheck="\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0♥"	
+		        		break;
+	        		}
+	        	}
+	        	const jjim=$("<a>")
+	        		.attr("href","${pageContext.request.contextPath}/insertJjim.do?memberNo=${loginMember.memberNo}&dpname="+e['DP_NAME']+"&dpseq="+e['DP_SEQ'])
+	        		.text(jjimcheck);
+	        	//로그인할때만 보이게 분기 처리
+	        	//쿼리스트링으로 id값, dpname, dpseq 데이터 넘김
+	        	//좋아요 버튼 이미지 로 변경
+	        	
+	        	console.log(linka);
 	        	subcontent.append(linka);
+	        	subcontent.append(jjim);
 	        	content.append(subcontent);
 	        	
 	        	maincontainer.append(headerImage);
