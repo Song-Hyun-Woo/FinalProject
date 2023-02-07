@@ -5,6 +5,14 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
 <!-- 카카오맵 스크립트 -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e610ab514914e179634c73ca831a83ac&libraries=services"></script>
+
+<!-- 카카오 공유하기 -->        
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.1.0/kakao.min.js"
+  integrity="sha384-dpu02ieKC6NUeKFoGMOKz6102CLEWi9+5RQjWSV0ikYSFFd8M3Wp2reIcquJOemx" crossorigin="anonymous"></script>
+<script>
+  Kakao.init('e610ab514914e179634c73ca831a83ac'); // 사용하려는 앱의 JavaScript 키 입력
+</script>
+
 <c:set var="path" value="${pageContext.request.contextPath }"/>       
 
 <jsp:include page="/WEB-INF/views/common/header.jsp">
@@ -64,6 +72,8 @@ section.portfolio-details{
             <a href='${path }/exhList' class="btn btn-sm btn-dark btn-block" role="button">목록</a>
         </div>
         <br>
+
+
 <script>
 	
 ////////////////////////////////////////////////////////////////////////		
@@ -137,7 +147,8 @@ section.portfolio-details{
 		
 		
 		const strong6=$("<strong>").text("가격\u00a0\u00a0\u00a0:\u00a0\u00a0\u00a0");
-		const li6=$("<li>").text(data['DP_VIEWCHARGE']);
+		const li6=$("<li>").text(data['DP_VIEWCHARGE'].replace(/(<[a-z ="/]*>)|&lt;|&gt;|&nbsp;|<[^>]*>?/g,""));
+		
 		//전시 비용이 무료이면 값이 출력 안돼는데.... 디폴트 무료.....
 		li6.prepend(strong6).css("list-style-type","square");
 		contentinfo.append(li6);
@@ -163,6 +174,11 @@ section.portfolio-details{
 		const button=$("<button class='btn btn-success' onclick='location.replace('${path}/')'>").text("예매");
 		button.css("margin-left","180px");
 		contentinfo.append(button);
+		
+		
+		//카카오 공유하기 추가
+		
+		
 		
 		/* 태그 변수 생성해서 append 해서 추가 해서 사용하기  */
 		////////////////////////////////////////////////////////////////////////////////////

@@ -1,7 +1,6 @@
 package com.ef.exhibition.exh.model.service;
 
 import java.util.List;
-import java.util.Map;
 
 import javax.transaction.Transactional;
 
@@ -11,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.ef.exhibition.exh.model.dao.ExhibitionDao;
 import com.ef.exhibition.exh.model.vo.Exhibition;
+import com.ef.exhibition.exh.model.vo.Jjim;
 
 @Service
 public class ExhibitionServiceImpl implements ExhibitionService{
@@ -30,22 +30,14 @@ public class ExhibitionServiceImpl implements ExhibitionService{
 	public int insertExh(Exhibition exh) {
 		return dao.insertExh(session,exh);
 	}
-
 	@Override
-	public List<Exhibition> selectExhList(Map<String, Integer> page) {
-		return dao.selectExhList(session,page);
+	@Transactional
+	public int insertJjim(Jjim j) {
+		return dao.insertJjim(session, j);
 	}
 
 	@Override
-	public int selectExhCount() {
-		return dao.selectExhCount(session);
+	public List<Jjim> selectMyjjim(int memberNo) {
+		return dao.selectMyjjim(session, memberNo);
 	}
-
-	@Override
-	public Exhibition selectExh(int exNo) {
-		return dao.selectExh(session,exNo);
-	}
-	
-	
-	
 }

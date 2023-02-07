@@ -6,19 +6,25 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.util.Map;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ef.exhibition.common.PageFactory;
 import com.ef.exhibition.exh.model.service.ExhibitionService;
 import com.ef.exhibition.exh.model.vo.Exhibition;
+import com.ef.exhibition.exh.model.vo.Jjim;
+import com.ef.exhibition.member.model.vo.Member;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -42,11 +48,48 @@ public class ExhibitionController {
 		return "exh/exhibitionWrite";
 	}
 	
-	//전시회 리스트 연결
+	//좋아요
+	@RequestMapping("/insertJjim.do")
+	public ModelAndView insertJjim(ModelAndView mv,int memberNo,String dpseq, String dpname) {
+		
+		Jjim j=Jjim.builder()
+				.member_No(memberNo)
+				.ex_No(dpseq)
+				.ex_Title(dpname)
+				.build();
+		log.debug("{}",j);
+		int result=service.insertJjim(j);
+		
+		//ajax를 사용해서 표시만 해주는게 찜이니까 원래는 이렇게 해야함
+		//하지만 지금은 어려우니까 service를 갔다와서 페이지를 보여주는걸로 함
+		
+		mv.addObject("msg",result>0? "좋아요♥":"안좋아요ㅡㅡ");
+		mv.addObject("loc","/exhList");
+		mv.setViewName("common/msg");
+		return mv;
+	}
+	
+	
+	//DB 자료형 | 자바 자료형 맞추기
+	//프론트에서 보내는 변수명과 백엔드에서 받는 변수명 맞추기
+	
+	//전시회 리스트 연결 + 좋아요 까지..
 	@RequestMapping("/exhList")
-	public String exhList() {
+	public String exhList(HttpSession session,Model m) throws JsonProcessingException{
+		int memberNo=((Member)session.getAttribute("loginMember")).getMemberNo();
+		ObjectMapper mapper=new ObjectMapper();
+		//json 객체로 역직렬화 하거나 java객체를 json으로 직렬화 할대 사용하는 클래스
+		//Json 을 java로 변환 할 수 있고
+		//java를 Json으로 직렬화 할 수 있다
+		
+		List<Jjim> list=service.selectMyjjim(memberNo);
+		//회원이 좋아요 한 게시글이 하나가 아니니 List로 선언한다
+		m.addAttribute("jjim", mapper.writeValueAsString(list));
+		
 		return "exh/exhibitionList";
 	}
+	
+	
 	
 	//전시회 상세페이지 연결
 	@RequestMapping("/exhView.do")
@@ -102,8 +145,6 @@ public class ExhibitionController {
 			
 			return sb.toString();
 		}
-	
-	
 	
 	
 	

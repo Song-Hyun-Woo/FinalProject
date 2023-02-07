@@ -152,7 +152,6 @@ public class NewsController {
 		mv.addObject("msg",result>0? "Insert News":"Fail News");
 		mv.addObject("loc","/newslist.do");
 		mv.setViewName("common/msg");
-		
 		return mv;
 	}
 	
