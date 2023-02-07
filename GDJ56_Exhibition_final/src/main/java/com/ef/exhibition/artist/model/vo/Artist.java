@@ -14,14 +14,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class Artist {
-	@Id
 	private int artNo;
-//	private Member memberId;
 	
 	private String artName;
 	private Date artBirth;
 	private String artCareer;
 	private String artEdu;
 	private String artRecord;
-	
+	private String artImg;
 }
