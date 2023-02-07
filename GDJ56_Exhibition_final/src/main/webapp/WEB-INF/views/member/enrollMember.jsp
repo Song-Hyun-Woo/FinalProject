@@ -142,7 +142,7 @@
         </div>
         <br/>
         <p class="text">생년월일</p>
-       		 <input type="text" name="birthday" id="birthday" class="form-control" placeholder="ex) 19920101" required><br>
+       		 <input type="text" name="birth" id="birth" class="form-control" placeholder="ex) 19920101" required><br>
             <p id="birthch" class="check"> </p><br/>
         <br/> 
         <p class="text">주소</p>
@@ -332,8 +332,8 @@
 	   
 
 	   // 생년월일 체크
-	   $("#birthday").blur((e)=>{
-		   const dateStr= $("#birthday").val();
+	   $("#birth").blur((e)=>{
+		   const dateStr= $("#birth").val();
 		   const year = Number(dateStr.substr(0,4));
 		   const month = Number(dateStr.substr(4,2));
 		   const day = Number(dateStr.substr(6,2));
@@ -434,7 +434,7 @@
 							alert('인증번호가 발송 되었습니다. \n휴대폰에서 인증번호 확인을 해주십시오.');
 							
 							 $('#enterBtn').click((e)=>{
-								const userNum = $('#userNum').val();
+								const userNum = $('#phone2').val();
 								 console.log(checkNum);
 								 console.log(userNum);		
 								if(checkNum === userNum) {

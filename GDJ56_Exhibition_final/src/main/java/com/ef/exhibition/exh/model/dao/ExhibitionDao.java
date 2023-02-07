@@ -13,4 +13,11 @@ public interface ExhibitionDao {
 	List<Exhibition> selectExhList(SqlSessionTemplate session,Map<String,Integer> page);
 	int selectExhCount(SqlSessionTemplate session);
 	Exhibition selectExh(SqlSessionTemplate session, int exNo);
+	
+//	// 좋아요 증가, 감소, 여부확인
+//	int increaseLike(Map<String, Object> map);
+//	int decreaseLike(Map<String, Object> map);
+//	int selectLikePushed(Map<String, Integer> map);
+	
+	
 }

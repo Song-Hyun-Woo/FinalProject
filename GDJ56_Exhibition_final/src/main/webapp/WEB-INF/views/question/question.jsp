@@ -25,16 +25,13 @@
 		<input type="radio" name="mode" value="ex_qna"> 전시 문의
 		</label>
 	  </div>	
-<div class="pinput_left">성함<font color="red">*</font></div>
+<div class="pinput_left">${loginMember.name }님<font color="red">*</font></div>
 <div class="pinput_right"><input type="text" name="name" id="name" placeholder="성함"></div>
 <div style="clear:both;"></div>
-<div class="pinput_left">연락처<font color="red">*</font></div>
-<div class="pinput_right"><input type="text" name="phone" id="phone" placeholder="연락처"></div>
-<div class="pinput_left">이메일<font color="red	">*</font></div>
-<div class="pinput_right"><input type="text" name="email" id="email" placeholder="이메일"></div>
+<div class="pinput_left">문의내용<font color="red	">*</font></div>
+<div class="pinput_right"><input type="text" name="question_title" id="question_title" placeholder="문의제목"></div>
 <div style="clear:both;"></div>
 
-<div class="pinput_right"><input type="text" name="" id="" placeholder="문의 제목"></div>
 <div class="pinput_left">문의 내용<font color="red">*</font></div>
 <div class="pinput_right">
 <textarea rows="6" name="content" id="m_content" style="margin-top:10px; border:none; border-bottom:1px solid #b4b4b4; width:500px; outline:0; margin-top:10px; padding:5px;" placeholder="문의하실 내용을 입력해 주세요"></textarea>
@@ -45,11 +42,10 @@
 개인정보 수집 및 이용안내								</div>
 <div class="gain">
 	파이널프로젝트는 문의사항 답변을 희망하는 회원을 대상으로 아래와 같이 개인정보를 수집하고 있습니다.<br>
-	1. 수집 개인정보 항목 : [필수] 회원 성함, 전화번호 이메일주소<br>
-	2. 개인정보의 수집 및 이용목적:문의 신청에 따른 본인확인 및 원활한 의사소통 경로 확보<br>
-	3. 동의 거부권리 안내 추가 : 위와 같은 개인정보 수입동의를 거부할 수있습니다.<br>
+	1. 개인정보의 수집 및 이용목적:문의 신청에 따른 본인확인 및 원활한 의사소통 경로 확보<br>
+	2. 동의 거부권리 안내 추가 : 위와 같은 개인정보 수입동의를 거부할 수있습니다.<br>
 	다만 동의를 거부하는 경우 문의 신청이 제한 됩니다.<br>
-	4. 파이널프로젝트는 문의사항 처리 종료 시점으로부터 1년간 보관 후 파기합니다.<br>								
+	3. 파이널프로젝트는 문의사항 처리 종료 시점으로부터 1년간 보관 후 파기합니다.<br>								
 </div>
 <div style="clear:both;"></div>
 <div class="gain_chk" style="padding-top:10px;">

@@ -13,30 +13,31 @@
 
         <div class="section-title">
           	<h1 style="margin-top:70px;"> </h1>
-			<p style="font-size:17px;">${loginMember.name }님, 마이페이지입니다.</p>
+			<p style="font-size:17px;">${loginMember.memberName }님, 마이페이지입니다.</p>
         </div>
 
         <div class="row portfolio-container">
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
-              <img src="${path}/resources/images/mypage/회원수정.jpg" class="img-fluid" alt="">
+              <img src="${path}/resources/images/mypage/좋아요전시회.PNG" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
                 </div>
+                <a href="${path }/mypage/updateMember.do">
+                <h2 style="color:write, text-align: center;">회원 정보</h2>
+                </a>
               </div>
             </div>
           </div>
+          
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
             <div class="portfolio-wrap">
               <img src="${path}/resources/images/mypage/회원수정.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                  <h2>나의 예매</h2>
                 </div>
               </div>
             </div>
@@ -44,11 +45,12 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
-              <img src="${path}/resources/images/mypage/회원수정.jpg" class="img-fluid" alt="">
+              <img src="${path}/resources/images/mypage/예매.PNG" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                <a href="${path }/mypage/zzim.do">
+                  <h2>찜한전시회</h2>
+                </a>  
                 </div>
               </div>
             </div>
@@ -56,11 +58,10 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
             <div class="portfolio-wrap">
-              <img src="${path}/resources/images/mypage/회원수정.jpg" class="img-fluid" alt="">
+              <img src="${path}/resources/images/mypage/문의.PNG" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                  <h2>나의 문의</h2>
                 </div>
               </div>
             </div>
@@ -68,11 +69,12 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-web">
             <div class="portfolio-wrap">
-              <img src="${path}/resources/images/mypage/회원수정.jpg" class="img-fluid" alt="">
+              <img src="${path}/resources/images/mypage/홈2.PNG" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                <a href="${path }/mypage/faq.do">
+                <h2>FAQ</h2>
+                </a>
                 </div>
               </div>
             </div>
@@ -80,11 +82,10 @@
 
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
-              <img src="${path}/resources/images/mypage/회원수정.jpg" class="img-fluid" alt="">
+              <img src="${path}/resources/images/mypage/test1.png" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                  <h2>회원 탈퇴</h2>
                 </div>
               </div>
             </div>

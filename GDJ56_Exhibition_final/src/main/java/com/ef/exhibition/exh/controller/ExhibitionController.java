@@ -6,10 +6,13 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ef.exhibition.common.PageFactory;
 import com.ef.exhibition.exh.model.service.ExhibitionService;
 import com.ef.exhibition.exh.model.vo.Exhibition;
+import com.ef.exhibition.member.model.vo.Member;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -112,4 +116,45 @@ public class ExhibitionController {
 			
 			return sb.toString();
 		}
+	
+	
+	
+//	// 좋아요 증가 Controller
+//		@ResponseBody
+//		@RequestMapping("increaseLike")
+//		public int increaseLike(@RequestParam int exNo,
+//							@ModelAttribute("loginMember") Member loginMember) {
+//			
+//			Map<String, Object> map = new HashMap<String, Object>();
+//			
+//			map.put("memberNo", loginMember.getMemberNo());
+//			map.put("exNo", exNo);
+//			
+//			int result = service.increaseLike(map);
+//			
+//			return result;
+//		}
+//		
+//		// 좋아요 감소 Controller
+//		@ResponseBody
+//		@RequestMapping("decreaseLike")
+//		public int decreaseLike(@RequestParam int exNo,
+//				@ModelAttribute("loginMember") Member loginMember){
+//			
+//			Map<String, Object> map = new HashMap<String, Object>();
+//			
+//			map.put("memberNo", loginMember.getMemberNo());
+//			map.put("exNo", exNo);
+//			
+//			int result = service.decreaseLike(map);
+//			
+//			return result;
+//			
+//		}
+	
+		
+	
+	
+	
+	
 	}

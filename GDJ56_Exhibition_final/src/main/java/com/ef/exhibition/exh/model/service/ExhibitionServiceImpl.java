@@ -46,6 +46,28 @@ public class ExhibitionServiceImpl implements ExhibitionService{
 		return dao.selectExh(session,exNo);
 	}
 	
+//	// 좋아요 증가 
+//	@Transactional(rollbackFor = Exception.class)
+//	@Override
+//	public int increaseLike(Map<String, Object> map) {
+//		return dao.increaseLike(map);
+//	}
+//
+//	// 좋아요 감소 
+//	@Transactional(rollbackFor = Exception.class)
+//	@Override
+//	public int decreaseLike(Map<String, Object> map) {
+//		return dao.decreaseLike(map);
+//	}
+//	
+//	// 좋아요 여부 확인 
+//	@Override
+//	public int selectLikePushed(Map<String, Integer> map) {
+//		return dao.selectLikePushed(map);
+//	}
+	
+
+	
 	
 	
 }

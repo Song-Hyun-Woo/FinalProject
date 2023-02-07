@@ -45,11 +45,11 @@
 				if (rsp.success) { // 결제 성공 시
 					var msg = '결제가 완료되었습니다.';
 					var result = {
-						"bookingNo"     : '${No}',		// 예매 번호
-						"exNo"      : '${No}',		// 전시 번호
+						"bookingNo"     : '${booking_No}',		// 예매 번호
+						"exNo"      : '${ex_No}',		// 전시 번호
 						"bookingPrice"    : '${Price}',		// 결제 금액
 						"bookingDate"    : new Date(), 			// 결제 일
-						"bookingCheck"      : '${Check}',    	// 예약 확인번호
+						"bookingCheck"      : '${Check}',    	// 예매 확인번호
 						"memberId"   	  : '${member.memberId}'		// 회원 아이디
 	          	  	} 				
 					/* console.log('res1:' + res1); */

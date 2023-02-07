@@ -36,4 +36,20 @@ public class ExhibitionDaoImpl implements ExhibitionDao{
 	}
 	
 	
+//	// 좋아요 증가
+//	public int increaseLike(Map<String, Object> map) {
+//		return sqlSession.insert("exhMapper.increaseLike", map);
+//	}
+//
+//	// 좋아요 감소
+//	public int decreaseLike(Map<String, Object> map) {
+//		return sqlSession.delete("exhMapper.decreaseLike", map);
+//	}
+//	
+//	// 좋아요 여부 확인
+//	public int selectLikePushed(Map<String, Integer> map) {
+//		return sqlSession.selectOne("exhMapper.selectLikePushed", map);
+//	}
+	
+	
 }
