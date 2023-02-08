@@ -222,7 +222,7 @@ public class MemberController {
 		}	
 		
 		//비밀번호찾기페이지
-		@RequestMapping("/findhpw.do")
+		@RequestMapping("/findPw.do")
 		public String findPwPage() {
 			return "member/findPw";
 		}

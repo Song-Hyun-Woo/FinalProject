@@ -98,7 +98,8 @@
   </head>
   
   <body>
-    
+    <br>
+    <br>
 	<div class="input-form-backgroud row">
 	<div class="input-form col-md-12 mx-auto">
 		<div class="card-title" style="margin-top:30px;">
@@ -193,6 +194,8 @@
        </div>
 	</div>
    
+   <br>
+   <br>
   </body>
 
   <script>

@@ -63,7 +63,6 @@
 	                  <p id="emch" class="check"> </p><br/>
 	                  <div class="rememberfind">
 	                     <button id="btn-Yes"  type="submit" class="btn btn-lg btn-dark btn-block">비밀번호찾기</button>
-	                     <br/>
 	                   <div class="links"> 
 	            			<a href="${path }/member/login.do" class="text-dark">로그인</a> | <a href="${path }/member/findId.do" class="text-dark">아이디 찾기</a> | <a href="${path }/member/enrollMember.do" class="text-dark">회원가입</a>
 	                   </div>
@@ -108,4 +107,5 @@ $("#email").focusout((e)=>{
 });
 </script>
 </html>
+
 
