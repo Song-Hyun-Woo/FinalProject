@@ -41,12 +41,12 @@ public class ExhibitionController {
 	}
 	
 	//전시회 등록
-	@RequestMapping("/insertExh.do")
-	public String insertExh(Exhibition exh) {
-		int result=service.insertExh(exh);
-		log.debug("{}",result);
-		return "exh/exhibitionWrite";
-	}
+//	@RequestMapping("/insertExh.do")
+//	public String insertExh(Exhibition exh) {
+//		int result=service.insertExh(exh);
+//		log.debug("{}",result);
+//		return "exh/exhibitionWrite";
+//	}
 	
 	//좋아요
 	@RequestMapping("/insertJjim.do")

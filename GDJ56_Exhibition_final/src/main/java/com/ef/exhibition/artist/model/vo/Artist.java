@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class Artist {
+	
 	private int artNo;
 	
 	private String artName;

@@ -8,7 +8,7 @@ import com.ef.exhibition.exh.model.vo.Jjim;
 
 public interface ExhibitionService {
 	
-	int insertExh(Exhibition exh);
+//	int insertExh(Exhibition exh);
 //	List<Exhibition> selectExhList(Map<String,Integer> page);
 //	int selectExhCount();
 //	Exhibition selectExh(int exNo);

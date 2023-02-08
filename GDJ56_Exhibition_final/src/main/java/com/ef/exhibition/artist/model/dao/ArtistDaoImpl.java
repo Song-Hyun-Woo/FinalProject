@@ -24,6 +24,27 @@ public class ArtistDaoImpl implements ArtistDao{
 	public int selectArtistCount(SqlSessionTemplate session) {
 		return session.selectOne("art.selectArtistCount");
 	}
+
+	@Override
+	public Artist selectArtist(SqlSessionTemplate session, int artNo) {
+		return session.selectOne("art.selectArtist", artNo);
+	}
+
+	@Override
+	public int insertArtist(SqlSessionTemplate session, Artist a) {
+		return session.insert("art.insertArtist", a);
+	}
+
+	@Override
+	public int deleteArt(SqlSessionTemplate session, int artNo) {
+		return session.delete("art.deleteArt",artNo);
+	}
+
+	@Override
+	public int updateArt(SqlSessionTemplate session, Map art) {
+		return session.update("art.updateArt", art);
+	}
+	
 	
 	
 }

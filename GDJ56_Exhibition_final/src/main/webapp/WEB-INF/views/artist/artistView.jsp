@@ -22,11 +22,6 @@ div.artcontainer{
 <br>
 <!-- 작가 이름, 작가 생애, 작가 경력, 작가 학력, 작가 개인전 단체전 활동 -->
 
-<script>
-
-
-</script>
-
 
 
 

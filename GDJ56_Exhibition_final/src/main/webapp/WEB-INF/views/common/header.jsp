@@ -59,12 +59,11 @@
           
           <%-- <li><a class="getstarted scrollto" href="${path}/member/login.do">Login</a></li> --%>
         
-        	<c:if test="${loginMember==null }">
+           <c:if test="${loginMember==null }">
                  <li> <a class="getstarted scrollto" href="${path}/member/login.do">Login</a></li>
               </c:if>
               <!-- 일반회원 로그인 -->
               <c:if test="${ (loginMember!=null) && (loginMember.memberId ne 'admin') }">
-<<<<<<< HEAD
                  <li class="dropdown"><a class="btn btn-Secondary dropdown-toggle" href="${path }/mypage/mypageMain.do" data-toggle="dropdown">MYPAGE</a> 
                  <ul class="dropdown-menu dropdown-menu-dark" role="menu">
                  <li class="dropdown"><a href="${path }/member/logout.do" >MODIFY</a></li>
@@ -76,28 +75,13 @@
               </c:if>
               <!-- 관리자 로그인-->
               <c:if test="${(loginMember!=null) && (loginMember.memberId eq 'admin') }" >
-         		<li class="dropdown"><a class="btn btn-Secondary dropdown-toggle" href="${path }/admin/adminMain.do" data-toggle="dropdown">ADMINPAGE</a>
-         		 <ul class="dropdown-menu dropdown-menu-dark" role="menu">
-                 	<li class="dropdown"><a href="${path }/member/logout.do" >LOGOUT</a></li>              
+               <li class="dropdown"><a class="btn btn-Secondary dropdown-toggle" href="${path }/admin/adminMain.do" data-toggle="dropdown">ADMINPAGE</a>
+                <ul class="dropdown-menu dropdown-menu-dark" role="menu">
+                    <li class="dropdown"><a href="${path }/member/logout.do" >LOGOUT</a></li>              
                    </ul>
                    </li>
-   	  		</c:if>	
-   	  		
-=======
-                 <li class="dropdown"><a class="dropdown-toggle" href="${path }/mypage/mypageMain.do" data-toggle="dropdown">마이페이지</a> 
-                 <ul class="dropdown-menu" role="menu">
-                 	<li class="dropdown"><a href="${path }/member/logout.do" >로그아웃</a></li>              
-                   </ul>
-                 </li> 
-              </c:if>
-              <!-- 관리자 로그인-->
-              <c:if test="${(loginMember!=null) && (loginMember.memberId eq 'admin') }" >
-         		<li class="dropdown"><a href="${path }/admin/adminMain.do" >관리자페이지</a></li>
-         		<li class="dropdown"><a href="${path }/member/logout.do" >로그아웃</a></li>  
-   	  		</c:if>	
-   	  		</ul>
-   	  		</nav>
->>>>>>> branch 'main' of https://github.com/ZeroCommit/FinalProject.git
+              </c:if>   
+              
   </header><!-- End Header -->
 
   <!-- Vendor JS Files -->

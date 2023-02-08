@@ -11,10 +11,10 @@ import com.ef.exhibition.exh.model.vo.Jjim;
 @Repository
 public class ExhibitionDaoImpl implements ExhibitionDao{
 
-	@Override
-	public int insertExh(SqlSessionTemplate session, Exhibition exh) {
-		return session.insert("exh.insertExh",exh);
-	}
+//	@Override
+//	public int insertExh(SqlSessionTemplate session, Exhibition exh) {
+//		return session.insert("exh.insertExh",exh);
+//	}
 	@Override
 	public int insertJjim(SqlSessionTemplate session, Jjim j) {
 		return session.insert("exh.insertJjim", j);

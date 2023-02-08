@@ -25,11 +25,11 @@ public class ExhibitionServiceImpl implements ExhibitionService{
 		this.session = session;
 	}
 
-	@Override
-	@Transactional
-	public int insertExh(Exhibition exh) {
-		return dao.insertExh(session,exh);
-	}
+//	@Override
+//	@Transactional
+//	public int insertExh(Exhibition exh) {
+//		return dao.insertExh(session,exh);
+//	}
 	@Override
 	@Transactional
 	public int insertJjim(Jjim j) {

@@ -87,6 +87,7 @@ public class NewsController {
 			@RequestParam Map news) {
 		log.debug("{}",news);
 		int result=service.updateNews(news);
+		//alert msg를 보내서 수정 완료가 된 메세지를 보내야하는데....
 		
 		return "redirect:/newslist.do";
 	}

@@ -9,7 +9,7 @@ import com.ef.exhibition.exh.model.vo.Jjim;
 
 public interface ExhibitionDao {
 	
-	int insertExh(SqlSessionTemplate session, Exhibition exh);
+//	int insertExh(SqlSessionTemplate session, Exhibition exh);
 //	List<Exhibition> selectExhList(SqlSessionTemplate session,Map<String,Integer> page);
 //	int selectExhCount(SqlSessionTemplate session);
 //	Exhibition selectExh(SqlSessionTemplate session, int exNo);

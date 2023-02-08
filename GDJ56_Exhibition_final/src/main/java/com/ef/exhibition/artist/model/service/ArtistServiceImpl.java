@@ -32,6 +32,26 @@ public class ArtistServiceImpl implements ArtistService{
 	public int selectArtistCount() {
 		return dao.selectArtistCount(session);
 	}
+
+	@Override
+	public Artist selectArtist(int artNo) {
+		return null;
+	}
+
+	@Override
+	public int insertArt(Artist a) {
+		return 0;
+	}
+
+	@Override
+	public int deleteArt(int artNo) {
+		return 0;
+	}
+
+	@Override
+	public int updateArt(Map art) {
+		return 0;
+	}
 	
 	
 }
