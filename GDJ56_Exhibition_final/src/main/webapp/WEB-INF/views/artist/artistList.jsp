@@ -7,26 +7,24 @@
 <jsp:include page="/WEB-INF/views/common/header.jsp">
 	<jsp:param name="title" value="MainPage"/>
 </jsp:include>
+<style>
+div.artcontainer{
+	width:100%;
+	height:180px;
+	background-image: url('${path}/resources/images/artisttitle.png');
+}
+</style>
+
+<br><br><br><br>
+<div class="artcontainer">
+	<h3>&nbsp;&nbsp;&nbsp;&nbsp;ARTIST</h3>
+</div>
+<br>
 
 
 
 
 
-<script>
-    $.ajax({
-      type: "GET",
-      url: "${path}/apitest",
-      data: {page:"1",perPage:"20"},
-      success: function(response){
-        console.log(response)
-        console.log(JSON.parse(response));
-        const data=JSON.parse(response).data;
-        data.forEach(e=>{
-        	console.log(e);
-        })
-      }
-    })
-</script>
 
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
