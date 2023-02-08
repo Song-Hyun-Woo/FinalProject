@@ -18,9 +18,9 @@
 //IMP 객체 초기화
 
 	var IMP = window.IMP; // 생략 가능
-	IMP.init("imp27163624"); // 예: imp00000000
+	IMP.init("imp04088045"); // 예: imp00000000
 	
-	if('${book.bookingPrice}' == 0){	// 결제 금액이 0원일 때 
+	if('${bookingPrice}' == 0){	// 결제 금액이 0원일 때 
 		location.href="<%=request.getContextPath()%>/booking/bookig0Result.do?bookingNo=${book.bookingNo}";
 	}else{
 		window.onload = function() { requestPay(); } 
@@ -32,25 +32,25 @@
 	    function requestPay() {
 	      // IMP.request_pay(param, callback) 결제창 호출
 	      IMP.request_pay({ // param
-	          pg: "html5_inicis",
+	          pg: "html5_inicis", //pg사 선택
+	          name : "전시예매",
 	          pay_method: "card",
-	          merchant_uid: '${book.bo_re_num}',
-	          name: '${exhibition.exTitle}',	
-	          amount: '${book.bookingPrice}',
-	          buyer_email: "${member.email}",	
-	          buyer_name: "${member.name}",
-	          buyer_tel: "${member.phone}",
+	          merchant_uid: '${bookingNo}', //전시번호	
+	          amount: '100', 
+	          buyer_email: "${email}",	// 이메일
+	          buyer_name: "${memberName}", //예약자 이름
+	          buyer_tel: "${phone}", // 핸드폰
 	      }, function (rsp) { 
 	      
 				if (rsp.success) { // 결제 성공 시
 					var msg = '결제가 완료되었습니다.';
 					var result = {
-						"bookingNo"     : '${booking_No}',		// 예매 번호
-						"exNo"      : '${ex_No}',		// 전시 번호
-						"bookingPrice"    : '${Price}',		// 결제 금액
-						"bookingDate"    : new Date(), 			// 결제 일
-						"bookingCheck"      : '${Check}',    	// 예매 확인번호
-						"memberId"   	  : '${member.memberId}'		// 회원 아이디
+						"booking_no"     : '${bookingNo}',		// 예매 번호
+						"ex_no"      : '${exNo}',		// 전시 번호
+						"booking_price"    : '${bookingPrice}',		// 결제 금액
+						"booking_date"    : new Date(), 			// 결제 일
+						"booking_check"      : '${bookingCheck}',    	// 예매 확인번호
+						"member_id"   	  : '${memberId}'		// 회원 아이디
 	          	  	} 				
 					/* console.log('res1:' + res1); */
 					/* console.log("결제 성공 " + msg); */
@@ -61,7 +61,6 @@
 						contentType:'application/json;charset=utf-8',
 						dataType: 'json', // 서버에서 보내줄 데이터 타입
 				        success: function(res){
-				        	/* alert(res); */
 				       		if(res == 1){
 								location.href="<%=request.getContextPath()%>/bookig/bookingSuccess.do";
 				        	}else{

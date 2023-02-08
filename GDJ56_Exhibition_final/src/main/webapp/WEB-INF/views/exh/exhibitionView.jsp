@@ -13,6 +13,10 @@
   Kakao.init('e610ab514914e179634c73ca831a83ac'); // 사용하려는 앱의 JavaScript 키 입력
 </script>
 
+<!-- 결제  -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+
 <c:set var="path" value="${pageContext.request.contextPath }"/>       
 
 <jsp:include page="/WEB-INF/views/common/header.jsp">
@@ -25,7 +29,6 @@ div.excontainer{
 	height:180px;
 	background-image: url('${path}/resources/images/exhibitiontitle.png');
 }
-
 div.swiper-slide>img{
 	width: 800px;
     height: 1000px;
@@ -77,7 +80,6 @@ section.portfolio-details{
 <script>
 	
 ////////////////////////////////////////////////////////////////////////		
-
 /* 	      url: "${path}/exhibitionView.do?no="+['DP_SEQ'], */
 		
    let exhibitionViews={};
@@ -171,7 +173,7 @@ section.portfolio-details{
 		li7.css("list-style","none");
 		contentinfo.append(li7);
 		
-		const button=$("<button class='btn btn-success' onclick='location.replace('${path}/')'>").text("예매");
+		const button=$("<button class='btn btn-success' onclick='requestPay();')'>").text("예매");
 		button.css("margin-left","180px");
 		contentinfo.append(button);
 		
@@ -232,41 +234,33 @@ section.portfolio-details{
   function makeMap(place){ 
 	// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
 	var infowindow = new kakao.maps.InfoWindow({zIndex:1});
-
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 	    mapOption = {
 	        center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
 	        level: 3 // 지도의 확대 레벨
 	    };  
-
 	// 지도를 생성합니다    
 	var map = new kakao.maps.Map(mapContainer, mapOption); 
-
 	// 장소 검색 객체를 생성합니다
 	var ps = new kakao.maps.services.Places(); 
 	console.log(place);
 	
 	// 키워드로 장소를 검색합니다
 	ps.keywordSearch(place, placesSearchCB); 
-
 	// 키워드 검색 완료 시 호출되는 콜백함수 입니다
 	function placesSearchCB (data, status, pagination) {
 	    if (status === kakao.maps.services.Status.OK) {
-
 	        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
 	        // LatLngBounds 객체에 좌표를 추가합니다
 	        var bounds = new kakao.maps.LatLngBounds();
-
 	        for (var i=0; i<data.length; i++) {
 	            displayMarker(data[i]);    
 	            bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
 	        }       
-
 	        // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
 	        map.setBounds(bounds);
 	    } 
 	}
-
 	// 지도에 마커를 표시하는 함수입니다
 	function displayMarker(place) {
 	    
@@ -275,7 +269,6 @@ section.portfolio-details{
 	        map: map,
 	        position: new kakao.maps.LatLng(place.y, place.x) 
 	    });
-
 	    // 마커에 클릭이벤트를 등록합니다
 	    kakao.maps.event.addListener(marker, 'click', function() {
 	        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
@@ -283,8 +276,52 @@ section.portfolio-details{
 	        infowindow.open(map, marker);
 	    });
 	}
-  }	
-	
+  }
+ 
+</script>
+
+<script>
+
+// 결제
+
+	var IMP = window.IMP; // 생략 가능
+
+	// 결제 금액이 0원일 때 
+<%-- 	if('${bookingPrice}' == 0){	
+	location.href="<%=request.getContextPath()%>/booking/bookig0Result.do?bookingNo=${book.bookingNo}";
+	}else{
+		window.onload = function() { requestPay(); } 
+	} --%>
+
+	// 결제 요청하기 (테스트)
+	function requestPay() {
+	// IMP.request_pay(param, callback) 결제창 호출
+
+		IMP.init('imp04088045'); // 자신의 "가맹점 식별코드"
+		IMP.request_pay({
+		    pg: "html5_inicis", // pg사 선택, version 1.1.0부터 지원.
+		    pay_method: "card", // 지불방법
+		    merchant_uid : 'merchant_'+new Date().getTime(), //주문번호
+		    name : '전시예매', // 결제창에 노출될 상품명
+		    amount : 10, // 결제 금액
+//		    customer_uid: "id" + new Date().getTime(), //빌링키 발급을 위한 id
+		    buyer_email : 'iamport@siot.do',
+		    buyer_name : '${memberName}',
+		    buyer_tel : '${phone}'
+	  	}, function (rsp) { // callback
+			  console.log(rsp);
+			    if (rsp.success) {
+			      var msg = '결제가 완료되었습니다.';
+			      alert(msg);
+			      location.href = "" // 결제 완료 후 이동할 페이지 url ${path}/memberId=${loginMember.memberId}
+			    } else {
+			      var msg = '결제에 실패하였습니다.';
+			      msg += '에러내용 : ' + rsp.error_msg;
+			      alert(msg);
+			    }
+		  });
+
+	}
 </script>
 
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>

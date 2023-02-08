@@ -122,7 +122,7 @@ public class MemberController {
 		@RequestMapping("/idCheck.do")
 		@ResponseBody
 		public Member idCheck(Member m) {
-			return service.idCheck(m);
+			return service.idcheck(m);
 		}
 		
 //		  //아이디 중복확인

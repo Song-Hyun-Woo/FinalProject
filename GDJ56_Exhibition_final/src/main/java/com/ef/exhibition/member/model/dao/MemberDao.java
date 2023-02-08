@@ -13,7 +13,7 @@ public interface MemberDao {
 	
 	int insertMember(SqlSessionTemplate session, Member m);
 	
-	Member idCheck(SqlSessionTemplate session, Member m);
+	Member idcheck(SqlSession session,Member m);
 	
 	/* Member idDupicate(String memberId, SqlSessionTemplate session); */
 	
