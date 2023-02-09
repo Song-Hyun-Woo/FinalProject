@@ -68,11 +68,12 @@ public class ArtistController {
 	//작가 수정End 페이지
 	@RequestMapping("/artUpdate.do")
 	public String updateArt(@RequestParam(value="upfile", required =false) MultipartFile upfile,
-			@RequestParam Map art) {
+			@RequestParam Map art,Model m) {
 		log.debug("{}",art);
 		int result=service.updateArt(art);
-		
-		return "redirect:/artistList.do";
+		m.addAttribute("msg",result>0? "수정 성공":"수정 실패");
+		m.addAttribute("loc","/artistList.do");
+		return "common/msg";
 	}
 	
 	//작가 삭제 페이지

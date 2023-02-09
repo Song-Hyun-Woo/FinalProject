@@ -16,9 +16,6 @@ div.artcontainer{
    table#tbl-art{width:500px; margin:0 auto; border:1px solid black; border-collapse:collapse; clear:both; }
    table#tbl-art th {width: 125px; border:1px solid; padding: 5px 0; text-align:center;} 
    table#tbl-art td {border:1px solid; padding: 5px 0 5px 10px; text-align:left;}
-ul>li{
-	list-style-type:square;
-}
 </style>
 
 <br><br><br><br>
@@ -40,9 +37,9 @@ ul>li{
 	</div>
 		<div style="width:85%;display:inline-block;margin-left:50px;">
 			<ul>
-				<li><h5>작가 학력&nbsp; | </h5><p style="margin-left: 100px;">&nbsp;${arts.artEdu }</p><br></li>
-				<li><h5>작가 경력&nbsp; | </h5><p style="margin-left: 100px;">&nbsp;${arts.artCareer }</p><br></li>
-				<li><h5>작가 활동&nbsp; | </h5><p style="margin-left: 100px;">&nbsp;${arts.artRecord }</p></li>
+				<li style="list-style-type:square;"><h5>작가 학력&nbsp; | </h5><p style="margin-left: 100px;">&nbsp;${arts.artEdu }</p><br></li>
+				<li style="list-style-type:square;"><h5>작가 경력&nbsp; | </h5><p style="margin-left: 100px;">&nbsp;${arts.artCareer }</p><br></li>
+				<li style="list-style-type:square;"><h5>작가 활동&nbsp; | </h5><p style="margin-left: 100px;">&nbsp;${arts.artRecord }</p></li>
 			</ul>
 		</div>
 </div>

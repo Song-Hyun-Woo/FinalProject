@@ -28,7 +28,7 @@ table#tbl-art th, table#tbl-art td {border:1px solid; padding: 5px 0; }
 <section id="artist-container">
 	<h2 style="text-align:center;">작가 정보 수정</h2>
 	<div style="border-radius: 30px;border-color:rgba(18, 63, 63, 63);border-style:solid;border-width:5px;">
-	<form action="${path }/artInsert.do" onsubmit="event_click();" method="post" enctype="multipart/form-data">
+	<form action="${path }/artUpdate.do" onsubmit="event_click();" method="post" enctype="multipart/form-data">
 		<table id="tbl-art">
 			<img src="${path }/resources/images/test.png" width="450" height="450" onclick="fn_upfile();" style="margin-left: 75px;" >
 			<br>
@@ -67,14 +67,15 @@ table#tbl-art th, table#tbl-art td {border:1px solid; padding: 5px 0; }
 					<input type="text" name="artCareer" style="width:460px;" required value="${arts.artCareer }">
 				</tr><br><br>
 				<tr><strong>&nbsp;&nbsp;&nbsp;작가 학력&nbsp;&nbsp;&nbsp;</strong>
-					<input type="text" name="artEdu" style="width:460px;" required value="${arts.artEdu }"></td>
+					<input type="text" name="artEdu" style="width:460px;" required value="${arts.artEdu }">
 				</tr><br><br>
 				<tr><strong>&nbsp;&nbsp;&nbsp;작가 활동&nbsp;&nbsp;&nbsp;</strong>
-					<input type="text" name="artRecord" style="width:460px;" required  value="${arts.artRecord }"/>
+					<input type="text" name="artRecord" style="width:460px;" required  value="${arts.artRecord }">
 					<!-- <textarea name="record" required placeholder="작가의 활동을 입력해주세요"></textarea> -->
 				</tr>
 		</table><br>
 		<br><br>
+		<input type="hidden" name="artNo" value="${arts.artNo }"/>
 		<button type="submit" style="margin-left: 240px;" class="btn btn-sm btn-dark btn-block">수정</button>&nbsp;&nbsp;&nbsp;
 		<button onclick="location.replace('${path }/artistList.do')"  class="btn btn-sm btn-dark btn-block">취소</button>
 	</form>

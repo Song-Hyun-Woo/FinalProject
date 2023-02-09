@@ -95,8 +95,10 @@ public class NewsController {
 	//공지사항 삭제
 	@RequestMapping("/newsDelete.do")
 	public ModelAndView deleteNews(ModelAndView mv,int newsNo) {
-		mv.addObject("news",service.deleteNews(newsNo));
-		mv.setViewName("redirect:/newslist.do");
+		int result=service.deleteNews(newsNo);
+		mv.addObject("msg",result>0? "삭제":"실패");
+		mv.addObject("loc","/newslist.do");
+		mv.setViewName("common/msg");
 		return mv;
 	}
 	

@@ -60,21 +60,25 @@ table#tbl-art th, table#tbl-art td {border:1px solid; padding: 5px 0; }
 					<input type="text" name="artName" required placeholder="작가 이름을 입력해주세요">
 					<p id="idch" class="check"> </p>
 				</tr>
-				<tr><strong>&nbsp;&nbsp;&nbsp;작가 생애&nbsp;&nbsp;&nbsp;</strong>
-					<input type="date" name="artBirth" required >
+				<tr><strong>&nbsp;&nbsp;&nbsp;작가 출생&nbsp;&nbsp;&nbsp;</strong>
+					<input type="date" name="artBirth" required >&nbsp;&nbsp;~
 				</tr><br><br>
-				<tr><strong>&nbsp;&nbsp;&nbsp;작가 경력&nbsp;&nbsp;&nbsp;</strong>
-					<input type="text" name="artCareer" style="width:460px;" required placeholder="작가의 경력을 입력해주세요">
+				<tr><strong style="position: relative;bottom: 110px;">&nbsp;&nbsp;&nbsp;작가 경력&nbsp;&nbsp;&nbsp;</strong>
+					<!-- <input type="text" name="artCareer" style="width:460px;" required placeholder="작가의 경력을 입력해주세요"> -->
+					<textarea name="record" required placeholder="작가의 경력을 입력해주세요" rows="5" cols="52"></textarea>
 				</tr><br><br>
-				<tr><strong>&nbsp;&nbsp;&nbsp;작가 학력&nbsp;&nbsp;&nbsp;</strong>
-					<input type="text" name="artEdu" style="width:460px;" required placeholder="작가의 학력을 입력해주세요"></td>
+				<tr><strong style="position: relative;bottom: 110px;" >&nbsp;&nbsp;&nbsp;작가 학력&nbsp;&nbsp;&nbsp;</strong>
+					<!-- <input type="text" name="artEdu" style="width:460px;" required placeholder="작가의 학력을 입력해주세요"> -->
+					<textarea name="record" required placeholder="작가의 학력을 입력해주세요" rows="5" cols="52"></textarea>
 				</tr><br><br>
-				<tr><strong>&nbsp;&nbsp;&nbsp;작가 활동&nbsp;&nbsp;&nbsp;</strong>
-					<input type="text" name="artRecord" style="width:460px;" required  placeholder="작가의 활동을 입력해주세요"/>
-					<!-- <textarea name="record" required placeholder="작가의 활동을 입력해주세요"></textarea> -->
+				<tr><strong style="position: relative;bottom: 110px;">&nbsp;&nbsp;&nbsp;작가 활동&nbsp;&nbsp;&nbsp;</strong>
+					<!-- <input type="text" name="artRecord" style="width:460px;" required  placeholder="작가의 활동을 입력해주세요"/> -->
+					<textarea name="record" required placeholder="작가의 활동을 입력해주세요" rows="5" cols="52"></textarea>
+
 				</tr>
 		</table><br>
-		<button type="submit" style="margin-left: 255px;" class="btn btn-md btn-dark btn-block">등록</button>
+		<button type="submit" style="margin-left: 225px;" class="btn btn-md btn-dark btn-block">등록</button>&nbsp;&nbsp;&nbsp;
+		<button onclick="location.replace('${path }/artistList.do')"  class="btn btn-md btn-dark btn-block">취소</button>
 		<br><br>
 	</form>
 	</div>
