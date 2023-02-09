@@ -117,7 +117,7 @@
         margin-left: 100px;" required>
 
         &nbsp; &nbsp;
-        <input type="button"  id="memberCheck" onclick="idCheck();"  class="btn btn-outline-dark"  value="중복확인"/><br/>
+        <input type="button"  id="memberCheck" onclick="idCheck();"  class="btn btn-dark"  value="중복확인"/><br/>
         	<p id="idch" class="check"> </p><br/>
        <div id="userId-container">
       <span class="guide ok">이 아이디는 사용 가능 합니다.</span>
@@ -133,23 +133,18 @@
         <input type="text" name="memberName" id="memberName" class="form-control" placeholder="이름" required><br>
         	<p id="namech" class="check"> </p>
         <br/>
-        <p class="text">성별</p>
-        <div class="custom-control custom-radio custom-control-inline">
-        	<input type="radio" id="M" name="gender" value="M" class="custom-control-input" required>
-              <label class="custom-control-label textBold400" for="M">남자</label>
-        </div>
-        <div class="custom-control custom-radio custom-control-inline">
-           <input type="radio" id="F" name="gender" value="F" class="custom-control-input">
-              <label class="custom-control-label textBold400" for="F">여자</label>
-        </div>
+        <p class="text">성별&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        	<input type="radio" name="gender" id="male" value="M">남자&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="radio" name="gender" id="female" value="F">여자	
+		</p>
         <br/>
         <p class="text">생년월일</p>
-       		 <input type="text" name="birth" id="birth" class="form-control" placeholder="ex) 19920101" required><br>
+       		 <input type="text" name="birth" id="birth" class="form-control" placeholder="ex) 19900101" required><br>
             <p id="birthch" class="check"> </p><br/>
         <br/> 
         <p class="text">주소</p>
             <input type="text" class="text" name="addr1" id="addr1" placeholder="우편번호"readonly="readonly">
-            <input type="button" onclick="execPostCode()"   class="btn btn-outline-dark"  value="우편번호 찾기"><br>
+            <input type="button" onclick="execPostCode()"   class="btn btn-dark"  value="우편번호 찾기"><br>
             <input type="text" class="form-control" name="addr2" id="addr2"  placeholder="도로명주소"readonly="readonly">
             <input type="text" name="address" id="addr3" class="form-control" placeholder="상세주소" required><br>
             <span id="guide" style="color:#999;display:none"></span>
@@ -157,28 +152,29 @@
             <br/>
        <div id="contents"> 
 		 <p class="text">이메일</p> 
-		 	<input type="text" id="email" name="email" class="form-control" placeholder="" required/>  
+		 	<input type="text" id="email" name="email" class="form-control" placeholder="이메일주소" required/>  
 		 	&nbsp; 
-		<button type="button" id="emailChk" class="btn btn-outline-dark">인증</button><br> 
-		<p id="emch" class="check"> </p>  
-		 <input type="text" id="email2" name="email2" class="form-control" placeholder="인증번호" required>
-		 &nbsp;   
-		<button type="button" id="enterBtn2" class="btn btn-outline-dark">확인</button> 	
-        </div>
-        <p id="emch2" class="check"> </p>	 
-        <br/>
+			<button type="button" id="emailChk" class="btn btn-dark">인증</button><br> 
+			<p id="emch" class="check"> </p>  
+			 <input type="text" id="email2" name="email2" class="form-control" placeholder="인증번호" required>
+			 &nbsp;   
+			<button type="button" id="enterBtn2" class="btn btn-dark">확인</button> 	
+	        </div>
+	        <p id="emch2" class="check"> </p>	 
+	        <br/>
         
         <div id="contents"> 
 		 <p class="text">휴대폰번호</p> 
-		 <input type="text" id="to" name="phone" class="form-control" placeholder="휴대폰번호" required/>  
-		 &nbsp; 
-		<button type="button" id="send" class="btn btn-outline-dark">인증</button><br> 
-		<p id="phonech" class="check"> </p> 
-		 <input type="text" id="phone2" class="form-control" placeholder="인증번호" required>
-		 &nbsp;   
-		<button type="button" id="enterBtn" class="btn btn-outline-dark">확인</button> 	
-        </div>	 
-        <p id="phonech2" class="check"> </p><br/>
+			 <input type="text" id="to" name="phone" class="form-control" placeholder="휴대폰번호" required/>  
+			 &nbsp; 
+			<button type="button" id="send" class="btn btn-dark">인증</button><br> 
+			<p id="phonech" class="check"> </p> 
+			 <input type="text" id="phone2" class="form-control" placeholder="인증번호" required>
+			 &nbsp;   
+			<button type="button" id="enterBtn" class="btn btn-dark">확인</button> 	
+	        </div>	 
+        	<p id="phonech2" class="check"> </p><br/>
+        	
         <hr class="mb-4">
           <div class="custom-control custom-checkbox">
             <input type="checkbox" class="custom-control-input" id="aggrement" required>
@@ -219,21 +215,19 @@
 
 	  
 	  //아이디 중복 확인
-	  const checkId=()=>{
+		  const idCheck=()=>{
 		  $.get("${path}/member/idCheck.do?memberId="+$("#memberId").val(),
-				  data=>{console.log(data);
-					 if(data == ''){
-						$("#userId-container span.ok").show();
-						$("#userId-container span.error").hide();
-						
-					 }else{
-						 $("#userId-container span.ok").hide();
-						 $("#userId-container span.error").show(); 
-					 }
-					 });
-		  }
-	  
-
+				 data=>{console.log(data);
+				 if(data == ''){
+					$("#userId-container span.ok").show();
+					$("#userId-container span.error").hide();
+					
+				 }else{
+					 $("#userId-container span.ok").hide();
+					 $("#userId-container span.error").show(); 
+				 }
+				 });
+	  }
 	  //아이디 체크
 	    $("#memberId").focusout((e)=>{
 		     if($('#memberId').val() == ""){

@@ -43,9 +43,9 @@ public class MemberServiceImpl implements MemberService{
 	}
 	
 	@Override
-	public Member idCheck(Member m) {
+	public Member idcheck(Member m) {
 		
-		return dao.idCheck(session,m);
+		return dao.idcheck(session,m);
 	}
 	
 	/*

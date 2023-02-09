@@ -15,7 +15,7 @@ public interface MemberService {
 	
 	int insertMember(Member m);
 	
-	Member idCheck(Member m);
+	Member idcheck(Member m);
 
 	/* Member idDuplicate(String memberId); */
 	
@@ -29,8 +29,6 @@ public interface MemberService {
 	
 	int pwChange(Map param);
 	
-	// Myprovider 진행
-//	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
 
 	
 
