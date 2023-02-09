@@ -70,7 +70,7 @@ div#pageBar{
 		requestExhibition();
 	});
 	
-    function requestExhibition(page=1,perpage=50){
+    function requestExhibition(page=1,perpage=100){
     	$.ajax({
 		      type: "GET",
 		      url: "${path}/exhApiList.do",
