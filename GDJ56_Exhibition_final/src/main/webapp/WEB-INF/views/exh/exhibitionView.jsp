@@ -150,8 +150,12 @@ section.portfolio-details{
 		
 		const strong6=$("<strong>").text("가격\u00a0\u00a0\u00a0:\u00a0\u00a0\u00a0");
 		const li6=$("<li>").text(data['DP_VIEWCHARGE'].replace(/(<[a-z ="/]*>)|&lt;|&gt;|&nbsp;|<[^>]*>?/g,""));
-		
+		if(data['DP_VIEWCHARGE']==''){
+			li6.text('무료');
+		}
 		//전시 비용이 무료이면 값이 출력 안돼는데.... 디폴트 무료.....
+		//'DP_ViEWCHARGE' 에 값이 없으면 '무료' 출력 함
+		
 		li6.prepend(strong6).css("list-style-type","square");
 		contentinfo.append(li6);
 		
@@ -159,9 +163,9 @@ section.portfolio-details{
 		
 		const strong5=$("<strong>").text("홈페이지 URL\u00a0\u00a0\n");
 		const at=$("<a>").attr({
-			"href" : "data['DP_LNK']"
+			"href" : data['DP_LNK']
 		});
-		at.text(data['DP_LNK']);
+		at.text(data['DP_LNK']);											//링크를 누르면 URL 값에 data['DP_LNK'] 가 들어감..
 		strong5.append(at);
 		//const li5=$("<li>").text(data['DP_LNK']);
 		const li5=$("<li>");

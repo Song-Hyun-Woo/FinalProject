@@ -53,7 +53,7 @@
         <ul>
           <li><a class="nav-link scrollto " href="${path }/newslist.do">NEWS</a></li>
           <li><a class="nav-link scrollto " href="${path }/exhList">EXHIBITION</a></li>
-          <li><a class="nav-link scrollto " href="">ARTIST</a></li>
+          <li><a class="nav-link scrollto " href="${path }/artistList.do">ARTIST</a></li>
           <li><a class="nav-link scrollto " href="">GALLERY</a></li>
           <li><a class="nav-link scrollto " href="${path }/questionWrite.do">QUESTION</a></li>
           
