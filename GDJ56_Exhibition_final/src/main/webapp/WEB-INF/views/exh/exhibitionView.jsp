@@ -303,8 +303,8 @@ section.portfolio-details{
 
 		IMP.init('imp04088045'); // 자신의 "가맹점 식별코드"
 		IMP.request_pay({
-		    pg: "html5_inicis", // pg사 선택, version 1.1.0부터 지원.
-		    pay_method: "card", // 지불방법
+		    pg: 'html5_inicis', // pg사 선택, version 1.1.0부터 지원.
+		    pay_method: 'card', // 지불방법
 		    merchant_uid : 'merchant_'+new Date().getTime(), //주문번호
 		    name : '전시예매', // 결제창에 노출될 상품명
 		    amount : 10, // 결제 금액
@@ -324,7 +324,6 @@ section.portfolio-details{
 			      alert(msg);
 			    }
 		  });
-
 	}
 </script>
 
