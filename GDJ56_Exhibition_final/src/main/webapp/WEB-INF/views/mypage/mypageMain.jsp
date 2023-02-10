@@ -17,26 +17,25 @@
         </div>
 
         <div class="row portfolio-container">
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+        
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
               <img src="${path}/resources/images/mypage/좋아요전시회.PNG" class="img-fluid" alt="">
+              
               <div class="portfolio-info">
                 <div class="portfolio-links">
+                <a href="${path }/mypage/updateMember.do">회원정보수정</a>  
                 </div>
-                <a href="${path }/mypage/updateMember.do">
-                <h2 style="color:write, text-align: center;">회원 정보</h2>
-                </a>
               </div>
             </div>
           </div>
-          
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
-              <img src="${path}/resources/images/mypage/.jpg" class="img-fluid" alt="">
+              <img src="${path}/resources/images/mypage/회원수정.jpg" class="img-fluid" alt="">	
               <div class="portfolio-info">
                 <div class="portfolio-links">
+                <a href="${path }/mypage/bookingList.do">
                   <h2>나의 예매</h2>
                 </div>
               </div>
@@ -61,6 +60,7 @@
               <img src="${path}/resources/images/mypage/문의.PNG" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <div class="portfolio-links">
+                <a href="${path }/mypage/myQna.do">
                   <h2>나의 문의</h2>
                 </div>
               </div>
@@ -85,6 +85,7 @@
               <img src="${path}/resources/images/mypage/test1.png" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <div class="portfolio-links">
+                <a href="${path }/mypage/secession.do">
                   <h2>회원 탈퇴</h2>
                 </div>
               </div>

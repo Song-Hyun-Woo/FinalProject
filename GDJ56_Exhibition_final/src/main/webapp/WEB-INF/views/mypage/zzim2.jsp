@@ -181,15 +181,16 @@
                     <strong>마이페이지</strong>
                 </h4>
                 <ul>
-                    <li><a href="${path }/member/mypage/productOrderList">예매내역</a></li>
-                    <li><a href="${path }/member/mypage/zzim">찜한 전시회</a></li>
-                    <li><a href="${path }/member/mypage/FAQ">FAQ</a></li>
+                    <li><a href="${path }/mypage/bookingList">예매내역</a></li>
+                    <li><a href="${path }/mypage/zzim">찜한 전시회</a></li>
+                    <li><a href="${path }/mypage/myQna">나의문의</a></li>
+                    <li><a href="${path }/mypage/faq">FAQ</a></li>
                     <br>
                     <br>
                     <li><h5><b>내정보</b></h5></li>
-                    <li><a href="${path }/member/mypage/changePage">나의 프로필</a></li>
-                    <li><a href="${path }/member/mypage/pwUpdate">비밀번호 변경</a></li>
-                    <li><a href="${path }/member/mypage/pwUpdate">나의문의</a></li>
+                    <li><a href="${path }/mypage/updateMember">나의 프로필</a></li>
+                    <li><a href="${path }/mypage/changePw">비밀번호 변경</a></li>
+                    <li><a href="${path }/mypage/secession">회원탈퇴</a></li>
                 </ul>
             </div>
         </div>
