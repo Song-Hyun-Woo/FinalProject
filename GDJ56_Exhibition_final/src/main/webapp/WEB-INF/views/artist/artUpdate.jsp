@@ -63,21 +63,24 @@ table#tbl-art th, table#tbl-art td {border:1px solid; padding: 5px 0; }
 				<tr><strong>&nbsp;&nbsp;&nbsp;작가 생애&nbsp;&nbsp;&nbsp;</strong>
 					<input type="date" name="artBirth" required value="${arts.artBirth }" >
 				</tr><br><br>
-				<tr><strong>&nbsp;&nbsp;&nbsp;작가 경력&nbsp;&nbsp;&nbsp;</strong>
-					<input type="text" name="artCareer" style="width:460px;" required value="${arts.artCareer }">
+				<tr><strong style="position: relative;bottom: 110px;" >&nbsp;&nbsp;&nbsp;작가 학력&nbsp;&nbsp;&nbsp;</strong>
+					<!-- <input type="text" name="artEdu" style="width:460px;" required placeholder="작가의 학력을 입력해주세요"> -->
+					<textarea name="artEdu" required rows="5" cols="52" >${arts.artEdu }</textarea>
 				</tr><br><br>
-				<tr><strong>&nbsp;&nbsp;&nbsp;작가 학력&nbsp;&nbsp;&nbsp;</strong>
-					<input type="text" name="artEdu" style="width:460px;" required value="${arts.artEdu }">
+				<tr><strong style="position: relative;bottom: 110px;">&nbsp;&nbsp;&nbsp;작가 경력&nbsp;&nbsp;&nbsp;</strong>
+					<!-- <input type="text" name="artCareer" style="width:460px;" required placeholder="작가의 경력을 입력해주세요"> -->
+					<textarea name="artCareer" required rows="5" cols="52">${arts.artCareer }</textarea>
 				</tr><br><br>
-				<tr><strong>&nbsp;&nbsp;&nbsp;작가 활동&nbsp;&nbsp;&nbsp;</strong>
-					<input type="text" name="artRecord" style="width:460px;" required  value="${arts.artRecord }">
-					<!-- <textarea name="record" required placeholder="작가의 활동을 입력해주세요"></textarea> -->
+				<tr><strong style="position: relative;bottom: 110px;">&nbsp;&nbsp;&nbsp;작가 활동&nbsp;&nbsp;&nbsp;</strong>
+					<!-- <input type="text" name="artRecord" style="width:460px;" required  placeholder="작가의 활동을 입력해주세요"/> -->
+					<textarea name="artRecord" required rows="5" cols="52" >${arts.artRecord }</textarea>
 				</tr>
 		</table><br>
 		<br><br>
 		<input type="hidden" name="artNo" value="${arts.artNo }"/>
 		<button type="submit" style="margin-left: 240px;" class="btn btn-sm btn-dark btn-block">수정</button>&nbsp;&nbsp;&nbsp;
-		<button onclick="location.replace('${path }/artistList.do')"  class="btn btn-sm btn-dark btn-block">취소</button>
+		<%-- <button onclick="location.replace('${path }/artistList.do')"  class="btn btn-sm btn-dark btn-block">취소</button> --%>
+		<input type="button" class="btn btn-sm btn-dark btn-block" value="취소" onclick="javascript:history.back(-1)">
 	</form>
 		<br><br>
 	</div>

@@ -65,15 +65,15 @@ table#tbl-art th, table#tbl-art td {border:1px solid; padding: 5px 0; }
 				</tr><br><br>
 				<tr><strong style="position: relative;bottom: 110px;">&nbsp;&nbsp;&nbsp;작가 경력&nbsp;&nbsp;&nbsp;</strong>
 					<!-- <input type="text" name="artCareer" style="width:460px;" required placeholder="작가의 경력을 입력해주세요"> -->
-					<textarea name="record" required placeholder="작가의 경력을 입력해주세요" rows="5" cols="52"></textarea>
+					<textarea name="artCareer" required placeholder="작가의 경력을 입력해주세요" rows="5" cols="52"></textarea>
 				</tr><br><br>
 				<tr><strong style="position: relative;bottom: 110px;" >&nbsp;&nbsp;&nbsp;작가 학력&nbsp;&nbsp;&nbsp;</strong>
 					<!-- <input type="text" name="artEdu" style="width:460px;" required placeholder="작가의 학력을 입력해주세요"> -->
-					<textarea name="record" required placeholder="작가의 학력을 입력해주세요" rows="5" cols="52"></textarea>
+					<textarea name="artEdu" required placeholder="작가의 학력을 입력해주세요" rows="5" cols="52"></textarea>
 				</tr><br><br>
 				<tr><strong style="position: relative;bottom: 110px;">&nbsp;&nbsp;&nbsp;작가 활동&nbsp;&nbsp;&nbsp;</strong>
 					<!-- <input type="text" name="artRecord" style="width:460px;" required  placeholder="작가의 활동을 입력해주세요"/> -->
-					<textarea name="record" required placeholder="작가의 활동을 입력해주세요" rows="5" cols="52"></textarea>
+					<textarea name="artRecord" required placeholder="작가의 활동을 입력해주세요" rows="5" cols="52"></textarea>
 
 				</tr>
 		</table><br>
