@@ -1,9 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:set var="path" value="${pageContext.request.contextPath }"/>
+<c:set var="path" value="${pageContext.request.contextPath}"/>    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -237,17 +238,17 @@ input {
 	</div>
 	<div class="form-container sign-in-container">
 		<form action="${path }/member/loginMember.do" method="post">
-			<h1>ExhibitioN</h1>
+			<h1>MONOCLEE</h1>
             <br/>
-			<span>전시회 아무말 대찬치 주저리 주저리 플랫폼</span>
+			<span>전시관람에 유용해지고 싶은 인바이트 서비스</span>
 			<br/>
-			<div class="checkbox">
+			<!-- <div class="checkbox">
 				<label>
 				<input type="radio" name="mode" value="member" checked> 일반회원
 						&nbsp;&nbsp;
 						<input type="radio" name="mode" value="artist"> 작가/전시관
 				</label>
-			  </div>
+			  </div> -->
 			<br/>
 			<div class="logininput">
 				<input type="text" name="memberId" id="memberId" class="form-control" placeholder="아이디" autofocus required />

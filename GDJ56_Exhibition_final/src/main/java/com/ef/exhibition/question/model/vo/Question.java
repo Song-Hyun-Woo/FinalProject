@@ -11,6 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @AllArgsConstructor
@@ -21,10 +22,14 @@ public class Question {
 	private int questionNo;
 	
 	private Member memberId;
+	private int questionWriter;
 	private String questionTitle;
 	private String questrionContent;
 	private Date questionDate;
 	private String questionState;
 	private Exhibition exNo;
+	private String questionType;
+	
+	
 	
 }

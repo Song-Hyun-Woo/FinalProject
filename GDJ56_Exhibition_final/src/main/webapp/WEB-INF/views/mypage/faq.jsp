@@ -237,36 +237,24 @@
 			<div class="accordion-item">
 				<h2 class="accordion-header" id="heading4">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
-        				<strong>Q4. ?</strong>
+        				<strong>Q4.예약변경은 가능한지 궁금해요?</strong>
       				</button>
     			</h2>
 	    		<div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionExample">
 	      			<div class="accordion-body">
-	       				
+	       				예약 변경 등을 희망하실 경우, 예약을 취소하신 후 다시 예약해주셔야 합니다.
 	     			</div>
 				</div>
 			</div>
 			<div class="accordion-item">
 				<h2 class="accordion-header" id="heading5">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="true" aria-controls="collapse5">
-        				<strong>Q5. ?</strong>
+        				<strong>Q5. 전시 작가 또는 전시관으로 등록하고 싶은데 어떻게 하나요?</strong>
       				</button>
     			</h2>
 	    		<div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#accordionExample">
 	      			<div class="accordion-body">
-	       				
-	     			</div>
-				</div>
-			</div>
-			<div class="accordion-item">
-				<h2 class="accordion-header" id="heading6">
-					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="true" aria-controls="collapse6">
-        				<strong>Q6. </strong>
-      				</button>
-    			</h2>
-	    		<div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6" data-bs-parent="#accordionExample">
-	      			<div class="accordion-body">
-	       				
+	       				exhibition0101@gmail.com로 첨부 서류를 보내주시면 저희가 검토 이후에 회원의 등급을 조정해드리겠습니다. 
 	     			</div>
 				</div>
 			</div>

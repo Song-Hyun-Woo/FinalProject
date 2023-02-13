@@ -12,8 +12,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class Answer {
+	private int answerNo;
 	private Question questionNo;
 	private String answerContent;
 	private Date answerDate;
 	private int answerRef;
+	
 }
