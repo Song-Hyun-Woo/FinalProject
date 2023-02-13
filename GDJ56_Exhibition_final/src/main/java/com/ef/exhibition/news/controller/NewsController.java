@@ -54,7 +54,7 @@ public class NewsController {
 		mv.addObject("newsn",service.selectNewsList(Map.of("cPage",cPage,"numPerpage",numPerpage)));
 //		log.debug("{}",mv.getModel().get("newsn"));
 		int totalData=service.selectNewsCount();
-		log.debug("{}",totalData);
+//		log.debug("{}",totalData);
 		mv.addObject("pageBar",PageFactory.getPageBar(cPage,numPerpage,totalData, "newslist.do"));
 		mv.setViewName("news/newsList");
 		return mv;
@@ -85,7 +85,7 @@ public class NewsController {
 //		return mv;
 	public String updateNews(@RequestParam(value="upfile",required = false) MultipartFile upfile,
 			@RequestParam Map news) {
-		log.debug("{}",news);
+//		log.debug("{}",news);
 		int result=service.updateNews(news);
 		//alert msg를 보내서 수정 완료가 된 메세지를 보내야하는데....
 		
@@ -120,7 +120,7 @@ public class NewsController {
 			for(MultipartFile f: upfile) {
 				//리네임드규칙을 생성하기
 				
-				log.debug("파일 : {}",f);
+//				log.debug("파일 : {}",f);
 				if(!f.isEmpty()) {
 					//전송된 파일이 있다면..
 					//파일 리네임처리 직접하기

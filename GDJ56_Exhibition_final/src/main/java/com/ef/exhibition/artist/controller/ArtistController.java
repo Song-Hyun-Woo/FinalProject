@@ -43,7 +43,7 @@ public class ArtistController {
 			@RequestParam(value="numPerpage",defaultValue="12")int numPerpage) {
 		mv.addObject("arts",service.selectArtistList(Map.of("cPage",cPage,"numPerpage",numPerpage)));
 		int totalData=service.selectArtistCount();
-		mv.addObject("pageBar",PageFactory.getPageBar(cPage, numPerpage, totalData, "atistList.do"));
+		mv.addObject("pageBar",PageFactory.getPageBar(cPage, numPerpage, totalData, "artistList.do"));
 		mv.setViewName("artist/artistList");
 		return mv;
 	}
@@ -69,7 +69,7 @@ public class ArtistController {
 	@RequestMapping("/artUpdate.do")
 	public String updateArt(@RequestParam(value="upfile", required =false) MultipartFile upfile,
 			@RequestParam Map art,Model m) {
-		log.debug("{}",art);
+//		log.debug("{}",art);
 		int result=service.updateArt(art);
 		m.addAttribute("msg",result>0? "수정 성공":"수정 실패");
 		m.addAttribute("loc","/artistList.do");
@@ -133,7 +133,7 @@ public class ArtistController {
 				.artImg(renameFile)
 				.build();
 		
-		log.debug("{}",a);
+//		log.debug("{}",a);
 		
 		int result=service.insertArt(a);
 		mv.addObject("msg",result>0? "등록 성공":"등록 실패");

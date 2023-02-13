@@ -76,6 +76,10 @@ public class ExhibitionController {
 	//전시회 리스트 연결 + 좋아요 까지..
 	@RequestMapping("/exhList")
 	public String exhList(HttpSession session,Model m) throws JsonProcessingException{
+		//session 로그인 멤버의 memberNo 값이 없어서 에러가 남
+		
+		
+		
 		int memberNo=((Member)session.getAttribute("loginMember")).getMemberNo();
 		ObjectMapper mapper=new ObjectMapper();
 		//json 객체로 역직렬화 하거나 java객체를 json으로 직렬화 할대 사용하는 클래스

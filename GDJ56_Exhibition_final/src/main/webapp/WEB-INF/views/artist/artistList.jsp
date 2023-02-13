@@ -22,11 +22,13 @@ div.artcontainer{
 </div>
 <br>
 <!-- 작가 이름, 작가 생애, 작가 경력, 작가 학력, 작가 개인전 단체전 활동 -->
-<div id="artWrite" style="text-align:center;">
-	<button class="btn btn-sm btn-dark btn-block" onclick="location.replace('${path}/artInsertWrite.do')">작가 등록</button>
-</div>
+<c:if test="${loginMember.memberId eq 'admin' }">
+	<div id="artWrite" style="text-align:center;">
+		<button class="btn btn-sm btn-dark btn-block" onclick="location.replace('${path}/artInsertWrite.do')">작가 등록</button>
+	</div>
+</c:if>
 <br>
-<div style="width:90%; margin:auto;text-align:center;">
+<div style="width:100%; margin:auto;text-align:center;">
 <!--flex wrap  -->
 	<div style="border-top:1px solid #e6e6e6;display:flex;flex-wrap:wrap;margin-left:90px;">
 		<c:if test="${not empty arts }">
