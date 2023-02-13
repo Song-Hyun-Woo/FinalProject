@@ -78,7 +78,7 @@ public class MemberServiceImpl implements MemberService{
 	
 	params.put("from", "01097807217");  /* '발신' 전화번호 (보내는 사람) */ 
     params.put("type", "sms"); 
-    params.put("text", "[홈페이지 이름] 본인인증번호는 [" + numStr + "]를 입력해주시기 바랍니다.");
+    params.put("text", "[MONOCLEE] 본인인증번호는 [" + numStr + "]를 입력해주시기 바랍니다.");
     params.put("app_version", "test app 1.2"); // application name and version
 
 	coolsms.send(params); /* 메시지 전송 */
@@ -107,15 +107,6 @@ public class MemberServiceImpl implements MemberService{
 		return dao.pwChange(session,param);
 	}
 	
-	// Myprovider 진행
-//	@Override
-//	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-//		// TODO Auto-generated method stub
-//		Member m=dao.findByMemberId(username,session);
-//		if(m==null) throw new UsernameNotFoundException(username+"을 찾을 수 없습니다.");
-//		
-//		return m;
-//	}
 	
 }	
 	

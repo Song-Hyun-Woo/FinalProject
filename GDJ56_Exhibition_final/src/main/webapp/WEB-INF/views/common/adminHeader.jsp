@@ -55,12 +55,12 @@
           <li><a class="nav-link scrollto " href="${path }/exhList">EXHIBITION</a></li>
           <li><a class="nav-link scrollto " href="${path }/artistList.do">ARTIST</a></li>
           <li><a class="nav-link scrollto " href="">GALLERY</a></li>
-          <li><a class="nav-link scrollto " href="">QUESTION</a></li>
+          <li><a class="nav-link scrollto " href="${path }/questionList.do">QUESTION</a></li>
           <li><a class="nav-link scrollto " href="">MEMBER</a></li>
           
           <!-- 관리자 로그인-->
             <c:if test="${(loginMember!=null) && (loginMember.memberId eq 'admin') }" >
-         		<li class="dropdown"><a class="btn btn-Secondary dropdown-toggle" href="${path }/admin/adminMain.do" data-toggle="dropdown">ADMINPAGE</a>
+         		<li class="dropdown"><a class="btn btn-Secondary dropdown-toggle" href="${path }/common/adminHeader.do" data-toggle="dropdown">ADMINPAGE</a>
          		 <ul class="dropdown-menu dropdown-menu-dark" role="menu">
                  	<li class="dropdown"><a href="${path }/member/logout.do" >LOGOUT</a></li>              
                    </ul>

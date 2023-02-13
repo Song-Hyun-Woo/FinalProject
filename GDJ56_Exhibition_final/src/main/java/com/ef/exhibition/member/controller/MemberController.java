@@ -33,7 +33,7 @@ import net.nurigo.java_sdk.exceptions.CoolsmsException;
 
 
 @Controller
-@RequestMapping("/member/")
+@RequestMapping("/member")
 @SessionAttributes({"loginMember"})
 @Slf4j
 public class MemberController {
@@ -165,9 +165,9 @@ public class MemberController {
 			/* 이메일 보내기 */
 	        String setFrom = "exhibition0101@gmail.com";
 	        String toMail = email;
-	        String title = "[홈페이지 이름] 회원가입 인증 이메일 입니다.";
+	        String title = "[MONOCLEE] 회원가입 인증 이메일 입니다.";
 	        String content = 
-	                "[홈페이지 이름] 회원가입 인증번호 전송 이메일입니다." +
+	                "[MONOCLEE] 회원가입 인증번호 전송 이메일입니다." +
 	                "<br><br>" + 
 	                "인증 번호는 " + checkNum + "입니다." + 
 	                "<br><br>" + 
@@ -246,7 +246,7 @@ public class MemberController {
 				/* 이메일 전송 */
 		        String setFrom = "exhibition0101@gmail.com"; //전송 이메일
 		        String toMail = email;
-		        String title = "[홈페이지 이름]비밀번호 변경 인증 이메일 입니다.";
+		        String title = "[MONOCLEE]비밀번호 변경 인증 이메일 입니다.";
 		        String content = 
 		                "안녕하세요 [] 입니다." +
 		                "<br><br>" + 
@@ -278,6 +278,5 @@ public class MemberController {
 				return mv;
 			}
 		  }
-		
 
 }

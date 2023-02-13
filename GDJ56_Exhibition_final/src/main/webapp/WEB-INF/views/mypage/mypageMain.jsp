@@ -60,7 +60,7 @@
               <img src="${path}/resources/images/mypage/문의.PNG" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <div class="portfolio-links">
-                <a href="${path }/mypage/myQna.do">
+                <a href="${path }/question/questionList.do">
                   <h2>나의 문의</h2>
                 </div>
               </div>
