@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ef.exhibition.exh.model.vo.Exhibition;
 import com.ef.exhibition.exh.model.vo.Jjim;
+import com.ef.exhibition.exh.model.vo.Review;
 
 @Repository
 public class ExhibitionDaoImpl implements ExhibitionDao{
@@ -22,6 +23,14 @@ public class ExhibitionDaoImpl implements ExhibitionDao{
 	@Override
 	public List<Jjim> selectMyjjim(SqlSessionTemplate session, int memberNo) {
 		return session.selectList("exh.selectMyjjim", memberNo);
+	}
+	@Override
+	public int insertReview(SqlSessionTemplate session, Review r) {
+		return session.insert("exh.insertReview",r);
+	}
+	@Override
+	public List<Review> selectReview(SqlSessionTemplate session, int memberNo) {
+		return session.selectList("exh.selectReview", memberNo);
 	}
 	
 	

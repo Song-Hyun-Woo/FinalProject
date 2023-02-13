@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.ef.exhibition.exh.model.dao.ExhibitionDao;
 import com.ef.exhibition.exh.model.vo.Exhibition;
 import com.ef.exhibition.exh.model.vo.Jjim;
+import com.ef.exhibition.exh.model.vo.Review;
 
 @Service
 public class ExhibitionServiceImpl implements ExhibitionService{
@@ -39,5 +40,15 @@ public class ExhibitionServiceImpl implements ExhibitionService{
 	@Override
 	public List<Jjim> selectMyjjim(int memberNo) {
 		return dao.selectMyjjim(session, memberNo);
+	}
+
+	@Override
+	public int insertReview(Review r) {
+		return dao.insertReview(session,r);
+	}
+
+	@Override
+	public List<Review> selectReview(int memberNo) {
+		return dao.selectReview(session,memberNo);
 	}
 }

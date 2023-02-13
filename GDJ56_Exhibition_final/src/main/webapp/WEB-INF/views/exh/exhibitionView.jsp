@@ -53,6 +53,7 @@ section.portfolio-details{
 <div class="excontainer">
 	<h3>&nbsp;&nbsp;&nbsp;&nbsp;EXHIBITION - VIEW</h3>
 </div>
+<body style="overflow-x: clip;">
 <br>
 
 <main id="main">
@@ -62,11 +63,44 @@ section.portfolio-details{
       </div>
     </section><!-- End Portfolio Details Section -->
 </main>
+    <!-- 댓글 컨테이너 -->
     
-    
-    
+	<!-- 로그인시에만 보이게 분기처리 -->
+	<c:if test="${not empty loginMember }">
+	    <div class="rcontainer" style="margin-left: 230px;">
+	    <form id="commentForm" name="commentForm" method="post">
+	    <br><br>
+	        <div>
+	            <div>
+	                <span><strong>Review</strong></span> <span id="cCnt"></span>
+	            </div>
+	            <div>
+	                <table>                    
+	                    <tr>
+	                        <td>
+	                            <textarea style="width: 1100px" rows="3" cols="30" id="reviewContent" name="reviewContent" placeholder="리뷰를 입력하세요"></textarea>
+	                            <br><br>
+	                            <div>
+	                                <a href='#' onClick="fn_comment()" class="btn pull-right btn-success" style="margin-left: 1045px;">등록</a>
+	                            </div>
+	                        </td>
+	                    </tr>
+	                </table>
+	            </div>
+	        </div>
+	        <input type="hidden" id="exNo" name="exNo" value="" />  <!-- API의 exNo를 받아야함 -->      
+	    </form>
+	</div>
+	
+	<div class="rcontainer">
+	    <form id="commentListForm" name="commentListForm" method="post">
+	        <div id="commentList">
+	        </div>
+	    </form>
+	</div>
+</c:if>
 <br>
-		<h5 style="text-align:center;">전시회 주소</h5> 
+		<h5 style="text-align:center;">EXHIBITION LOCATION</h5> 
 	<div id="map" style="width:80%;height:400px;margin:auto;border:3px solid;border-color:rgba(18, 63, 63, 63);">
 	</div>
 <br>
@@ -76,8 +110,31 @@ section.portfolio-details{
         </div>
         <br>
 
-
+</body>
 <script>
+/*
+ * 댓글 등록하기(Ajax)
+ */
+	function fn_comment(){
+	    
+	    $.ajax({
+	        type:'POST',
+	        url : "${path}/insertReview.do?memberNo=${loginMember.memberNo}&reviewContent=${reviewContent}&exNo="+e['DP_SEQ']",
+	        data:$("#commentForm").serialize(),
+	        success : function(data){
+	            if(data=="success")
+	            {
+	                getCommentList();
+	                $("#comment").val("");
+	            }
+	        },
+	        error:function(request,status,error){
+	            //alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	       }
+	        
+	    });
+	}
+
 	
 ////////////////////////////////////////////////////////////////////////		
 /* 	      url: "${path}/exhibitionView.do?no="+['DP_SEQ'], */

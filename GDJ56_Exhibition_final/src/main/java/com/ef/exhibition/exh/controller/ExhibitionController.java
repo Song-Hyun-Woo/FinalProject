@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -20,8 +21,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ef.exhibition.exh.model.service.ExhibitionService;
-import com.ef.exhibition.exh.model.vo.Exhibition;
 import com.ef.exhibition.exh.model.vo.Jjim;
+import com.ef.exhibition.exh.model.vo.Review;
 import com.ef.exhibition.member.model.vo.Member;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -40,13 +41,29 @@ public class ExhibitionController {
 		this.service = service;
 	}
 	
-	//전시회 등록
-//	@RequestMapping("/insertExh.do")
-//	public String insertExh(Exhibition exh) {
-//		int result=service.insertExh(exh);
-//		log.debug("{}",result);
-//		return "exh/exhibitionWrite";
-//	}
+	//댓글 insert
+	@RequestMapping("/insertReview.do")
+	public ModelAndView insertReview(ModelAndView mv,int reviewNo, String exNo, int memberNo, String reviewContent, Date reviewDate) {
+		
+		Review r=Review.builder()
+				.review_no(reviewNo)
+				.ex_no(exNo)
+				.member_no(memberNo)
+				.review_content(reviewContent)
+				.review_date(reviewDate)
+				.build();
+		
+//		log.debug("{}",r);
+		mv.addObject("review",service.insertReview(r));
+		
+		return mv;
+	}
+	
+	
+	//댓글 리스트
+//	@RequestMapping("/selectReview.do")
+//	public String selectReview()
+	
 	
 	//좋아요
 	@RequestMapping("/insertJjim.do")
@@ -57,7 +74,7 @@ public class ExhibitionController {
 				.ex_No(dpseq)
 				.ex_Title(dpname)
 				.build();
-		log.debug("{}",j);
+//		log.debug("{}",j);
 		int result=service.insertJjim(j);
 		
 		//ajax를 사용해서 표시만 해주는게 찜이니까 원래는 이렇게 해야함
@@ -78,11 +95,9 @@ public class ExhibitionController {
 	public String exhList(HttpSession session,Model m) throws JsonProcessingException{
 		//session 로그인 멤버의 memberNo 값이 없어서 에러가 남
 		
-		
-		
 		int memberNo=((Member)session.getAttribute("loginMember")).getMemberNo();
 		ObjectMapper mapper=new ObjectMapper();
-		//json 객체로 역직렬화 하거나 java객체를 json으로 직렬화 할대 사용하는 클래스
+		//json 객체로 역직렬화 하거나 java객체를 json으로 직렬화 할때 사용하는 클래스
 		//Json 을 java로 변환 할 수 있고
 		//java를 Json으로 직렬화 할 수 있다
 		
@@ -116,7 +131,7 @@ public class ExhibitionController {
 			urlBuilder.append("/" + URLEncoder.encode(page,"UTF-8")); /*요청시작위치 (sample인증키 사용시 5이내 숫자)*/
 			urlBuilder.append("/" + URLEncoder.encode(perPage,"UTF-8")); /*요청종료위치(sample인증키 사용시 5이상 숫자 선택 안 됨)*/
 			// 상위 5개는 필수적으로 순서바꾸지 않고 호출해야 합니다.
-			System.out.println(urlBuilder);
+//			System.out.println(urlBuilder);
 //			log.debug("{}",urlBuilder);
 			if(no!=null) urlBuilder.append("/" + URLEncoder.encode(no,"UTF-8"));
 			

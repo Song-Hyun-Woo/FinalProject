@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 
-import com.ef.exhibition.exh.model.vo.Exhibition;
 import com.ef.exhibition.exh.model.vo.Jjim;
+import com.ef.exhibition.exh.model.vo.Review;
 
 public interface ExhibitionDao {
 	
@@ -15,4 +15,7 @@ public interface ExhibitionDao {
 //	Exhibition selectExh(SqlSessionTemplate session, int exNo);
 	int insertJjim(SqlSessionTemplate session, Jjim j);
 	List<Jjim> selectMyjjim(SqlSessionTemplate session, int memberNo);
+	
+	int insertReview(SqlSessionTemplate session, Review r);
+	List<Review> selectReview(SqlSessionTemplate session, int memberNo);
 }

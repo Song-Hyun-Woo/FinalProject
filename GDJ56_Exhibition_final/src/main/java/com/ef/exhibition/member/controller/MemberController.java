@@ -106,7 +106,7 @@ public class MemberController {
 		// 약관 동의 화면 (시간 없어서 안할꺼임)
 		@RequestMapping("/term.do")
 		public String term() {
-			return "meber/term";
+			return "member/term";
 		}
 		
 		// 약관 동의 체크
