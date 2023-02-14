@@ -112,28 +112,7 @@ section.portfolio-details{
 
 </body>
 <script>
-/*
- * 댓글 등록하기(Ajax)
- */
-	function fn_comment(){
-	    
-	    $.ajax({
-	        type:'POST',
-	        url : "${path}/insertReview.do?memberNo=${loginMember.memberNo}&reviewContent=${reviewContent}&exNo="+e['DP_SEQ']",
-	        data:$("#commentForm").serialize(),
-	        success : function(data){
-	            if(data=="success")
-	            {
-	                getCommentList();
-	                $("#comment").val("");
-	            }
-	        },
-	        error:function(request,status,error){
-	            //alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-	       }
-	        
-	    });
-	}
+
 
 	
 ////////////////////////////////////////////////////////////////////////		
