@@ -14,5 +14,11 @@ public interface AdminDao {
 	List<Member> selectMemberListPage(SqlSessionTemplate session, Map param);
 	
 	int selectMemberCount(SqlSessionTemplate session);
+	
+	
+	// 멤버 리스트 페이징 처리
+	List<Member> getSearchList(SqlSessionTemplate session, Map param);
+
+	int selectSearchMemberCount(SqlSessionTemplate session, Map param);
 
 }

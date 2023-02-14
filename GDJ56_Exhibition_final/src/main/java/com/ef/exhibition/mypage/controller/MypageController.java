@@ -77,8 +77,9 @@ public class MypageController {
 			
 			//회원 탈퇴 
 			@RequestMapping("/secessionEnd.do")
-			public ModelAndView SecessionEnd(@RequestParam String memberId, @RequestParam String secessionReason,
+			public ModelAndView removeMember(@RequestParam String memberId, @RequestParam(value="secession_reason") String secessionReason,
 					ModelAndView mv, SessionStatus status) {
+				log.debug("{}",memberId);
 				if(secessionReason==null||secessionReason=="") {
 					secessionReason="사유없음";
 				}
