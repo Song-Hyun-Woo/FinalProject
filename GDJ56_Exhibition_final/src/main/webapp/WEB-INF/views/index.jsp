@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>\
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!-- 카카오맵 API 스크립트 -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e610ab514914e179634c73ca831a83ac&libraries=services"></script>
@@ -73,6 +73,7 @@
 
       </div>
     </div>
+    
   </section><!-- End Hero -->
 
 
@@ -123,8 +124,8 @@
       <div class="container">
 
         <div class="section-title">
-          <h2>ARTIST</h2>
-          <p>EXHIBITION은 미술시장의 폐쇄성을 타파하고, 미술을 확산시키기 위해 각 분야의 전문가들이 모여 창립했습니다.<br>큐레이터, 도슨트, 기획자, 디자이너 각 분야에서 우수한 능력을 발휘하고 있는 이들이 함께합니다.<br>작품 및 전시회 선호도, 미술 취향에 대한 메타데이터를 구축해 작가ㆍ전시관ㆍ관람객 3주체가 모두 만족하는 서비스를 제공합니다.</p>
+          <h2>MONOCLEE ARTIST</h2>
+          <p>MONOCLEE은 미술시장의 폐쇄성을 타파하고, 미술을 확산시키기 위해 각 분야의 전문가들이 모여 창립했습니다.<br>큐레이터, 도슨트, 기획자, 디자이너 각 분야에서 우수한 능력을 발휘하고 있는 이들이 함께합니다.<br>작품 및 전시회 선호도, 미술 취향에 대한 메타데이터를 구축해 작가ㆍ전시관ㆍ관람객 3주체가 모두 만족하는 서비스를 제공합니다.</p>
         </div>
 
         <div class="row">
@@ -211,33 +212,33 @@
       <div class="container">
 
         <div class="section-title">
-          <h2 >Exhibition Introduce</h2>
+          <h2 >MONOCLEE Introduce</h2>
         </div>
         <div class="faq-list">
           <ul>
             <li data-aos="fade-up">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Exhibition 이란?? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">MONOCLEE 이란?? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
                 <p>
-                  Exhibition은 사용자의 미술적 '취향', '호감도'를 파악하여 취향의 자유만큼이나, 나와 다른 취향에 대한 공감, 예술작가의 작품에 대한 존중이<br> 중요하다는 취지로 보다 많은 작품과 좋은 전시회를 사용자 맞춤으로 추천 드립니다.<br>Exhibition은 전국의 미술관, 갤러리 장소 정보 데이터를 구축해서 사용자의 위치, 거주지 체크인 정보를 분석하여 실시간 개최중인 미술 전시 관람의<br> 접근이 용이하도록 노력하겠습니다.
+                  MONOCLEE은 사용자의 미술적 '취향', '호감도'를 파악하여 취향의 자유만큼이나, 나와 다른 취향에 대한 공감, 예술작가의 작품에 대한 존중이<br> 중요하다는 취지로 보다 많은 작품과 좋은 전시회를 사용자 맞춤으로 추천 드립니다.<br>MONOCLEE은 전국의 미술관, 갤러리 장소 정보 데이터를 구축해서 사용자의 위치, 거주지 체크인 정보를 분석하여 실시간 개최중인 미술 전시 관람의<br> 접근이 용이하도록 노력하겠습니다.
                 </p>
               </div>
             </li>
 
             <li data-aos="fade-up" data-aos-delay="100">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Exhibition 회원에게는 어떤 혜택이 있나요?? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">MONOCLEE 회원에게는 어떤 혜택이 있나요?? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
                 <p>
-                  Exhibition 회원이 되시면, 회원님의 개인 취향과 더불어 거주지에서 가까운 전시회를 알려드리며, 취향분석을 기반으로 <br>전시회를 추천해드립니다.
+                  MONOCLEE 회원이 되시면, 회원님의 개인 취향과 더불어 거주지에서 가까운 전시회를 알려드리며, 취향분석을 기반으로 <br>전시회를 추천해드립니다.
                 </p>
               </div>
             </li>
 
             <li data-aos="fade-up" data-aos-delay="200">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">Exhibition에 나의 작품을 등록하고 홍보하고 싶습니다. <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">MONOCLEE에 나의 작품을 등록하고 홍보하고 싶습니다. <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
                 <p>
-                  창작 활동을 하는 작가 회원님들은 회원가입을 작가로 하신후 Exhibition에서 전시회를 등록할 수 있습니다. 작품등록에 대한 오류나 해상도가 큰파일에 대한 등록 요청은 Exhibition 지원센터 exhibition0101@gmail.com 로 메일을 보내주시면 최선을 다해 도와드리겠습니다.
+                  창작 활동을 하는 작가 회원님들은 회원가입을 작가로 하신후 MONOCLEE에서 전시회를 등록할 수 있습니다. 작품등록에 대한 오류나 해상도가 큰파일에 대한 등록 요청은 MONOCLEE 지원센터 exhibition0101@gmail.com 로 메일을 보내주시면 최선을 다해 도와드리겠습니다.
                 </p>
               </div>
             </li>
@@ -246,32 +247,27 @@
               <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">작품 정보 or 전시회 or 갤러리의 정보가 올바르지 않아요! <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
                 <p>
-                	Exhibition의 작가, 작품정보는 서울시립미술관, 한국문화예술위원회_미술작가목록을 기반으로 구축되었습니다. 이에, 실시간 정확하지 않은 정보가<br> 있을 수 있는 점을 양해 부탁드리며, 전시회, 작품 이미지, 작가 프로필이 사실과 다를 경우, exhibition0101@gmail.com로 메일을 보내 주시면<br> 최대한 빨리 수정 내용을 반영해드리겠습니다. 
+                	MONOCLEE의 작가, 작품정보는 서울시립미술관, 한국문화예술위원회_미술작가목록을 기반으로 구축되었습니다. 이에, 실시간 정확하지 않은 정보가<br> 있을 수 있는 점을 양해 부탁드리며, 전시회, 작품 이미지, 작가 프로필이 사실과 다를 경우, exhibition0101@gmail.com로 메일을 보내 주시면<br> 최대한 빨리 수정 내용을 반영해드리겠습니다. 
                 </p>
               </div>
             </li>
 
             <li data-aos="fade-up" data-aos-delay="400">
-              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">Exhibition이 나아갈 방향! <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">MONOCLEE이 나아갈 방향! <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
                 <p>
-                	저희 홈페이지는 회원, 작가 여러분의 관심을 받아 더욱 성장하는 Exhibition이 되도록 항상 노력하고 있습니다.<br>홈페이지를 이용하시면서 불편한 점이나 요구사항이 있는 경우엔 Question을 이용해 주시면 확인 후 최대한 반영이 되도록 수정, 업데이트 하도록 노력하겠습니다<br>
+                	저희 홈페이지는 회원, 작가 여러분의 관심을 받아 더욱 성장하는 MONOCLEE이 되도록 항상 노력하고 있습니다.<br>홈페이지를 이용하시면서 불편한 점이나 요구사항이 있는 경우엔 Question을 이용해 주시면 확인 후 최대한 반영이 되도록 수정, 업데이트 하도록 노력하겠습니다<br>
                 </p>
               </div>
             </li>
 
           </ul>
         </div>
-
-      </div>
+      </div><br>
     </section><!-- End Frequently Asked Questions Section -->
     
-    
-    
-    
-    <br>
     <div class="section-title">
-          <h2 >Exhibition Location</h2>
+          <h2 >MONOCLEE Location</h2>
         </div>
     <div id="map" style="width:80%;height:400px;margin-left:150px;"></div>
 	<script>

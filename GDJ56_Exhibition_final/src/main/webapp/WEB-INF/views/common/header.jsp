@@ -4,7 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>  
 <c:set var="path" value="${pageContext.request.contextPath }"/>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,12 +11,12 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Exhibition</title>
+  <title>MONOCLEE</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="${path}/resources/assets/img/favicon.png" rel="icon">
+  <link href="${path}/resources/assets/img/test.png" rel="icon">
   <link href="${path}/resources/assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -47,7 +46,7 @@
   <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="${path }/">Title</a></h1>
+      <h1 class="logo"><a href="${path }/">MONOCLEE</a></h1>
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -83,14 +82,3 @@
    	  		</c:if>	
    	  		
   </header><!-- End Header -->
-
-  <!-- Vendor JS Files -->
-  <script src="${path}/resources/assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="${path}/resources/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="${path}/resources/assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="${path}/resources/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="${path}/resources/assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="${path}/resources/assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="${path}/resources/assets/js/main.js"></script>
