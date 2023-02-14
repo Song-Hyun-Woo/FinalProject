@@ -6,6 +6,13 @@
     <jsp:param name="title" value=" "/>
 </jsp:include>
 <link rel="stylesheet" href="${path}/resources/assets/css/style.css" />
+<style>
+
+
+
+</style>
+
+
 
  <!-- ======= 마이페이지 Section ======= -->
     <section id="portfolio" class="portfolio">
@@ -13,10 +20,12 @@
 
         <div class="section-title">
           	<h1 style="margin-top:70px;"> </h1>
+          	<br>
+          	<br>
 			<p style="font-size:17px;">${loginMember.memberName }님, 마이페이지입니다.</p>
         </div>
 
-        <div class="row portfolio-container">
+        <div class="row portfolio-container" style="display: flex; justify-content: center">
         
         <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">

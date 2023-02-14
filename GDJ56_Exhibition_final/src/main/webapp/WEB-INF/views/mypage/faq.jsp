@@ -32,6 +32,7 @@
         margin-right: 100px;
         margin-top: 50px;
         display: flex;
+       	width: 90%;
     }
     
     .sidebar {
@@ -175,6 +176,7 @@
     <section class="zzim-form">
         <div>
             <div class="sidebar">
+            <br>
                 <h4>
                     <strong>마이페이지</strong>
                 </h4>
@@ -193,8 +195,7 @@
             </div>
         </div>
 
-<main>
-	<%-- <jsp:include page="/WEB-INF/views/mypage/mypageSidebar.jsp"/> --%>
+<main style="width: 70%">
 		
 		<div class="accordion mt-5" id="accordionExample" style="width: 60%; margin-left: 20%";margin-right: 20%">
 		<h2>자주 묻는 질문</h2>
@@ -225,12 +226,12 @@
 			<div class="accordion-item">
 				<h2 class="accordion-header" id="heading3">
 					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
-        				<strong>Q3. ?</strong>
+        				<strong>Q3. 1:1 문의는 답변은 어디서 확인할 수 있나요?</strong>
       				</button>
     			</h2>
 	    		<div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordionExample">
 	      			<div class="accordion-body">
-	       				
+	       				마이페이지 > 나의문의에서 확인하실 수 있습니다.
 	     			</div>
 				</div>
 			</div>
@@ -260,7 +261,13 @@
 			</div>
 			
 		</div>
-		
 </main>
+
+<script>
+/* 클릭이벤트  */
+
+
+</script>
+
+
   
-<jsp:include page="/WEB-INF/views/common/footer.jsp"/>

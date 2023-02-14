@@ -2,13 +2,14 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<c:set var="path" value="${pageContext.request.contextPath }"/>
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>::: - 회원 탈퇴(마이페이지) :::</title>
+<title>::: MONOCLEE - 회원 탈퇴(마이페이지) :::</title>
 </head>
 
 <style>
@@ -37,6 +38,7 @@
         margin-right: 100px;
         margin-top: 50px;
         display: flex;
+        width: 100%;
     }
     
     .sidebar {
@@ -177,9 +179,10 @@
     </style>
     
     <div class="headcontainer border-top" style="padding-top: 20px"></div>
-    <section class="zzim-form">
+    <section  class="zzim-form">
         <div>
             <div class="sidebar">
+            <br>
                 <h4>
                     <strong>마이페이지</strong>
                 </h4>
@@ -198,23 +201,24 @@
             </div>
         </div>
 
-<main>
+<main style="width: 70%">
 	
 	<h3 class="text-center mt-5 mb-5">회원 탈퇴</h3>
-		<form action="${path }/mypage/secessionEnd.do">
-			<div class="form-check d-flex justify-content-center">
+		<form action="${path}/mypage/secessionEnd.do" id="form1">
+			<div style="display: flex; justify-content: center" class="form-check d-flex justify-content-center">
 			<label id="secessionCheckLabel">
 				  <input class="form-check-input" type="checkbox" value="" id="secessionCheck">
 				    회원탈퇴하기
 				  </label>
 			</div>
 			<div id="secessionReasonDiv" class="visually-hidden">
-				<form>
+			
 				<div class="mb-3 row">
 					<input type="text" value="${loginMember.memberId}" name="memberId" hidden>
 				    <label for="inputPassword" class="col-sm-2 col-form-label">탈퇴 사유</label>
-				    <div class="d-flex">
-						<select name="mem_exit_reason" class="form-select">
+				    
+				    <div style="width: 700px;" class="d-flex">
+						<select name="secession_reason" class="form-select">
 							<option value="원하는 전시회 또는 작가가 없음">마음에 드는 전시회 또는 작가가 없다</option>
 							<option value="이용 빈도 부족">이용 빈도 부족</option>
 							<option value="이벤트 및 혜택 부족">이벤트 및 혜택 부족</option>
@@ -223,9 +227,9 @@
 							<option value="관리 부족으로 인한 실망">관리 부족으로 인한 실망</option>
 						</select>
   				</div>
-  				</form>
+  				
 				<div class="d-grid gap-2 col-6 mx-auto">
-		  			<input type="button" class="btn btn-dark ms-2" id="secessionBye" value="탈퇴">
+		  			<input type="submit" class="btn btn-dark ms-2" id="secessionBye" value="탈퇴">
 				</div>
 			</div>
 		</form>
@@ -243,14 +247,16 @@
     
 
 $(document).ready(function(){
-	$("#secessionBye").click(function(){
-		if (confirm("정말로 탈퇴하시겠습니까?") == true){
-			   $("#form").submit();
+ $("#secessionBye").click(function(){
+		var result=confirm("정말로 탈퇴하시겠습니까?");
+		if (result){
+			   $("#form1").submit();
 			}else{   
 			   return false;
-			}
+			} 
+		
+		
 	});
 });   
 </script>
   
-<jsp:include page="/WEB-INF/views/common/footer.jsp"/>

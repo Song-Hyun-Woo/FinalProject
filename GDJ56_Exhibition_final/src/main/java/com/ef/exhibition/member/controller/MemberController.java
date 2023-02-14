@@ -81,12 +81,19 @@ public class MemberController {
 			 * 해야한다. 
 			 * matches("원본값",암호화값)매소드를 이용
 			 */
-
+			
+			String viewName="redirect:/";
+			System.out.println(loginMember);
 			if (loginMember != null && passwordEncoder.matches(m.getPassword(), loginMember.getPassword())) {
 
 				//로그인성공
 				httpSession.setAttribute("loginMember", loginMember);
-			}		
+			} /*
+				 * else { 
+				 * //로그인실패
+				 * model.addAttribute("msg","로그인실패!");
+				 * model.addAttribute("loc","/"); viewName="common/msg"; }
+				 */
 			return "redirect:/";
 		}
 		
