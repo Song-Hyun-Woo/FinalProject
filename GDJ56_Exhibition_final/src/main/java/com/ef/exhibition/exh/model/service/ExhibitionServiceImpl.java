@@ -42,7 +42,7 @@ public class ExhibitionServiceImpl implements ExhibitionService{
 	}
 
 	@Override
-	public List<Review> selectReview(int memberNo) {
-		return dao.selectReview(session,memberNo);
+	public List<Review> selectReview(String exNo) {
+		return dao.selectReview(session,exNo);
 	}
 }

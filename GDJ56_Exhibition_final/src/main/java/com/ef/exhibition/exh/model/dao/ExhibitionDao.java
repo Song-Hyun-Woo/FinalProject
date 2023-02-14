@@ -17,5 +17,5 @@ public interface ExhibitionDao {
 	List<Jjim> selectMyjjim(SqlSessionTemplate session, int memberNo);
 	
 	int insertReview(SqlSessionTemplate session, Review r);
-	List<Review> selectReview(SqlSessionTemplate session, int memberNo);
+	List<Review> selectReview(SqlSessionTemplate session, String exNo);
 }

@@ -6,8 +6,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.sql.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ef.exhibition.exh.model.service.ExhibitionService;
@@ -28,6 +30,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.extern.slf4j.Slf4j;
+
 
 @Controller
 @Slf4j
@@ -43,26 +46,34 @@ public class ExhibitionController {
 	
 	//댓글 insert
 	@RequestMapping("/insertReview.do")
-	public ModelAndView insertReview(ModelAndView mv,int reviewNo, String exNo, int memberNo, String reviewContent, Date reviewDate) {
-		
+//	public ModelAndView insertReview(ModelAndView mv, String exNo, String writer, String reviewContent) {
+	public String insertReview( String exNo, String writer, String reviewContent) {
 		Review r=Review.builder()
-				.review_no(reviewNo)
 				.ex_no(exNo)
-				.member_no(memberNo)
+				.writer(writer)
 				.review_content(reviewContent)
-				.review_date(reviewDate)
 				.build();
 		
-//		log.debug("{}",r);
-		mv.addObject("review",service.insertReview(r));
+		log.debug("{}",r);
+		int result=service.insertReview(r);
 		
-		return mv;
+		
+		
+		return "Success";
 	}
 	
 	
 	//댓글 리스트
-//	@RequestMapping("/selectReview.do")
-//	public String selectReview()
+	@RequestMapping("/selectReview.do")
+	public Map<String, Object> selectReview(String exNo) {
+		List<Review> review=service.selectReview(exNo);
+		ModelAndView mv=new ModelAndView();
+		mv.setViewName("exh/exhibitionView");
+		Map<String, Object> map=new HashMap();
+		map.put("review", review);
+		
+		return map;
+	}
 	
 	
 	//좋아요

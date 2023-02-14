@@ -15,5 +15,5 @@ public interface ExhibitionService {
 	List<Jjim> selectMyjjim(int memberNo);
 	
 	int insertReview(Review r);
-	List<Review> selectReview(int memberNo);
+	List<Review> selectReview(String exNo);
 }

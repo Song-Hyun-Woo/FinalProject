@@ -48,6 +48,18 @@ div.col-lg-4{
 section.portfolio-details{
 	border-top: 1px solid #e6e6e6;
 }
+	table#tbl-comment{width:580px; margin:0 auto; border-collapse:collapse; clear:both; } 
+    table#tbl-comment tr td{border-bottom:1px solid; border-top:1px solid; padding:5px; text-align:left; line-height:120%;}
+    table#tbl-comment tr td:first-of-type{padding: 5px 5px 5px 50px;}
+    table#tbl-comment tr td:last-of-type {text-align:right; width: 100px;}
+    table#tbl-comment button.btn-reply{display:none;}
+    table#tbl-comment button.btn-delete{display:none;}
+    table#tbl-comment tr:hover {background:lightgray;}
+    table#tbl-comment tr:hover button.btn-reply{display:inline;}
+    table#tbl-comment tr:hover button.btn-delete{display:inline;}
+    table#tbl-comment sub.comment-writer {color:navy; font-size:14px}
+    table#tbl-comment sub.comment-date {color:tomato; font-size:10px}
+
 </style>
 <br><br><br><br>
 <div class="excontainer">
@@ -67,37 +79,55 @@ section.portfolio-details{
     
 	<!-- 로그인시에만 보이게 분기처리 -->
 	<c:if test="${not empty loginMember }">
+		<div class="comment-count">댓글 <span id="count">0</span></div>
+		
 	    <div class="rcontainer" style="margin-left: 230px;">
-	    <form id="commentForm" name="commentForm" method="post">
+	    <form id="commentForm" name="commentForm" method="post" action="${path }/insertReview.do">
 	    <br><br>
 	        <div>
 	            <div>
-	                <span><strong>Review</strong></span> <span id="cCnt"></span>
+	                <span><strong>Review</strong></span>
 	            </div>
 	            <div>
 	                <table>                    
 	                    <tr>
 	                        <td>
+	                        <!--댓글에는 작성자, 댓글을 달 게시물, 댓글 내용,  -->
 	                            <textarea style="width: 1100px" rows="3" cols="30" id="reviewContent" name="reviewContent" placeholder="리뷰를 입력하세요"></textarea>
+	                            <input type="hidden" name="exNo" id="exNo" value="${param.no }"><!-- 댓글을 달 게시글 번호 ['DP_SEQ'] -->
+	                            <input type="hidden" name="writer" id="writer" value="${not empty loginMember? loginMember.memberId:'' }"><!--댓글 작성자 -->
 	                            <br><br>
 	                            <div>
-	                                <a href='#' onClick="fn_comment()" class="btn pull-right btn-success" style="margin-left: 1045px;">등록</a>
+	                                <input type="submit" class="btn pull-right btn-success" id="clickc" style="margin-left: 1045px;" value="등록">
 	                            </div>
 	                        </td>
 	                    </tr>
 	                </table>
 	            </div>
 	        </div>
-	        <input type="hidden" id="exNo" name="exNo" value="" />  <!-- API의 exNo를 받아야함 -->      
 	    </form>
 	</div>
 	
-	<div class="rcontainer">
-	    <form id="commentListForm" name="commentListForm" method="post">
-	        <div id="commentList">
-	        </div>
-	    </form>
-	</div>
+	<c:if test="${not empty review }">
+		<div class="comment_Box" style="border:1px solid gray;"></div>
+		<%-- <c:forEach var="r" items="${review }">
+			<div class="rcontainer">
+			    <form id="commentListForm" name="commentListForm" method="post">
+			        <div id="commentList">
+			        	<sub><c:out value="${r.writer }"/></sub>
+			        	<sub><c:out value="${r.review_date }"/></sub>
+			        	<br>
+			        	<c:out value="${r.review_content }"/>
+			        </div><br>
+			        <div>
+			        	<c:if test="${loginMember.memberId eq 'admin'||loginMember.memberId eq (r.writer)}">
+			        		<button class="btn-delete">삭제</button>
+			        	</c:if>
+			        </div>
+			    </form>
+			</div>
+		</c:forEach> --%>
+	</c:if>
 </c:if>
 <br>
 		<h5 style="text-align:center;">EXHIBITION LOCATION</h5> 
@@ -112,6 +142,69 @@ section.portfolio-details{
 
 </body>
 <script>
+//관람평 구현
+
+$('#clickc').click(function(){
+	const pno=${param.no};
+	const writer=$('#writer').val();
+	const content=$('#reviewContent').val();
+	
+	console.log(pno);
+	console.log(writer);
+	console.log(content);
+	
+	$.ajax({
+		type:'post',
+		url:'${path}/insertReview.do',
+		data:JSON.stringify(
+			{
+				"pno":pno,
+				"writer":writer,
+				"content":content
+			}	
+		),
+		contentType:'application/json',
+		success:function(data){
+			if(data==='Success'){
+				consol.log('댓글 등록 완료');
+				$('#writer').val(writer);
+				$('#content').val('');
+				getList();
+			}
+		}
+	});
+});
+
+getList();
+
+function getList(){
+	const pno=${param.no};
+	const writer=$('#writer').val();
+	const content=$('#reviewContent').val();
+	
+	$.getJSON(
+		'${path}/insertReview.do'+pno,
+		function(data){
+			if(data.total>0){
+				var list =data.list;
+				var comment="<div>";
+				$('#count').html(data.total);
+				for(i=0;i<list.length;i++){
+					var content=list[i].content;
+					var writer=list[i].writer;
+					comment+="<div><span id='writer'><storng>"+writer+"</strong></span><br>";
+					comment+="<span id='content'>"+content+"</span><br>";
+					
+				}
+				$(".comment_Box").html(comment);
+			}
+		}
+	)
+}
+
+
+
+
 
 
 	

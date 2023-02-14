@@ -29,8 +29,8 @@ public class ExhibitionDaoImpl implements ExhibitionDao{
 		return session.insert("exh.insertReview",r);
 	}
 	@Override
-	public List<Review> selectReview(SqlSessionTemplate session, int memberNo) {
-		return session.selectList("exh.selectReview", memberNo);
+	public List<Review> selectReview(SqlSessionTemplate session, String exNo) {
+		return session.selectList("exh.selectReview", exNo);
 	}
 	
 	
