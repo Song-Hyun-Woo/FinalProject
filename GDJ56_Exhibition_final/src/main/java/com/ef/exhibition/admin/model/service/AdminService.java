@@ -13,6 +13,11 @@ public interface AdminService {
 
 	List<Member> selectMemberList();
 
+	//맴버 관리(페이징 처리)
+	List<Member> getSearchList(Map param);
+
+	int selectSearchMemberCount(Map param);
+
 //	Member selectAdmin(Member m);
 
 

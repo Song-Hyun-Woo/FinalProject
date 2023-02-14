@@ -32,5 +32,23 @@ public class AdminDaoImpl implements AdminDao {
 		
 		return session.selectOne("member.selectMemberCount");
 	}
+	
+	
+	// 멤버리스트 페이징 처리
+	@Override
+	public List<Member> getSearchList(SqlSessionTemplate session, Map param){
+		int offSet=(int)param.get("cPage");
+		int limit=(int)param.get("numPerpage");
+		
+		return session.selectList("member.selectSearchList2",param,new RowBounds((offSet-1)*limit,limit));
+	}
+	
+	@Override
+	public int selectSearchMemberCount(SqlSessionTemplate session, Map param) {
+		// TODO Auto-generated method stub
+		return session.selectOne("member.selectSearchMemberCount",param);
+	}
+	
+	
 
 }

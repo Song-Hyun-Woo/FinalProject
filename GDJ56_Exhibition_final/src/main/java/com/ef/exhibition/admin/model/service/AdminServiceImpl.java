@@ -38,5 +38,17 @@ public class AdminServiceImpl implements AdminService {
 	}
 	
 	
+	// 멤버 리스트 페이징 처리
+	@Override
+	public List<Member> getSearchList(Map param){
+		return dao.getSearchList(session, param);
+	}
+	
+
+	@Override
+	public int selectSearchMemberCount(Map param) {
+		// TODO Auto-generated method stub
+		return dao.selectSearchMemberCount(session, param);
+	}
 
 }
