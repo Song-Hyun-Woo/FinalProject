@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<c:set var="path" value=""/> 
+<c:set var="path" value="${pageContext.request.contextPath }"/> 
 <jsp:include page="/WEB-INF/views/common/header.jsp"/>   
 
 <!DOCTYPE html>
@@ -24,7 +24,7 @@
   	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
   	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
-    <title>:::  - 회원가입 :::</title>
+    <title>::: MONOCLEE - 회원가입 :::</title>
     
     <style>
     	div#userId-container{position:relative;padding:0px;text-align:center;}
@@ -117,7 +117,7 @@
         margin-left: 100px;" required>
 
         &nbsp; &nbsp;
-        <input type="button"  id="memberCheck" onclick="idCheck();"  class="btn btn-dark"  value="중복확인"/><br/>
+        <input type="button"  id="memberCheck" onclick="idCheck();"  class="btn btn-dark"  value="중복 확인"/><br/>
         	<p id="idch" class="check"> </p><br/>
        <div id="userId-container">
       <span class="guide ok">이 아이디는 사용 가능 합니다.</span>
@@ -216,18 +216,36 @@
 	  
 	  //아이디 중복 확인
 		  const idCheck=()=>{
-		  $.get("${path}/member/idCheck.do?memberId="+$("#memberId").val(),
-				 data=>{console.log(data);
-				 if(data == ''){
-					$("#userId-container span.ok").show();
-					$("#userId-container span.error").hide();
-					
-				 }else{
-					 $("#userId-container span.ok").hide();
-					 $("#userId-container span.error").show(); 
-				 }
-				 });
-	  }
+			  $.ajax({
+			        type : "POST",
+			        url : "${path}/member/idCheck.do",
+			        data : {"memberId":$("#memberId").val()},
+			        success : a=>{
+			        	console.log(a);
+						if(a == ''){
+							$("#userId-container span.ok").show();
+							$("#userId-container span.error").hide();
+							
+						 }else{
+							 $("#userId-container span.ok").hide();
+							 $("#userId-container span.error").show(); 
+						 }
+			        }
+			    });
+			  
+			  // 따로 연구할 녀석
+	  		/* $.get(${path}+"/member/idCheck.do?memberId="+$("#memberId").val(),
+			 data=>{console.log(data);
+			 if(data == ''){
+				$("#userId-container span.ok").show();
+				$("#userId-container span.error").hide();
+				
+			 }else{
+				 $("#userId-container span.ok").hide();
+				 $("#userId-container span.error").show(); 
+			 }
+			 }); */
+  	}
 	  //아이디 체크
 	    $("#memberId").focusout((e)=>{
 		     if($('#memberId').val() == ""){

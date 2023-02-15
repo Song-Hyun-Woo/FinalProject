@@ -65,7 +65,7 @@
               <c:if test="${ (loginMember!=null) && (loginMember.memberId ne 'admin') }">
                  <li class="dropdown"><a class="btn btn-Secondary dropdown-toggle" href="${path }/mypage/mypageMain.do" data-toggle="dropdown">MYPAGE</a> 
                  <ul class="dropdown-menu dropdown-menu-dark" role="menu">
-                 <li class="dropdown"><a href="${path }/mypage/updateMember.do" >MODIFY</a></li>
+                 <li class="dropdown"><a href="${path }/mypage/updateMember.do?memberId=${loginMember.memberId}" >MODIFY</a></li>
                  <li class="dropdown"><a href="${path }/mypage/bookingList.do" >RESERVATION</a></li>
                  <li class="dropdown"><a href="${path }/mypage/zzim2.do" >ZZIM</a></li>
                  <li class="dropdown"><a href="${path }/member/logout.do" >LOGOUT</a></li>              

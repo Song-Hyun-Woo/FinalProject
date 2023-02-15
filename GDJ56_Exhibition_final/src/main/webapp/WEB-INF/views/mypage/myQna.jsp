@@ -180,16 +180,15 @@
                     <strong>마이페이지</strong>
                 </h4>
                 <ul>
-                    <li><a href="${path }/mypage/bookingList">예매내역</a></li>
+                    <li><a href="${path }/mypage/bookingList">예매 내역</a></li>
                     <li><a href="${path }/mypage/zzim">찜한 전시회</a></li>
                     <li><a href="${path }/mypage/myQna">나의 문의</a></li>
-                    <li><a href="${path }/mypage/faq">자주묻는질문</a></li>
+                    <li><a href="${path }/mypage/faq">FAQ</a></li>
                     <br>
                     <br>
                     <li><h5><b>내정보</b></h5></li>
-                    <li><a href="${path }/mypage/updateMember">회원정보수정</a></li>
-                    <li><a href="${path }/mypage/changePw">비밀번호변경</a></li>
-                    <li><a href="${path }/mypage/secession">회원 탈퇴</a></li>
+                    <li><a href="${path }/mypage/updateMember.do?memberId=${loginMember.memberId}">회원정보 수정</a></li>
+                    <li><a href="${path }/mypage/secession.do">회원 탈퇴</a></li>
                 </ul>
             </div>
         </div>

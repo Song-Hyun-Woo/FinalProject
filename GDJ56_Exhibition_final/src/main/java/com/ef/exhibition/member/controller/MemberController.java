@@ -129,6 +129,7 @@ public class MemberController {
 		@RequestMapping("/idCheck.do")
 		@ResponseBody
 		public Member idCheck(Member m) {
+			System.out.println("학인"+m);
 			return service.idcheck(m);
 		}
 		
@@ -172,9 +173,9 @@ public class MemberController {
 			/* 이메일 보내기 */
 	        String setFrom = "exhibition0101@gmail.com";
 	        String toMail = email;
-	        String title = "[MONOCLEE] 회원가입 인증 이메일 입니다.";
+	        String title = "[MONOCLEE] 회원 인증 이메일 입니다.";
 	        String content = 
-	                "[MONOCLEE] 회원가입 인증번호 전송 이메일입니다." +
+	                "[MONOCLEE] 회원 인증번호 전송 이메일입니다." +
 	                "<br><br>" + 
 	                "인증 번호는 " + checkNum + "입니다." + 
 	                "<br><br>" + 
@@ -239,10 +240,14 @@ public class MemberController {
 		@RequestMapping(value = "/findPwEnd.do", method = RequestMethod.POST)
 		public ModelAndView findPw(@RequestParam(value="memberId") String memberId,
 				                   @RequestParam(value="email") String email,ModelAndView mv) {
-			Map param = Map.of("id",memberId,"email",email);
-		
+			Map param = Map.of("memberId",memberId,"email",email);
+			
+			System.out.println(memberId);
+			System.out.println(email);
+			System.out.println(param);
+			
 			Member pw = service.findPw(param);
-			System.out.println(pw);
+			System.out.println("패스: "+pw);
 			
 				Random random = new Random();
 				int checkNum = random.nextInt(888888) + 111111;
@@ -255,7 +260,7 @@ public class MemberController {
 		        String toMail = email;
 		        String title = "[MONOCLEE]비밀번호 변경 인증 이메일 입니다.";
 		        String content = 
-		                "안녕하세요 [] 입니다." +
+		                "안녕하세요 [MONOCLEE] 입니다." +
 		                "<br><br>" + 
 		                "비밀번호 변경 인증 번호는 " + checkNum + "입니다." + 
 		                "<br><br>" + 

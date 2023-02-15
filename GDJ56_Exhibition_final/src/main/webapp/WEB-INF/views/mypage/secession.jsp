@@ -177,7 +177,8 @@
         background-color: #bb2d3b;
     }
     </style>
-    
+
+   
     <div class="headcontainer border-top" style="padding-top: 20px"></div>
     <section  class="zzim-form">
         <div>
@@ -188,24 +189,22 @@
                 </h4>
                 <ul>
                     <li><a href="${path }/mypage/bookingList">예매내역</a></li>
-                    <li><a href="${path }/mypage/zzim">찜한 전시회</a></li>
-                    <li><a href="${path }/mypage/myQna">나의 문의</a></li>
-                    <li><a href="${path }/mypage/faq">FAQ</a></li>
+                    <li><a href="${path }/mypage/zzim.do">찜한 전시회</a></li>
+                    <li><a href="${path }/mypage/myQna.do">나의 문의</a></li>
+                    <li><a href="${path }/mypage/faq.do">FAQ</a></li>
                     <br>
                     <br>
                     <li><h5><b>내정보</b></h5></li>
-                    <li><a href="${path }/mypage/updateMember">회원정보 수정</a></li>
-                    <li><a href="${path }/mypage/changePw">비밀번호 변경</a></li>
-                    <li><a href="${path }/mypage/secession">회원 탈퇴</a></li>
+                    <li><a href="${path }/mypage/updateMember.do?memberId=${loginMember.memberId}">회원정보 수정</a></li>
+                    <li><a href="${path }/mypage/secession.do">회원 탈퇴</a></li>
                 </ul>
             </div>
         </div>
 
-<main style="width: 70%">
-	
+<main style="width: 70%"> 	
 	<h3 class="text-center mt-5 mb-5">회원 탈퇴</h3>
 		<form action="${path}/mypage/secessionEnd.do" id="form1">
-			<div style="display: flex; justify-content: center" class="form-check d-flex justify-content-center">
+			<div style="display: flex; justify-content: center;" class="form-check d-flex justify-content-center">
 			<label id="secessionCheckLabel">
 				  <input class="form-check-input" type="checkbox" value="" id="secessionCheck">
 				    회원탈퇴하기
@@ -234,7 +233,7 @@
 			</div>
 		</form>
 	</div>
-</main>
+
 
 <script>
 	$("#secessionCheckLabel").click(e=>{
@@ -259,4 +258,5 @@ $(document).ready(function(){
 	});
 });   
 </script>
-  
+</main>
+

@@ -13,11 +13,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>::: - 회원정보 수정 :::</title>
+<title>::: MONOCLEE - 회원정보 수정 :::</title>
 </head>
 
- 	<!-- kakao 도로명주소 찾기 api -->
-	<script src = "https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
+ <!-- kakao 도로명주소 찾기 api -->
+<script src = "https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
 	
 <style>
     .proName {
@@ -45,6 +45,7 @@
         margin-right: 100px;
         margin-top: 50px;
         display: flex;
+        width: 90%;
     }
     
     .sidebar {
@@ -183,33 +184,35 @@
         background-color: #bb2d3b;
     }
     </style>
-    
+<main style="width: 70%">    
     <div class="headcontainer border-top" style="padding-top: 20px"></div>
     <section class="zzim-form">
         <div>
             <div class="sidebar">
+            <br>
                 <h4>
                     <strong>마이페이지</strong>
                 </h4>
                 <ul>
-                    <li><a href="${path }/mypage/bookingList">예매내역</a></li>
-                    <li><a href="${path }/mypage/zzim">찜한 전시회</a></li>
-                    <li><a href="${path }/mypage/myQna">나의 문의</a></li>
+                    <li><a href="${path }/mypage/bookingList.do">예매내역</a></li>
+                    <li><a href="${path }/mypage/zzimExhList.do">찜한 전시회</a></li>
+                    <li><a href="${path }/mypage/myQna.do">나의 문의</a></li>
                     <li><a href="${path }/mypage/faq">FAQ</a></li>
                     <br>
                     <br>
                     <li><h5><b>내정보</b></h5></li>
-                    <li><a href="${path }/mypage/updateMember">회원정보 수정</a></li>
-                    <li><a href="${path }/mypage/changePw">비밀번호 변경</a></li>
-                    <li><a href="${path }/mypage/secession">회원 탈퇴</a></li>
+                    <li><a href="${path }/mypage/updateMember.do?memberId=${loginMember.memberId}">회원정보 수정</a></li>
+                    <li><a href="${path }/mypage/secession.do">회원 탈퇴</a></li>
                 </ul>
             </div>
         </div>
 
-<main>	
+	
 
-<h2 class="mt-5">정보수정</h2>
-	<form action="${path }/mypage/updateMember.do" class="mt-5">
+<div>
+<h2 class="mt-5">회원정보수정</h2>
+	<form action="${path }/mypage/updateMemberEnd.do" class="mt-5">
+	<div style="justify-content: center;  width: 400px; margin:0 auto;">
 		<p class="text">아이디</p>
 	   	<input type="text" name="memberId" id="memberId"  class="form-control" value="${loginMember.memberId }"
 	   		readonly>
@@ -219,12 +222,12 @@
 	   	<input type="text" name="memberName" id="memberName" class="form-control" value="${loginMember.memberName }" required><br>
 	   	
 	   	<p class="text">생년월일</p>
-	   	<input type="text" name="birthday" id="birthday" class="form-control" placeholder="ex) 19920101" value="${loginMember.birthday }" maxlength="8" required><br>
+	   	<input type="text" name="birth" id="birth" class="form-control" placeholder="ex) 19920101" value="${loginMember.birth }" maxlength="8" required><br>
 	        
 	
 	   	<p class="text">주소</p>
 	    <input type="text" class="text" name="addr1" id="addr1" placeholder="우편번호"readonly="readonly">
-        <input type="button" onclick="execPostCode()"   class="btn btn-secondary"  value="우편번호 찾기"><br>
+        <input type="button" onclick="execPostCode()"   class="btn btn-dark"  value="우편번호 찾기"><br>
 	            <input type="text" class="form-control" name="addr2" id="addr2"  placeholder="도로명주소"readonly="readonly">
 	            <input type="text" name="address" id="addr3" class="form-control" placeholder="상세주소" required><br>
 	            <span id="guide" style="color:#999;display:none"></span>
@@ -234,41 +237,119 @@
 			<p class="text">이메일</p> 
 			<input type="text" id="email" name="email" class="form-control" placeholder="Email" value="${loginMember.email }" required/>  
 			 &nbsp; 
-			<button type="button" id="emailChk" class="btn btn-outline-dark">인증</button><br> 
+			<button type="button" id="emailChk" class="btn btn-dark">인증</button><br> 
 			<p id="emch" class="check"> </p><br/>
 			<p class="text">인증번호</p>  
 			<input type="text" id="email2" name="email2" class="form-control" placeholder="인증번호" required>
 			 &nbsp;   
-			<button type="button" id="enterBtn2" class="btn btn-outline-dark">확인</button> 	
+			<button type="button" id="enterBtn2" class="btn btn-dark">확인</button> 	
 	        </div>
 	        <p id="emch2" class="check"> </p>	 
 	        <br/>
 	        
-	        <div id="contents"> 
-			<p class="text">휴대폰번호</p> 
-			<input type="text" id="to" name="phone" class="form-control" placeholder="Phone" value="${loginMember.phone }" required/>  
-			 &nbsp; 
-			<button type="button" id="send" class="btn btn-outline-dark">인증</button><br> 
-			<p id="phonech" class="check"> </p><br/>
-			<p class="text">인증번호</p>  
-			<input type="text" id="userNum" class="form-control" placeholder="인증번호" required>
-			 &nbsp;   
-			<button type="button" id="enterBtn" class="btn btn-outline-dark">확인</button> 	
-	        </div>	 
-	        <p id="phonech2" class="check"> </p><br/>
-	        <hr class="mb-4">
+	        <p class="text">전화번호</p>
+	   		<input type="text" name="phone" id="phone" class="form-control" value="${loginMember.phone }" required><br>
 	        
 	        <br/>
-	          <button type="submit" id="btn-Yes" class="btn btn-lg btn-dark btn-block">정보 수정</button>
-	          <button type="submit" id="btn-No" class="btn btn-lg btn-dark btn-block">수정 취소</button>
+	          <button type="submit" id="btn-Yes" class="btn btn-md btn-dark btn-block">정보 수정</button>
+	          <button class="btn btn-md btn-dark btn-block" onclick="location.assign('${path}/mypage/mypageMain.do')">수정 취소</button>
 	        <br>
 	        <br>
-	
+	</div>
 	</form>
+</div>
 
 <script>
+
+//이메일 체크
+ $("#email").focusout((e)=>{
+	  if($("#email").val()==""){
+		  $('#emch').text('*필수 정보입니다.');
+		  $('#emch').css('color','red');
+		  return false;
+	  }else{
+		 
+		  $('#emch').hide();
+			return true;
+	  } 
+});
+
+//이메일 인증 확인
+$("#emailChk").click((e)=>{
+	  const email = $('#email').val();
+	  $.ajax({
+		  url:'${path}/member/checkMail.do',
+		  type: 'POST',
+		  data: {
+			  "email" : email
+		  },
+		  success: function(data){
+			  const checkNum = data;
+			  alert('인증번호가 발송 되었습니다. \n이메일에서 인증번호 확인을 해주십시오.');
+			  
+			  $('#enterBtn2').click((e)=>{
+				  const userNum = $('#email2').val();
+				  
+				  if(checkNum == userNum){
+					  alert('인증번호가 일치합니다.');
+				  }else{
+					  alert('인증번호가 일치하지 않습니다. 확인해주시기 바랍니다.');
+				  }
+			  });
+		  }
+	  });
+	   
+});
+
+
+
+
+//주소 체크 (카카오 도로명 주소 API)
+function execPostCode() {
+     new daum.Postcode({
+         oncomplete: function(data) {
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+            // 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            let fullRoadAddr = data.roadAddress; // 도로명 주소 변수
+            let extraRoadAddr = ''; // 도로명 조합형 주소 변수
+
+            // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+            // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+            if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+            	extraRoadAddr += data.bname;
+            }
+            // 건물명이 있고, 공동주택일 경우 추가한다.
+            if(data.buildingName !== '' && data.apartment === 'Y'){
+               extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+            }
+            // 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+            if(extraRoadAddr !== ''){
+                extraRoadAddr = ' (' + extraRoadAddr + ')';
+            }
+            // 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
+            if(fullRoadAddr !== ''){
+                fullRoadAddr += extraRoadAddr;
+            }
+
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            console.log(data.zonecode);
+            console.log(fullRoadAddr);
+            
+            
+            $("[name=addr1]").val(data.zonecode);
+            $("[name=addr2]").val(fullRoadAddr);
+            
+            document.getElementById('addr1').value = data.zonecode; //5자리 새우편번호 사용
+            document.getElementById('addr2').value = fullRoadAddr;
+      
+        }
+     }).open();
+ };   
+	
 	
 </script>
 
-
+</main>
 <jsp:include page="/WEB-INF/views/common/footer.jsp"/>

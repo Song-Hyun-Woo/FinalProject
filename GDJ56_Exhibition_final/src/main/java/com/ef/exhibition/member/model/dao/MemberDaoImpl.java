@@ -23,11 +23,11 @@ public class MemberDaoImpl implements MemberDao {
 	}
 	
 	// 아이디 중복 확인
-	 @Override
-	    public Member idcheck(SqlSession session, Member m) {
-	    	
-	    	return session.selectOne("member.idcheck",m);
-	    }
+	@Override
+    public Member idcheck(SqlSession session, Member m) {
+    	// TODO Auto-generated method stub
+    	return session.selectOne("member.idcheck",m);
+    }
 	
 //	// 아이디 중복 확인
 //	

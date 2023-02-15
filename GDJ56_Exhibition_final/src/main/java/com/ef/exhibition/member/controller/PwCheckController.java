@@ -19,7 +19,7 @@ public class PwCheckController {
 		@Autowired
 		private MemberService service;
 		
-		//인증번호 넘기기 
+		//인증번호 넘겨주기
 		@RequestMapping(value = "/confirmPw.do", method = RequestMethod.POST)
 		public ModelAndView confirmPw(String emailConfirm,
 				                @RequestParam(value="checkNum")String checkNum,

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<c:set var="path" value="${pageContext.request.contextPath }"/>
 <jsp:include page="/WEB-INF/views/common/header.jsp">
 	<jsp:param name="title" value="" />
 </jsp:include>
@@ -172,6 +173,7 @@
     }
     </style>
     
+    <main style="width: 70%">    
     <div class="headcontainer border-top" style="padding-top: 20px"></div>
     <section class="zzim-form">
         <div>
@@ -181,16 +183,15 @@
                     <strong>마이페이지</strong>
                 </h4>
                 <ul>
-                    <li><a href="${path }/mypage/bookingList">예매내역</a></li>
-                    <li><a href="${path }/mypage/zzim">찜한 전시회</a></li>
-                    <li><a href="${path }/mypage/myQna">나의 문의</a></li>
+                    <li><a href="${path }/mypage/bookingList.do">예매내역</a></li>
+                    <li><a href="${path }/mypage/zzim.do">찜한 전시회</a></li>
+                    <li><a href="${path }/mypage/myQna.do">나의 문의</a></li>
                     <li><a href="${path }/mypage/faq">FAQ</a></li>
                     <br>
                     <br>
                     <li><h5><b>내정보</b></h5></li>
-                    <li><a href="${path }/mypage/updateMember">회원정보 수정</a></li>
-                    <li><a href="${path }/mypage/changePw">비밀번호 변경</a></li>
-                    <li><a href="${path }/mypage/secession">회원 탈퇴</a></li>
+                    <li><a href="${path }/mypage/updateMember.do?memberId=${loginMember.memberId}">회원정보 수정</a></li>
+                    <li><a href="${path }/mypage/secession.do">회원 탈퇴</a></li>
                 </ul>
             </div>
         </div>
@@ -205,7 +206,7 @@
         				<strong>Q1. 예매하려면 회원가입이 필요한가요?</strong>
       				</button>
     			</h2>
-	    		<div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+	    		<div id="collapseOne" class="accordion-collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
 	      			<div class="accordion-body">
 	       				네, 사이트의 모든 기능은 회원가입 후 이용할 수 있습니다.
 	     			</div>
@@ -217,7 +218,7 @@
         				<strong>Q2. 한 아이디로 여러 전시전을 예매를 예약할 수 있나요? </strong>
       				</button>
     			</h2>
-	    		<div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+	    		<div id="collapseTwo" class="accordion-collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
 	      			<div class="accordion-body">
 	       				네, 여러 전시전 예매 가능합니다.
 	     			</div>
@@ -229,7 +230,7 @@
         				<strong>Q3. 1:1 문의는 답변은 어디서 확인할 수 있나요?</strong>
       				</button>
     			</h2>
-	    		<div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3" data-bs-parent="#accordionExample">
+	    		<div id="collapse3" class="accordion-collapse show" aria-labelledby="heading3" data-bs-parent="#accordionExample">
 	      			<div class="accordion-body">
 	       				마이페이지 > 나의문의에서 확인하실 수 있습니다.
 	     			</div>
@@ -241,33 +242,33 @@
         				<strong>Q4.예약변경은 가능한지 궁금해요?</strong>
       				</button>
     			</h2>
-	    		<div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4" data-bs-parent="#accordionExample">
+	    		<div id="collapse4" class="accordion-collapse show" aria-labelledby="heading4" data-bs-parent="#accordionExample">
 	      			<div class="accordion-body">
 	       				예약 변경 등을 희망하실 경우, 예약을 취소하신 후 다시 예약해주셔야 합니다.
 	     			</div>
 				</div>
 			</div>
 			<div class="accordion-item">
-				<h2 class="accordion-header" id="heading5">
-					<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="true" aria-controls="collapse5">
-        				<strong>Q5. 전시 작가 또는 전시관으로 등록하고 싶은데 어떻게 하나요?</strong>
+			<h2 class="accordion-header" id="heading6">
+				<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse6" aria-expanded="true" aria-controls="collapse6">        				
+					<strong>Q5. 전시 작가 또는 전시관으로 등록하고 싶은데 어떻게 하나요?</strong>
       				</button>
     			</h2>
-	    		<div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5" data-bs-parent="#accordionExample">
-	      			<div class="accordion-body">
+	    		<div id="collapse6" class="accordion-collapse show" aria-labelledby="heading6" data-bs-parent="#accordionExample">
+				  <div class="accordion-body">
 	       				exhibition0101@gmail.com로 첨부 서류를 보내주시면 저희가 검토 이후에 회원의 등급을 조정해드리겠습니다. 
 	     			</div>
 				</div>
 			</div>
 			
 		</div>
-</main>
+
 
 <script>
 /* 클릭이벤트  */
 
 
 </script>
-
+</main>
 
   

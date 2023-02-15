@@ -10,6 +10,9 @@ public interface MypageService {
 	
 	// 회원 탈퇴 처리
 	void secessionEnd(Map param);
+
+	// 회원 정보 수정
+	Member selectMember(String memberId);
 	
 	// 찜 
 

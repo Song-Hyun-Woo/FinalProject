@@ -22,7 +22,7 @@
     <!-- Style -->
     <link rel="stylesheet" href=${path}/resources/"css/style.css">
 
-<title>::: - 로그인 :::</title>
+<title>::: MONOCLEE - 로그인 :::</title>
 
 </head>
 <body>

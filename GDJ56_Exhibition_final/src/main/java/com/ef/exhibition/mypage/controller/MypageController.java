@@ -42,13 +42,18 @@ public class MypageController {
 	
 			// 개인정보 수정 화면
 			@RequestMapping("/updateMember.do")
-			public String mypageInfoUpdate() {
-				return "member/updateMember";
+			public ModelAndView updateMember(@RequestParam String memberId, ModelAndView mv) {
+				
+				mv.addObject("updateMember", service.selectMember(memberId));
+				
+				mv.setViewName("mypage/updateMember");
+				
+				return mv;
 			}
 			
 			// 개인정보 정보 수정
 			@RequestMapping("/updateMemberEnd.do")
-			public ModelAndView updateMember(@RequestParam String memberId, ModelAndView mv) {
+			public ModelAndView updateMemberEnd(@RequestParam String memberId, ModelAndView mv) {
 				
 				mv.addObject("msg", "정보 수정 완료");
 				mv.addObject("loc", "/");
@@ -130,6 +135,7 @@ public class MypageController {
 			
 			
 			// 나의 문의 내역
+			
 			// qna 리스트 출력
 
 			

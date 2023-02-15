@@ -33,7 +33,7 @@
               
               <div class="portfolio-info">
                 <div class="portfolio-links">
-                <a href="${path }/mypage/updateMember.do">회원정보수정</a>  
+                <a href="${path}/mypage/updateMember.do?memberId=${loginMember.memberId}">회원정보수정</a>  
                 </div>
               </div>
             </div>
