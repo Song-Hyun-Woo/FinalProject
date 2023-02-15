@@ -126,9 +126,11 @@ public class ExhibitionController {
 	
 	//전시회 상세페이지 연결
 	@RequestMapping("/exhView.do")
-	public ModelAndView exhView(@RequestParam(value="no", required = false)String no, ModelAndView mv) {
+	public ModelAndView exhView(@RequestParam(value="no", required = false) String no, ModelAndView mv) {
 		log.debug(no);
 		mv.addObject("no",no);
+		List<Map<String,Review>> r=service.selectReview(no);
+		mv.addObject("review",r);
 		mv.setViewName("exh/exhibitionView");
 		return mv;
 	}
