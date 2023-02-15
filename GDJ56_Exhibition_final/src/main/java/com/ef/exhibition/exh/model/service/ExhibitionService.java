@@ -1,6 +1,7 @@
 package com.ef.exhibition.exh.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.ef.exhibition.exh.model.vo.Jjim;
 import com.ef.exhibition.exh.model.vo.Review;
@@ -15,5 +16,5 @@ public interface ExhibitionService {
 	List<Jjim> selectMyjjim(int memberNo);
 	
 	int insertReview(Review r);
-	List<Review> selectReview(int memberNo);
+	List<Map<String,Review>> selectReview(String exNo);
 }

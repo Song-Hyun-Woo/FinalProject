@@ -47,7 +47,7 @@ div.newscontainer{
             <a href="${path }/newsUpdateWrite.do?newsNo=${param.newsNo}" class="btn btn-sm btn-dark btn-block" role="button">수정</a>
             <a href="${path }/newsDelete.do?newsNo=${param.newsNo}" class="btn btn-sm btn-dark btn-block" onclick="if(!confirm('삭제 하시겠습니까?'))" role="button">삭제</a>
         </div>
-        <div class="card-body">
+        <div class="card-body" style="text-align:center;">
             <a href='${path }/newslist.do' class="btn btn-sm btn-dark btn-block" role="button">목록으로</a>
         </div>
     </div>

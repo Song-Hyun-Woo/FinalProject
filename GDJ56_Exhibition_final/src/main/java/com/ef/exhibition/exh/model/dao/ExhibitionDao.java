@@ -1,6 +1,7 @@
 package com.ef.exhibition.exh.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 
@@ -17,5 +18,5 @@ public interface ExhibitionDao {
 	List<Jjim> selectMyjjim(SqlSessionTemplate session, int memberNo);
 	
 	int insertReview(SqlSessionTemplate session, Review r);
-	List<Review> selectReview(SqlSessionTemplate session, int memberNo);
+	List<Map<String,Review>> selectReview(SqlSessionTemplate session, String exNo);
 }

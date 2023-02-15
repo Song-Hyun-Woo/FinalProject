@@ -6,8 +6,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
-import java.sql.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ef.exhibition.exh.model.service.ExhibitionService;
@@ -28,6 +30,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.extern.slf4j.Slf4j;
+
 
 @Controller
 @Slf4j
@@ -43,26 +46,37 @@ public class ExhibitionController {
 	
 	//댓글 insert
 	@RequestMapping("/insertReview.do")
-	public ModelAndView insertReview(ModelAndView mv,int reviewNo, String exNo, int memberNo, String reviewContent, Date reviewDate) {
-		
+	@ResponseBody
+//	public Boolean insertReview(String no, String writer, String reviewContent) {
+	public ModelAndView insertReview(ModelAndView mv, String no, String writer, String reviewContent) {
 		Review r=Review.builder()
-				.review_no(reviewNo)
-				.ex_no(exNo)
-				.member_no(memberNo)
+				.ex_no(no)
+				.writer(writer)
 				.review_content(reviewContent)
-				.review_date(reviewDate)
 				.build();
-		
-//		log.debug("{}",r);
-		mv.addObject("review",service.insertReview(r));
+		log.debug("{}",no);
+		int result=service.insertReview(r);
+		mv.addObject("msg",result>0? "댓글등록성공":"댓글등록실패");
+		mv.addObject("loc","/exhView.do?no="+no);
+		mv.setViewName("common/msg");
 		
 		return mv;
+		
+//		return result>0?true:false;
 	}
 	
 	
 	//댓글 리스트
 //	@RequestMapping("/selectReview.do")
-//	public String selectReview()
+//	public Map<String, Object> selectReview(String no) {
+//		List<Review> review=service.selectReview(no);
+//		ModelAndView mv=new ModelAndView();
+//		mv.setViewName("exh/exhibitionView");
+//		Map<String, Object> map=new HashMap();
+//		map.put("review", review);
+//		
+//		return map;
+//	}
 	
 	
 	//좋아요
@@ -78,7 +92,7 @@ public class ExhibitionController {
 		int result=service.insertJjim(j);
 		
 		//ajax를 사용해서 표시만 해주는게 찜이니까 원래는 이렇게 해야함
-		//하지만 지금은 어려우니까 service를 갔다와서 페이지를 보여주는걸로 함
+		//하지만 지금은 어려우니까 service를 갔다와서 페이지를 리로드 해서 보여주는걸로 함
 		
 		mv.addObject("msg",result>0? "좋아요♥":"안좋아요ㅡㅡ");
 		mv.addObject("loc","/exhList");
@@ -113,11 +127,21 @@ public class ExhibitionController {
 	//전시회 상세페이지 연결
 	@RequestMapping("/exhView.do")
 	public ModelAndView exhView(@RequestParam(value="no", required = false)String no, ModelAndView mv) {
-//		log.debug(no);
+		log.debug(no);
 		mv.addObject("no",no);
 		mv.setViewName("exh/exhibitionView");
 		return mv;
 	}
+	
+//	@RequestMapping("/exhView.do")
+//	public String exhView(@RequestParam(value="no", required = false)String no, Model m)throws JsonProcessingException {
+//		ObjectMapper mapper=new ObjectMapper();
+//		List<Map<String,Review>> r= service.selectReview(no);
+//		m.addAttribute("review",mapper.writeValueAsString(r));
+//		
+//		m.addAttribute("no",no);
+//		return "exh/exhibitionView";
+//	}
 	
 	//전시회 상세페이지에서 API 호출
 	@RequestMapping(value="/exhibitionView.do", method= {RequestMethod.GET, RequestMethod.POST})
