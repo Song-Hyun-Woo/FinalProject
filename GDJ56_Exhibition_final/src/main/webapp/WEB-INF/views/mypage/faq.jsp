@@ -196,7 +196,7 @@
             </div>
         </div>
 
-<main style="width: 70%">
+<main style="width: 70%;margin:auto;">
 		
 		<div class="accordion mt-5" id="accordionExample" style="width: 60%; margin-left: 20%";margin-right: 20%">
 		<h2>자주 묻는 질문</h2>

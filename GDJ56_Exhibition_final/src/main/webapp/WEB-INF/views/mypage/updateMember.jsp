@@ -209,7 +209,7 @@
 
 	
 
-<div>
+<div style="margin:auto;">
 <h2 class="mt-5">회원정보수정</h2>
 	<form action="${path }/mypage/updateMemberEnd.do" class="mt-5">
 	<div style="justify-content: center;  width: 400px; margin:0 auto;">

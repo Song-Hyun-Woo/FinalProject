@@ -143,7 +143,7 @@ public class MypageController {
 			// FAQ
 			@RequestMapping("/faq.do")
 			public String faq() {
-				return "/mypage/faq";
+				return "mypage/faq";
 			}
 			
 		

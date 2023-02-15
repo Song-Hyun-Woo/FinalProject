@@ -211,8 +211,8 @@
 				  </label>
 			</div>
 			<div id="secessionReasonDiv" class="visually-hidden">
-			
-				<div class="mb-3 row">
+			<br><br>
+				<div class="mb-3 row" style="margin:auto;">
 					<input type="text" value="${loginMember.memberId}" name="memberId" hidden>
 				    <label for="inputPassword" class="col-sm-2 col-form-label">탈퇴 사유</label>
 				    
@@ -226,7 +226,7 @@
 							<option value="관리 부족으로 인한 실망">관리 부족으로 인한 실망</option>
 						</select>
   				</div>
-  				
+  				<br><br>
 				<div class="d-grid gap-2 col-6 mx-auto">
 		  			<input type="submit" class="btn btn-dark ms-2" id="secessionBye" value="탈퇴">
 				</div>
