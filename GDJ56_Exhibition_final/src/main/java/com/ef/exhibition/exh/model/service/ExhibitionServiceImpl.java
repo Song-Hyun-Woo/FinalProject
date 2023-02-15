@@ -1,6 +1,7 @@
 package com.ef.exhibition.exh.model.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.transaction.Transactional;
 
@@ -42,7 +43,7 @@ public class ExhibitionServiceImpl implements ExhibitionService{
 	}
 
 	@Override
-	public List<Review> selectReview(String exNo) {
+	public List<Map<String,Review>> selectReview(String exNo) {
 		return dao.selectReview(session,exNo);
 	}
 }

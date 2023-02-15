@@ -1,6 +1,7 @@
 package com.ef.exhibition.exh.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.stereotype.Repository;
@@ -29,7 +30,7 @@ public class ExhibitionDaoImpl implements ExhibitionDao{
 		return session.insert("exh.insertReview",r);
 	}
 	@Override
-	public List<Review> selectReview(SqlSessionTemplate session, String exNo) {
+	public List<Map<String,Review>> selectReview(SqlSessionTemplate session, String exNo) {
 		return session.selectList("exh.selectReview", exNo);
 	}
 	

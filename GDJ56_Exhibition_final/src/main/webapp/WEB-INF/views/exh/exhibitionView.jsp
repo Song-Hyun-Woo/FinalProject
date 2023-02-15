@@ -94,11 +94,11 @@ section.portfolio-details{
 	                        <td>
 	                        <!--댓글에는 작성자, 댓글을 달 게시물, 댓글 내용,  -->
 	                            <textarea style="width: 1100px" rows="3" cols="30" id="reviewContent" name="reviewContent" placeholder="리뷰를 입력하세요"></textarea>
-	                            <input type="hidden" name="exNo" id="exNo" value="${param.no }"><!-- 댓글을 달 게시글 번호 ['DP_SEQ'] -->
+	                            <input type="hidden" name="no" id="no" value="${param.no }"><!-- 댓글을 달 게시글 번호 ['DP_SEQ'] -->
 	                            <input type="hidden" name="writer" id="writer" value="${not empty loginMember? loginMember.memberId:'' }"><!--댓글 작성자 -->
 	                            <br><br>
 	                            <div>
-	                                <input type="submit" class="btn pull-right btn-success" id="clickc" style="margin-left: 1045px;" value="등록">
+	                                <input type="submit" onclick="fn_submit();" class="btn pull-right btn-success" id="clickc" style="margin-left: 1045px;" value="등록">
 	                            </div>
 	                        </td>
 	                    </tr>
@@ -110,7 +110,7 @@ section.portfolio-details{
 	
 	<c:if test="${not empty review }">
 		<div class="comment_Box" style="border:1px solid gray;"></div>
-		<%-- <c:forEach var="r" items="${review }">
+		<c:forEach var="r" items="${review }">
 			<div class="rcontainer">
 			    <form id="commentListForm" name="commentListForm" method="post">
 			        <div id="commentList">
@@ -126,7 +126,7 @@ section.portfolio-details{
 			        </div>
 			    </form>
 			</div>
-		</c:forEach> --%>
+		</c:forEach>
 	</c:if>
 </c:if>
 <br>
@@ -143,24 +143,24 @@ section.portfolio-details{
 </body>
 <script>
 //관람평 구현
-
+/* 
 $('#clickc').click(function(){
-	const pno=${param.no};
+	const no=${param.no};
 	const writer=$('#writer').val();
-	const content=$('#reviewContent').val();
+	const reviewContent=$('#reviewContent').val();
 	
-	console.log(pno);
+	console.log(no);
 	console.log(writer);
-	console.log(content);
+	console.log(reviewContent);
 	
 	$.ajax({
 		type:'post',
-		url:'${path}/insertReview.do',
+		url:"${path}/insertReview.do?no="+"${no}",
 		data:JSON.stringify(
 			{
-				"pno":pno,
+				"no":no,
 				"writer":writer,
-				"content":content
+				"reviewContent":reviewContent
 			}	
 		),
 		contentType:'application/json',
@@ -178,33 +178,31 @@ $('#clickc').click(function(){
 getList();
 
 function getList(){
-	const pno=${param.no};
+	const no=${param.no};
 	const writer=$('#writer').val();
-	const content=$('#reviewContent').val();
+	const reviewContent=$('#reviewContent').val();
 	
 	$.getJSON(
-		'${path}/insertReview.do'+pno,
+		"${path}/insertReview.do?no="+"${no}",
 		function(data){
 			if(data.total>0){
 				var list =data.list;
 				var comment="<div>";
 				$('#count').html(data.total);
 				for(i=0;i<list.length;i++){
-					var content=list[i].content;
+					var reviewContent=list[i].reviewContent;
 					var writer=list[i].writer;
 					comment+="<div><span id='writer'><storng>"+writer+"</strong></span><br>";
-					comment+="<span id='content'>"+content+"</span><br>";
+					comment+="<span id='content'>"+reviewContent+"</span><br>";
 					
 				}
 				$(".comment_Box").html(comment);
 			}
 		}
 	)
-}
-
-
-
-
+} */
+ 
+ 
 
 
 	

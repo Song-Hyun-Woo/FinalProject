@@ -46,34 +46,37 @@ public class ExhibitionController {
 	
 	//댓글 insert
 	@RequestMapping("/insertReview.do")
-//	public ModelAndView insertReview(ModelAndView mv, String exNo, String writer, String reviewContent) {
-	public String insertReview( String exNo, String writer, String reviewContent) {
+	@ResponseBody
+//	public Boolean insertReview(String no, String writer, String reviewContent) {
+	public ModelAndView insertReview(ModelAndView mv, String no, String writer, String reviewContent) {
 		Review r=Review.builder()
-				.ex_no(exNo)
+				.ex_no(no)
 				.writer(writer)
 				.review_content(reviewContent)
 				.build();
-		
-		log.debug("{}",r);
+		log.debug("{}",no);
 		int result=service.insertReview(r);
+		mv.addObject("msg",result>0? "댓글등록성공":"댓글등록실패");
+		mv.addObject("loc","/exhView.do?no="+no);
+		mv.setViewName("common/msg");
 		
+		return mv;
 		
-		
-		return "Success";
+//		return result>0?true:false;
 	}
 	
 	
 	//댓글 리스트
-	@RequestMapping("/selectReview.do")
-	public Map<String, Object> selectReview(String exNo) {
-		List<Review> review=service.selectReview(exNo);
-		ModelAndView mv=new ModelAndView();
-		mv.setViewName("exh/exhibitionView");
-		Map<String, Object> map=new HashMap();
-		map.put("review", review);
-		
-		return map;
-	}
+//	@RequestMapping("/selectReview.do")
+//	public Map<String, Object> selectReview(String no) {
+//		List<Review> review=service.selectReview(no);
+//		ModelAndView mv=new ModelAndView();
+//		mv.setViewName("exh/exhibitionView");
+//		Map<String, Object> map=new HashMap();
+//		map.put("review", review);
+//		
+//		return map;
+//	}
 	
 	
 	//좋아요
@@ -89,7 +92,7 @@ public class ExhibitionController {
 		int result=service.insertJjim(j);
 		
 		//ajax를 사용해서 표시만 해주는게 찜이니까 원래는 이렇게 해야함
-		//하지만 지금은 어려우니까 service를 갔다와서 페이지를 보여주는걸로 함
+		//하지만 지금은 어려우니까 service를 갔다와서 페이지를 리로드 해서 보여주는걸로 함
 		
 		mv.addObject("msg",result>0? "좋아요♥":"안좋아요ㅡㅡ");
 		mv.addObject("loc","/exhList");
@@ -124,11 +127,21 @@ public class ExhibitionController {
 	//전시회 상세페이지 연결
 	@RequestMapping("/exhView.do")
 	public ModelAndView exhView(@RequestParam(value="no", required = false)String no, ModelAndView mv) {
-//		log.debug(no);
+		log.debug(no);
 		mv.addObject("no",no);
 		mv.setViewName("exh/exhibitionView");
 		return mv;
 	}
+	
+//	@RequestMapping("/exhView.do")
+//	public String exhView(@RequestParam(value="no", required = false)String no, Model m)throws JsonProcessingException {
+//		ObjectMapper mapper=new ObjectMapper();
+//		List<Map<String,Review>> r= service.selectReview(no);
+//		m.addAttribute("review",mapper.writeValueAsString(r));
+//		
+//		m.addAttribute("no",no);
+//		return "exh/exhibitionView";
+//	}
 	
 	//전시회 상세페이지에서 API 호출
 	@RequestMapping(value="/exhibitionView.do", method= {RequestMethod.GET, RequestMethod.POST})
